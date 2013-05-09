@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="PinPeng"
+  id="myeclipse.1368086466877"
+  context-root="/PinPeng"
+  j2ee-spec="6.0"
+  archive="PinPeng.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
