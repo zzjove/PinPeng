@@ -25,8 +25,8 @@ public class Customer implements java.io.Serializable {
 	private Set friendshipsForCustomeridB = new HashSet(0);
 	private Set evaluationsForBeRecordedId = new HashSet(0);
 	private Set preferences = new HashSet(0);
+	private Set myrequests = new HashSet(0);
 	private Set evaluationsForRecordId = new HashSet(0);
-	private Set requests = new HashSet(0);
 	private Set customerOrders = new HashSet(0);
 	private Set messages = new HashSet(0);
 
@@ -47,9 +47,8 @@ public class Customer implements java.io.Serializable {
 			Integer domitory, String telNumber, String qqNumber,
 			Integer generosity, String name, String password, Boolean sex,
 			Set friendshipsForCustomeridA, Set friendshipsForCustomeridB,
-			Set evaluationsForBeRecordedId, Set preferences,
-			Set evaluationsForRecordId, Set requests, Set customerOrders,
-			Set messages) {
+			Set evaluationsForBeRecordedId, Set preferences, Set myrequests,
+			Set evaluationsForRecordId, Set customerOrders, Set messages) {
 		this.customerid = customerid;
 		this.studentid = studentid;
 		this.credit = credit;
@@ -64,8 +63,8 @@ public class Customer implements java.io.Serializable {
 		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
 		this.evaluationsForBeRecordedId = evaluationsForBeRecordedId;
 		this.preferences = preferences;
+		this.myrequests = myrequests;
 		this.evaluationsForRecordId = evaluationsForRecordId;
-		this.requests = requests;
 		this.customerOrders = customerOrders;
 		this.messages = messages;
 	}
@@ -184,20 +183,20 @@ public class Customer implements java.io.Serializable {
 		this.preferences = preferences;
 	}
 
+	public Set getMyrequests() {
+		return this.myrequests;
+	}
+
+	public void setMyrequests(Set myrequests) {
+		this.myrequests = myrequests;
+	}
+
 	public Set getEvaluationsForRecordId() {
 		return this.evaluationsForRecordId;
 	}
 
 	public void setEvaluationsForRecordId(Set evaluationsForRecordId) {
 		this.evaluationsForRecordId = evaluationsForRecordId;
-	}
-
-	public Set getRequests() {
-		return this.requests;
-	}
-
-	public void setRequests(Set requests) {
-		this.requests = requests;
 	}
 
 	public Set getCustomerOrders() {

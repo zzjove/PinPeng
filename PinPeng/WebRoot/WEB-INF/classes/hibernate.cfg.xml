@@ -34,6 +34,7 @@
 		<mapping resource="domain/Admin.hbm.xml" />
 		<mapping resource="domain/Message.hbm.xml" />
 		<mapping resource="domain/Friendship.hbm.xml" />
+		<mapping resource="domain/Myrequest.hbm.xml" />
 
 	</session-factory>
 

@@ -5,16 +5,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Request entity. @author MyEclipse Persistence Tools
+ * Myrequest entity. @author MyEclipse Persistence Tools
  */
 
-public class Request implements java.io.Serializable {
+public class Myrequest implements java.io.Serializable {
 
 	// Fields
 
 	private Integer requestid;
 	private Customer customer;
-	private Timestamp requestTime;
+	private Timestamp myrequestTime;
 	private String content;
 	private Double price;
 	private Set restrictions = new HashSet(0);
@@ -25,22 +25,22 @@ public class Request implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public Request() {
+	public Myrequest() {
 	}
 
 	/** minimal constructor */
-	public Request(Customer customer, Timestamp requestTime, Double price) {
+	public Myrequest(Customer customer, Timestamp myrequestTime, Double price) {
 		this.customer = customer;
-		this.requestTime = requestTime;
+		this.myrequestTime = myrequestTime;
 		this.price = price;
 	}
 
 	/** full constructor */
-	public Request(Customer customer, Timestamp requestTime, String content,
-			Double price, Set restrictions, Set shoppingTypes, Set preferences,
-			Set orderRequests) {
+	public Myrequest(Customer customer, Timestamp myrequestTime,
+			String content, Double price, Set restrictions, Set shoppingTypes,
+			Set preferences, Set orderRequests) {
 		this.customer = customer;
-		this.requestTime = requestTime;
+		this.myrequestTime = myrequestTime;
 		this.content = content;
 		this.price = price;
 		this.restrictions = restrictions;
@@ -67,12 +67,12 @@ public class Request implements java.io.Serializable {
 		this.customer = customer;
 	}
 
-	public Timestamp getRequestTime() {
-		return this.requestTime;
+	public Timestamp getMyrequestTime() {
+		return this.myrequestTime;
 	}
 
-	public void setRequestTime(Timestamp requestTime) {
-		this.requestTime = requestTime;
+	public void setMyrequestTime(Timestamp myrequestTime) {
+		this.myrequestTime = myrequestTime;
 	}
 
 	public String getContent() {

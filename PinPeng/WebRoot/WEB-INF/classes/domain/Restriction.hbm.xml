@@ -10,7 +10,7 @@
             <column name="restrictionid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="request" class="domain.Request" fetch="select">
+        <many-to-one name="myrequest" class="domain.Myrequest" fetch="select">
             <column name="requestid" not-null="true" />
         </many-to-one>
         <property name="type" type="java.lang.Integer">

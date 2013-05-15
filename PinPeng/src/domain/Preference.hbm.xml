@@ -10,7 +10,7 @@
             <key-many-to-one name="customer" class="domain.Customer">
                 <column name="customerid" />
             </key-many-to-one>
-            <key-many-to-one name="request" class="domain.Request">
+            <key-many-to-one name="myrequest" class="domain.Myrequest">
                 <column name="requestrid" />
             </key-many-to-one>
         </composite-id>

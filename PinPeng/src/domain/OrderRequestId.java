@@ -9,7 +9,7 @@ public class OrderRequestId implements java.io.Serializable {
 	// Fields
 
 	private Order order;
-	private Request request;
+	private Myrequest myrequest;
 
 	// Constructors
 
@@ -18,9 +18,9 @@ public class OrderRequestId implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public OrderRequestId(Order order, Request request) {
+	public OrderRequestId(Order order, Myrequest myrequest) {
 		this.order = order;
-		this.request = request;
+		this.myrequest = myrequest;
 	}
 
 	// Property accessors
@@ -33,12 +33,12 @@ public class OrderRequestId implements java.io.Serializable {
 		this.order = order;
 	}
 
-	public Request getRequest() {
-		return this.request;
+	public Myrequest getMyrequest() {
+		return this.myrequest;
 	}
 
-	public void setRequest(Request request) {
-		this.request = request;
+	public void setMyrequest(Myrequest myrequest) {
+		this.myrequest = myrequest;
 	}
 
 	public boolean equals(Object other) {
@@ -53,9 +53,10 @@ public class OrderRequestId implements java.io.Serializable {
 		return ((this.getOrder() == castOther.getOrder()) || (this.getOrder() != null
 				&& castOther.getOrder() != null && this.getOrder().equals(
 				castOther.getOrder())))
-				&& ((this.getRequest() == castOther.getRequest()) || (this
-						.getRequest() != null && castOther.getRequest() != null && this
-						.getRequest().equals(castOther.getRequest())));
+				&& ((this.getMyrequest() == castOther.getMyrequest()) || (this
+						.getMyrequest() != null
+						&& castOther.getMyrequest() != null && this
+						.getMyrequest().equals(castOther.getMyrequest())));
 	}
 
 	public int hashCode() {
@@ -64,7 +65,7 @@ public class OrderRequestId implements java.io.Serializable {
 		result = 37 * result
 				+ (getOrder() == null ? 0 : this.getOrder().hashCode());
 		result = 37 * result
-				+ (getRequest() == null ? 0 : this.getRequest().hashCode());
+				+ (getMyrequest() == null ? 0 : this.getMyrequest().hashCode());
 		return result;
 	}
 

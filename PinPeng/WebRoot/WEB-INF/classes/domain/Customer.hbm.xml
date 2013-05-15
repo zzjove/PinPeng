@@ -61,17 +61,17 @@
             </key>
             <one-to-many class="domain.Preference" />
         </set>
+        <set name="myrequests" inverse="true">
+            <key>
+                <column name="customerid" not-null="true" />
+            </key>
+            <one-to-many class="domain.Myrequest" />
+        </set>
         <set name="evaluationsForRecordId" inverse="true">
             <key>
                 <column name="record_id" not-null="true" />
             </key>
             <one-to-many class="domain.Evaluation" />
-        </set>
-        <set name="requests" inverse="true">
-            <key>
-                <column name="customerid" not-null="true" />
-            </key>
-            <one-to-many class="domain.Request" />
         </set>
         <set name="customerOrders" inverse="true">
             <key>

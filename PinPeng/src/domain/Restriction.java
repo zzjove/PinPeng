@@ -9,7 +9,7 @@ public class Restriction implements java.io.Serializable {
 	// Fields
 
 	private Integer restrictionid;
-	private Request request;
+	private Myrequest myrequest;
 	private Integer type;
 	private Integer maxPeople;
 	private Integer shoppingStore;
@@ -30,11 +30,11 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Restriction(Request request, Integer type, Integer maxPeople,
+	public Restriction(Myrequest myrequest, Integer type, Integer maxPeople,
 			Integer shoppingStore, Integer maxDay, Integer payment,
 			Integer payer, Boolean dormLimited, Boolean othertakeLimited,
 			Boolean manLimited, Boolean buyLimited, Boolean goodsFree) {
-		this.request = request;
+		this.myrequest = myrequest;
 		this.type = type;
 		this.maxPeople = maxPeople;
 		this.shoppingStore = shoppingStore;
@@ -49,12 +49,12 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Restriction(Request request, Integer type, Integer maxPeople,
+	public Restriction(Myrequest myrequest, Integer type, Integer maxPeople,
 			Integer shoppingStore, Integer maxDay, Integer payment,
 			Integer payer, Boolean dormLimited, Boolean othertakeLimited,
 			Boolean manLimited, Boolean buyLimited, Boolean goodsFree,
 			String notice) {
-		this.request = request;
+		this.myrequest = myrequest;
 		this.type = type;
 		this.maxPeople = maxPeople;
 		this.shoppingStore = shoppingStore;
@@ -79,12 +79,12 @@ public class Restriction implements java.io.Serializable {
 		this.restrictionid = restrictionid;
 	}
 
-	public Request getRequest() {
-		return this.request;
+	public Myrequest getMyrequest() {
+		return this.myrequest;
 	}
 
-	public void setRequest(Request request) {
-		this.request = request;
+	public void setMyrequest(Myrequest myrequest) {
+		this.myrequest = myrequest;
 	}
 
 	public Integer getType() {

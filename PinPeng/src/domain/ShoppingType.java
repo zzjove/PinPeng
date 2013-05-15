@@ -9,7 +9,7 @@ public class ShoppingType implements java.io.Serializable {
 	// Fields
 
 	private Integer shoppingTypeid;
-	private Request request;
+	private Myrequest myrequest;
 	private Double amountTo;
 	private Double discountDown;
 	private Double discountRate;
@@ -23,14 +23,15 @@ public class ShoppingType implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public ShoppingType(Request request) {
-		this.request = request;
+	public ShoppingType(Myrequest myrequest) {
+		this.myrequest = myrequest;
 	}
 
 	/** full constructor */
-	public ShoppingType(Request request, Double amountTo, Double discountDown,
-			Double discountRate, Double quantityTo, Double freePost) {
-		this.request = request;
+	public ShoppingType(Myrequest myrequest, Double amountTo,
+			Double discountDown, Double discountRate, Double quantityTo,
+			Double freePost) {
+		this.myrequest = myrequest;
 		this.amountTo = amountTo;
 		this.discountDown = discountDown;
 		this.discountRate = discountRate;
@@ -48,12 +49,12 @@ public class ShoppingType implements java.io.Serializable {
 		this.shoppingTypeid = shoppingTypeid;
 	}
 
-	public Request getRequest() {
-		return this.request;
+	public Myrequest getMyrequest() {
+		return this.myrequest;
 	}
 
-	public void setRequest(Request request) {
-		this.request = request;
+	public void setMyrequest(Myrequest myrequest) {
+		this.myrequest = myrequest;
 	}
 
 	public Double getAmountTo() {
