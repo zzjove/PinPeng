@@ -21,6 +21,7 @@ public class Customer implements java.io.Serializable {
 	private String name;
 	private String password;
 	private Boolean sex;
+	private String email;
 	private Set friendshipsForCustomeridA = new HashSet(0);
 	private Set friendshipsForCustomeridB = new HashSet(0);
 	private Set evaluationsForBeRecordedId = new HashSet(0);
@@ -46,9 +47,10 @@ public class Customer implements java.io.Serializable {
 	public Customer(Integer customerid, Integer studentid, Integer credit,
 			Integer domitory, String telNumber, String qqNumber,
 			Integer generosity, String name, String password, Boolean sex,
-			Set friendshipsForCustomeridA, Set friendshipsForCustomeridB,
-			Set evaluationsForBeRecordedId, Set preferences, Set myrequests,
-			Set evaluationsForRecordId, Set customerOrders, Set messages) {
+			String email, Set friendshipsForCustomeridA,
+			Set friendshipsForCustomeridB, Set evaluationsForBeRecordedId,
+			Set preferences, Set myrequests, Set evaluationsForRecordId,
+			Set customerOrders, Set messages) {
 		this.customerid = customerid;
 		this.studentid = studentid;
 		this.credit = credit;
@@ -59,6 +61,7 @@ public class Customer implements java.io.Serializable {
 		this.name = name;
 		this.password = password;
 		this.sex = sex;
+		this.email = email;
 		this.friendshipsForCustomeridA = friendshipsForCustomeridA;
 		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
 		this.evaluationsForBeRecordedId = evaluationsForBeRecordedId;
@@ -149,6 +152,14 @@ public class Customer implements java.io.Serializable {
 
 	public void setSex(Boolean sex) {
 		this.sex = sex;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Set getFriendshipsForCustomeridA() {

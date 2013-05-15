@@ -11,7 +11,7 @@ import domain.Admin;
 
 public class AdminDao {
 
-	public static Admin add_admin(Admin admin) {// 通过学号与密码寻找管理员
+	public static Admin add_admin(Admin admin) {
 
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();

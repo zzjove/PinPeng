@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="webview" location="15,302" size="280,140">
+    <action name="index" location="62,62" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="webcontrol" location="10,10" size="280,140">
+    <action name="login" location="72,54" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="test.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="index.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="index.jsp" path="/WEB-INF/page/index.jsp" location="335,91" size="178,55" />
+  <webResource name="test.jsp" path="/WEB-INF/page/test.jsp" location="313,231" size="164,55" />
+</Struts2Diagram>
+

@@ -37,6 +37,9 @@
         <property name="sex" type="java.lang.Boolean">
             <column name="sex" />
         </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="64" />
+        </property>
         <set name="friendshipsForCustomeridA" inverse="true">
             <key>
                 <column name="customerid_a" not-null="true" />

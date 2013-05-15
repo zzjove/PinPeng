@@ -23,9 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     This is my JSP page. <br>
-	系统自带的index
-	<s:a href="/WEB-INF/page/index.jsp"></s:a>
-	<s:action name="index"></s:action>
+	我的index
 	<s:form action="login" method="post" style="height: 393px;">
 								<div class="loginBox">
 									<div class="loginBoxCenter">

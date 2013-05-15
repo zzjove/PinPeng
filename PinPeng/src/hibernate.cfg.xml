@@ -23,7 +23,6 @@
 		</property>
 		<mapping resource="domain/ShoppingType.hbm.xml" />
 		<mapping resource="domain/Discount.hbm.xml" />
-		<mapping resource="domain/Request.hbm.xml" />
 		<mapping resource="domain/CustomerOrder.hbm.xml" />
 		<mapping resource="domain/Preference.hbm.xml" />
 		<mapping resource="domain/Customer.hbm.xml" />
