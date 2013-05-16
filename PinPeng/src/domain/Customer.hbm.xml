@@ -16,8 +16,8 @@
         <property name="credit" type="java.lang.Integer">
             <column name="credit" />
         </property>
-        <property name="domitory" type="java.lang.Integer">
-            <column name="domitory" />
+        <property name="dormitory" type="java.lang.Integer">
+            <column name="dormitory" />
         </property>
         <property name="telNumber" type="java.lang.String">
             <column name="tel_number" length="16" />

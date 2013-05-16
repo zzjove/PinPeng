@@ -47,4 +47,15 @@ public class CustomerDao {
 		
 		return null;
 	}
+
+	public static void add_customer(Customer customer){
+		Session session=HibernateConfigure.HibernateSessionFactory.getSession();
+		Transaction transaction=session.beginTransaction();
+		
+		session.save(customer);
+		session.flush();
+		
+		transaction.commit();
+		session.close();
+	}
 }

@@ -14,7 +14,7 @@ public class Customer implements java.io.Serializable {
 	private Integer customerid;
 	private Integer studentid;
 	private Integer credit;
-	private Integer domitory;
+	private Integer dormitory;
 	private String telNumber;
 	private String qqNumber;
 	private Integer generosity;
@@ -45,7 +45,7 @@ public class Customer implements java.io.Serializable {
 
 	/** full constructor */
 	public Customer(Integer customerid, Integer studentid, Integer credit,
-			Integer domitory, String telNumber, String qqNumber,
+			Integer dormitory, String telNumber, String qqNumber,
 			Integer generosity, String name, String password, Boolean sex,
 			String email, Set friendshipsForCustomeridA,
 			Set friendshipsForCustomeridB, Set evaluationsForBeRecordedId,
@@ -54,7 +54,7 @@ public class Customer implements java.io.Serializable {
 		this.customerid = customerid;
 		this.studentid = studentid;
 		this.credit = credit;
-		this.domitory = domitory;
+		this.dormitory = dormitory;
 		this.telNumber = telNumber;
 		this.qqNumber = qqNumber;
 		this.generosity = generosity;
@@ -98,12 +98,12 @@ public class Customer implements java.io.Serializable {
 		this.credit = credit;
 	}
 
-	public Integer getDomitory() {
-		return this.domitory;
+	public Integer getDormitory() {
+		return this.dormitory;
 	}
 
-	public void setDomitory(Integer domitory) {
-		this.domitory = domitory;
+	public void setDormitory(Integer dormitory) {
+		this.dormitory = dormitory;
 	}
 
 	public String getTelNumber() {

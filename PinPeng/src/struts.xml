@@ -2,14 +2,24 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="webview" extends="struts-default">
-		<action name="index" class="web.action.view.IndexAction" method="execute">
+		<action name="index" class="web.action.view.IndexAction"
+			method="execute">
 			<result name="success">/WEB-INF/page/index.jsp</result>
 		</action>
+		<action name="viewregister" class="web.action.view.ViewRegisterAcion"
+			method="execute">
+			<result name="success">/WEB-INF/page/register.jsp</result>
+		</action>
 	</package>
-	<package name="webcontrol"  extends="struts-default">
-		<action name="login" class="web.action.control.LoginAction" method="execute">
+	<package name="webcontrol" extends="struts-default">
+		<action name="login" class="web.action.control.LoginAction"
+			method="execute">
 			<result name="success">/WEB-INF/page/test.jsp</result>
 			<result name="error">/WEB-INF/page/index.jsp</result>
-		</action>	
+		</action>
+		<action name="register" class="web.action.control.RegisterAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/registersuccess.jsp</result>
+		</action>
 	</package>
 </struts>    

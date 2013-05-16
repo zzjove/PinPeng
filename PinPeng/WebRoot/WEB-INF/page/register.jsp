@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -24,19 +25,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <h2>这是一个不能再简单的注册页面</h2>
-    <form action="" method="post">
-    	<input type="text" name="studentId" placeholder="学号" /><br />
-    	<input type="text" name="userName" placeholder="姓名" /><br />
-    	<input type="text" name="userPassword" placeholder="密码" /><br />
-    	<input type="text" name="userPasswordConfirmation" placeholder="再次输入密码" /><br />
-    	<input type="email" name="userEmail" placeholder="邮箱" /><br />
-    	<input type="text" name="userQQ" placeholder="qq号" /><br />
-    	<input type="text" name="userTel" placeholder="手机号码" /><br />
+    <s:form action="register" method="post">
+    	<input type="text" name="studentid" placeholder="学号" /><br />
+    	<input type="text" name="name" placeholder="姓名" /><br />
+    	<input type="text" name="password" placeholder="密码" /><br />
+    	<input type="text" name="repassword" placeholder="再次输入密码" /><br />
+    	<input type="email" name="email" placeholder="邮箱" /><br />
+    	<input type="text" name="qqnumber" placeholder="qq号" /><br />
+    	<input type="text" name="telnumber" placeholder="手机号码" /><br />
     	<input type="radio" name="sex" value="male" />男
     	<input type="radio" name="sex" value="female"/>女<br />
-    	<input type="text" name="userDorm" placeholder="寝室楼号" /><br />
+    	<input type="text" name="dormitory" placeholder="寝室楼号" /><br />
     	<input type="submit" value="确认">
     	
-    </form>
+    </s:form>
   </body>
 </html>
