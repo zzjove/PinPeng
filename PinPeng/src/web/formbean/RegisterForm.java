@@ -107,12 +107,21 @@ public class RegisterForm {
 		this.errors = errors;
 	}
 
-	public Customer get_customer(RegisterForm form) {
+	public Customer get_customer() {
 		Customer customer = new Customer();
-		
-		customer.setDormitory(Integer.parseInt(form.getDormitory()));
-		
-		return null;
-	}
 
+		customer.setStudentid(Integer.parseInt(studentid));
+		customer.setPassword(password);
+		customer.setEmail(email);
+		customer.setQqNumber(qqnumber);
+		customer.setTelNumber(telnumber);
+		if (sex.equals("male")) {
+			customer.setSex(true);
+		} else {
+			customer.setSex(false);
+		}
+		customer.setDormitory(Integer.parseInt(dormitory));
+
+		return customer;
+	}
 }

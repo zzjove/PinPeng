@@ -10,11 +10,8 @@ import web.formbean.RegisterForm;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import domain.Customer;
-
 public class RegisterAction extends ActionSupport {
 
-	private Customer customer;
 	private String randomNum;
 	private static Cookie cookie = null;
 	
@@ -27,7 +24,7 @@ public class RegisterAction extends ActionSupport {
 		RegisterForm form = utils.WebUtils.requestToBean(request, RegisterForm.class);
 		form.setRandomNum(randomNum);
 		
-		dao.CustomerDao.add_customer(customer);
+		dao.CustomerDao.add_customer(form.get_customer());
 		
 		return "success";
 	}

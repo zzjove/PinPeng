@@ -38,20 +38,17 @@ public class Customer implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Customer(Integer customerid, Integer studentid) {
-		this.customerid = customerid;
+	public Customer(Integer studentid) {
 		this.studentid = studentid;
 	}
 
 	/** full constructor */
-	public Customer(Integer customerid, Integer studentid, Integer credit,
-			Integer dormitory, String telNumber, String qqNumber,
-			Integer generosity, String name, String password, Boolean sex,
-			String email, Set friendshipsForCustomeridA,
-			Set friendshipsForCustomeridB, Set evaluationsForBeRecordedId,
-			Set preferences, Set myrequests, Set evaluationsForRecordId,
-			Set customerOrders, Set messages) {
-		this.customerid = customerid;
+	public Customer(Integer studentid, Integer credit, Integer dormitory,
+			String telNumber, String qqNumber, Integer generosity, String name,
+			String password, Boolean sex, String email,
+			Set friendshipsForCustomeridA, Set friendshipsForCustomeridB,
+			Set evaluationsForBeRecordedId, Set preferences, Set myrequests,
+			Set evaluationsForRecordId, Set customerOrders, Set messages) {
 		this.studentid = studentid;
 		this.credit = credit;
 		this.dormitory = dormitory;
