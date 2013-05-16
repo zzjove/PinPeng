@@ -8,7 +8,7 @@
     <class name="domain.Customer" table="customer" catalog="pinpeng_db">
         <id name="customerid" type="java.lang.Integer">
             <column name="customerid" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="studentid" type="java.lang.Integer">
             <column name="studentid" not-null="true" />
