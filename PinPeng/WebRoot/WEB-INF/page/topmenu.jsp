@@ -1,3 +1,4 @@
+<%@page import="domain.Customer"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <%
@@ -25,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 <%
-        UserInfo user = (UserInfo)(session.getAttribute("user"));
-        if (user == null)
+        Customer customer = (Customer)(session.getAttribute("customer"));
+        if (customer == null)
         {
     %>
 	<div id="topNav">
@@ -52,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><a href="#">我要拼单</a></li>
 			<li><a href="#">啥来着</a></li>
 			<li><a href="#">个人空间</a></li>
-			<li style="float:right"><a href="#">登出</a></li>
+			<li style="float:right"><a href="logout">登出</a></li>
 		</ul>
 	</div>
     <%

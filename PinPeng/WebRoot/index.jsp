@@ -24,14 +24,14 @@
 </head>
 
 <body>
-	<jsp:include page="Topmenu.jsp" />
+	<jsp:include page="/WEB-INF/page/topmenu.jsp" />
 	<table width="700" border="0" align="center" >
 		<tr>
 			<td align="left" height="80">
 			<div width="490px" align="left" valign="top">
 			</div>
 			<div width="200px" align="right" valign="top"><jsp:include
-					page="Login.jsp" /></div>
+					page="/WEB-INF/page/login.jsp" /></div>
 			</td>
 		</tr>
 		<tr>
