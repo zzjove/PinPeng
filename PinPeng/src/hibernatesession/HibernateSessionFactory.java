@@ -1,4 +1,4 @@
-package HibernateConfigure;
+package hibernatesession;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

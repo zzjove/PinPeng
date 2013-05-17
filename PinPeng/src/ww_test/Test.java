@@ -1,10 +1,11 @@
 package ww_test;
 
 
+import hibernatesession.HibernateSessionFactory;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import HibernateConfigure.HibernateSessionFactory;
 import domain.Admin;
 
 public class Test {

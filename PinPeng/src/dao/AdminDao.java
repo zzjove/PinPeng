@@ -1,12 +1,13 @@
 package dao;
 
+import hibernatesession.HibernateSessionFactory;
+
 import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import HibernateConfigure.HibernateSessionFactory;
 import domain.Admin;
 
 public class AdminDao {

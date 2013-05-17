@@ -1,11 +1,12 @@
 package dao;
 
+import hibernatesession.HibernateSessionFactory;
+
 import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Session;
 
-import HibernateConfigure.HibernateSessionFactory;
 import domain.Restriction;
 
 public class RestrictionDao {

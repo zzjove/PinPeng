@@ -8,6 +8,7 @@ import org.apache.struts2.ServletActionContext;
 
 import web.formbean.LoginForm;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Customer;
@@ -37,6 +38,7 @@ public class LoginAction extends ActionSupport {
 			return "error";
 		}
 
+		ActionContext.getContext().getSession().put("customer", customer);
 		return "success";
 	}
 

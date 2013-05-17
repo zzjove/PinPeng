@@ -11,6 +11,7 @@
 			<result name="success">/WEB-INF/page/register.jsp</result>
 		</action>
 	</package>
+	
 	<package name="webcontrol" extends="struts-default">
 		<action name="login" class="web.action.control.LoginAction"
 			method="execute">
@@ -20,6 +21,10 @@
 		<action name="register" class="web.action.control.RegisterAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/registersuccess.jsp</result>
+		</action>
+		<action name="sendrequest" class="web.action.control.SendShoppingTypeAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/sendRequest.jsp</result>	
 		</action>
 	</package>
 </struts>    

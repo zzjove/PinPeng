@@ -1,12 +1,13 @@
 package dao;
 
+import hibernatesession.HibernateSessionFactory;
+
 import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import HibernateConfigure.HibernateSessionFactory;
 import domain.Customer;
 
 public class CustomerDao {
@@ -49,7 +50,7 @@ public class CustomerDao {
 	}
 
 	public static void add_customer(Customer customer){
-		Session session=HibernateConfigure.HibernateSessionFactory.getSession();
+		Session session=hibernatesession.HibernateSessionFactory.getSession();
 		Transaction transaction=session.beginTransaction();
 		
 		session.save(customer);
