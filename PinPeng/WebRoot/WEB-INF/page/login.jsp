@@ -69,19 +69,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     %>
 	<table>
 		<tr>
-			<td><a hrep="#"><img src="photo.png">
+			<td><a href="#"><img src="photo.png">
 			</a>
 			</td>
 		</tr>
 		<tr>
-			<td><a hrep="#"></a>${customer.name },欢迎回来</td>
+			<td><a href="#"></a>${customer.name},欢迎回来</td>
 		</tr>
 		<tr>
-			<td>您有<a hrep="#">N条未读短消息</a>
+			<td>您有<a href="#">N条未读短消息</a>
 			</td>
 		</tr>
 		<tr>
-			<td><a hrep="#">有新请求</a>
+			<td><a href="#">有新请求</a>
 			</td>
 		</tr>
 	</table>

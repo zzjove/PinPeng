@@ -5,6 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -29,31 +30,31 @@
 		<div>
 			<p>个人信息</p>
 			<p>
-				<a hrep="profile.jsp">查看个人资料</a>
+				<a href="viewprofile">查看个人资料</a>
 			</p>
 			<p>
-				<a hrep="changepassword.jsp">安全设置</a>
+				<a href="viewchangepassword">安全设置</a>
 			</p>
 		</div>
 		<div>
 			<p>订单信息</p>
 			<p>
-				<a hrep="space.jsp">当前订单</a>
+				<a href="viewspace">当前订单</a>
 			</p>
 			<p>
-				<a hrep="history.jsp">历史订单</a>
+				<a href="viewhistory">历史订单</a>
 			</p>
 			<p>
-				<a hrep="#">收藏夹</a>
+				<a href="#">收藏夹</a>
 			</p>
 		</div>
 		<div>
 			<p>好友管理</p>
 			<p>
-				<a hrep="#">好友列表</a>
+				<a href="#">好友列表</a>
 			</p>
 			<p>
-				<a hrep="#">消息中心</a>
+				<a href="#">消息中心</a>
 			</p>
 		</div>
 	</div>

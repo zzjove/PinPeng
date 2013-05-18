@@ -10,6 +10,22 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/register.jsp</result>
 		</action>
+		<action name="viewspace" class="web.action.view.ViewSpaceAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/space.jsp</result>	
+		</action>
+		<action name="viewchangepassword" class="web.action.view.ViewChangepassword"
+			method="execute">
+			<result name="success">/WEB-INF/page/changepassword.jsp</result>	
+		</action>
+		<action name="viewhistory" class="web.action.view.ViewHistory"
+			method="execute">
+			<result name="success">/WEB-INF/page/history.jsp</result>	
+		</action>
+		<action name="viewprofile" class="web.action.view.ViewProfile"
+			method="execute">
+			<result name="success">/WEB-INF/page/profile.jsp</result>	
+		</action>
 	</package>
 	
 	<package name="webcontrol" extends="struts-default">

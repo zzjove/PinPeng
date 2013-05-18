@@ -1,3 +1,4 @@
+<%@page import="domain.Customer"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -29,14 +30,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div style=" width:600px; float:left">
     <h2>查看个人资料</h2>
-    <h3><a hrep="#">编辑</a></h3>
-    <p>学号：</p>
-    <p>姓名：</p>
-    <p>性别：</p>
-    <p>邮箱：</p>
-    <p>QQ：</p>
-    <p>手机：</p>
-    <p>寝室楼号</p>
+    <h3><a href="#">编辑</a></h3>
+    <p>学号：${customer.studentid}</p>
+    <p>姓名：${customer.name}</p>
+    <%
+        Customer customer = (Customer)(session.getAttribute("customer"));
+        if (customer.getSex())
+        {
+    %>
+    <p>性别：男</p>
+    <%
+		}
+        else
+        {
+    %>
+    <p>性别：女</p>
+    <%
+    	}
+    %>
+    <p>邮箱：${customer.email}</p>
+    <p>QQ： ${customer.qqNumber}</p>
+    <p>手机：${customer.telNumber}</p>
+    <p>寝室楼号：${customer.dormitory}</p>
     </div>
     
     </div>
