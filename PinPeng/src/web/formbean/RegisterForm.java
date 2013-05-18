@@ -19,14 +19,6 @@ public class RegisterForm {
 	private String randomNum;
 	private Map errors = new HashMap();
 
-	public String getRandomNum() {
-		return randomNum;
-	}
-
-	public void setRandomNum(String randomNum) {
-		this.randomNum = randomNum;
-	}
-
 	public String getStudentid() {
 		return studentid;
 	}
@@ -99,6 +91,14 @@ public class RegisterForm {
 		this.dormitory = dormitory;
 	}
 
+	public String getRandomNum() {
+		return randomNum;
+	}
+
+	public void setRandomNum(String randomNum) {
+		this.randomNum = randomNum;
+	}
+
 	public Map getErrors() {
 		return errors;
 	}
@@ -111,6 +111,7 @@ public class RegisterForm {
 		Customer customer = new Customer();
 
 		customer.setStudentid(Integer.parseInt(studentid));
+		customer.setName(name);
 		customer.setPassword(password);
 		customer.setEmail(email);
 		customer.setQqNumber(qqnumber);

@@ -20,7 +20,6 @@ public class Order implements java.io.Serializable {
 	private Integer discountMoney;
 	private Double price;
 	private Set orderRequests = new HashSet(0);
-	private Set customerOrders = new HashSet(0);
 
 	// Constructors
 
@@ -42,7 +41,7 @@ public class Order implements java.io.Serializable {
 	/** full constructor */
 	public Order(Short status, Timestamp beginTime, Timestamp endTime,
 			Integer maxPeople, Integer discountMoney, Double price,
-			Set orderRequests, Set customerOrders) {
+			Set orderRequests) {
 		this.status = status;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -50,7 +49,6 @@ public class Order implements java.io.Serializable {
 		this.discountMoney = discountMoney;
 		this.price = price;
 		this.orderRequests = orderRequests;
-		this.customerOrders = customerOrders;
 	}
 
 	// Property accessors
@@ -117,14 +115,6 @@ public class Order implements java.io.Serializable {
 
 	public void setOrderRequests(Set orderRequests) {
 		this.orderRequests = orderRequests;
-	}
-
-	public Set getCustomerOrders() {
-		return this.customerOrders;
-	}
-
-	public void setCustomerOrders(Set customerOrders) {
-		this.customerOrders = customerOrders;
 	}
 
 }

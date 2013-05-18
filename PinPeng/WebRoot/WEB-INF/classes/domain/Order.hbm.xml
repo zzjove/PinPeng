@@ -34,11 +34,5 @@
             </key>
             <one-to-many class="domain.OrderRequest" />
         </set>
-        <set name="customerOrders" inverse="true">
-            <key>
-                <column name="orderid" not-null="true" />
-            </key>
-            <one-to-many class="domain.CustomerOrder" />
-        </set>
     </class>
 </hibernate-mapping>

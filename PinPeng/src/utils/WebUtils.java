@@ -18,9 +18,9 @@ public class WebUtils {
 			// 把request中的数据封装到bean中
 			Enumeration e = request.getParameterNames();
 			while (e.hasMoreElements()) {
-				String name = (String) e.nextElement();
-				String value = request.getParameter(name);
-				BeanUtils.setProperty(bean, name, value);
+				String nname = (String) e.nextElement();
+				String value = request.getParameter(nname);
+				BeanUtils.setProperty(bean, nname, value);
 			}
 			return bean;
 		} catch (Exception e) {

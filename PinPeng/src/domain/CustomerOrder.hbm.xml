@@ -10,9 +10,9 @@
             <key-many-to-one name="customer" class="domain.Customer">
                 <column name="customerid" />
             </key-many-to-one>
-            <key-many-to-one name="order" class="domain.Order">
+            <key-property name="orderid" type="java.lang.Integer">
                 <column name="orderid" />
-            </key-many-to-one>
+            </key-property>
         </composite-id>
     </class>
 </hibernate-mapping>

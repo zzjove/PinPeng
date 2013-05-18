@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</td>
 		</tr>
 		<tr>
-			<td><a hrep="#">XXX</a>,欢迎回来</td>
+			<td><a hrep="#"></a>${customer.name },欢迎回来</td>
 		</tr>
 		<tr>
 			<td>您有<a hrep="#">N条未读短消息</a>
