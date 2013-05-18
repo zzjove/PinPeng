@@ -30,10 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         if (customer == null)
         {
     %>
-	<s:form action="login" method="post" style="height: 393px;">
-		<div class="loginBox">
-			<div class="loginBoxCenter">
-
+	<s:form action="login" method="post" >
+		<div>
 				<p>
 					<label> 用户名： </label>
 				</p>
@@ -55,7 +53,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="submit" value="登入" style="float: right" />
 				</p>
 			</div>
-		</div>
 	</s:form>
 	<s:form action="viewregister" method="post">
 		<p>
