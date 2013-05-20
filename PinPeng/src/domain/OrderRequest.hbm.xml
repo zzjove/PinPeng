@@ -14,5 +14,8 @@
                 <column name="requestid" />
             </key-many-to-one>
         </composite-id>
+        <many-to-one name="myrequestByToRequestid" class="domain.Myrequest" fetch="select">
+            <column name="to_requestid" not-null="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

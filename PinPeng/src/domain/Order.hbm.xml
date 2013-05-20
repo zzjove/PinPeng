@@ -10,14 +10,14 @@
             <column name="orderid" />
             <generator class="identity" />
         </id>
-        <property name="status" type="java.lang.Short">
+        <property name="status" type="java.lang.Integer">
             <column name="status" not-null="true" />
         </property>
         <property name="beginTime" type="java.sql.Timestamp">
             <column name="begin_time" length="19" not-null="true" />
         </property>
         <property name="endTime" type="java.sql.Timestamp">
-            <column name="end_time" length="19" not-null="true" />
+            <column name="end_time" length="19" />
         </property>
         <property name="maxPeople" type="java.lang.Integer">
             <column name="max_people" not-null="true" />

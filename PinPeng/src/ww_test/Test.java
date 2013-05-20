@@ -1,34 +1,23 @@
 package ww_test;
 
 
-import hibernatesession.HibernateSessionFactory;
-
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import domain.Admin;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Test {
 
 	/**
 	 * @param args
+	 * @throws ParseException 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Admin admin=new Admin();
-		//admin.setDiscounts(11);
-		admin.setName("ww");
-		admin.setPassword("12356");
-		admin.setSex(false);
+	public static void main(String[] args) throws ParseException {
 		
-		Session session=HibernateSessionFactory.getSession();
-		Transaction transation=session.beginTransaction();
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		String strDate = "2012-03-01";
+		Date date=sf.parse(strDate);
 		
-		session.save(admin);
-		session.flush();
-		
-		transation.commit();
-		session.close();
+		System.out.println(sf.format(date));
 	}
 
 }

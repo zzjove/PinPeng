@@ -28,5 +28,14 @@
         <property name="freePost" type="java.lang.Double">
             <column name="free_post" precision="11" />
         </property>
+        <property name="shoppingStore" type="java.lang.Integer">
+            <column name="shopping_store" not-null="true" />
+        </property>
+        <property name="subShoppingStore" type="java.lang.String">
+            <column name="sub_shopping_store" length="32" />
+        </property>
+        <property name="discountType" type="java.lang.Integer">
+            <column name="discount_type" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

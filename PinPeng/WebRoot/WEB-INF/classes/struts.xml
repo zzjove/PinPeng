@@ -12,22 +12,26 @@
 		</action>
 		<action name="viewspace" class="web.action.view.ViewSpaceAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/space.jsp</result>	
+			<result name="success">/WEB-INF/page/space.jsp</result>
 		</action>
-		<action name="viewchangepassword" class="web.action.view.ViewChangepassword"
+		<action name="viewchangepassword" class="web.action.view.ViewChangepasswordAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/changepassword.jsp</result>	
+			<result name="success">/WEB-INF/page/changepassword.jsp</result>
 		</action>
-		<action name="viewhistory" class="web.action.view.ViewHistory"
+		<action name="viewhistory" class="web.action.view.ViewHistoryAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/history.jsp</result>	
+			<result name="success">/WEB-INF/page/history.jsp</result>
 		</action>
-		<action name="viewprofile" class="web.action.view.ViewProfile"
+		<action name="viewprofile" class="web.action.view.ViewProfileAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/profile.jsp</result>	
+			<result name="success">/WEB-INF/page/profile.jsp</result>
+		</action>
+		<action name="viewsendrequest" class="web.action.view.ViewSendrequestAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/sendrequest.jsp</result>
 		</action>
 	</package>
-	
+
 	<package name="webcontrol" extends="struts-default">
 		<action name="login" class="web.action.control.LoginAction"
 			method="execute">
@@ -36,11 +40,11 @@
 		</action>
 		<action name="register" class="web.action.control.RegisterAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/registersuccess.jsp</result>
+			<result name="success">index.jsp</result>
 		</action>
-		<action name="sendrequest" class="web.action.control.SendRequest"
+		<action name="sendrequest" class="web.action.control.SendRequestAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/sendrequest.jsp</result>	
+			<result name="success">/WEB-INF/page/match.jsp</result>
 		</action>
 		<action name="logout" class="web.action.control.LogoutAction"
 			method="execute">

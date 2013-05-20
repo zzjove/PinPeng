@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<ul>
 			<li><a href="index.jsp"><img src="logo.png"></a></li>
 			<li><a href="index.jsp"  class="hover">home</a></li>
-			<li><a href="#">我要拼单</a></li>
+			<li><a href="viewsendrequest">我要拼单</a></li>
 			<li><a href="#">啥来着</a></li>
 			<li><a href="viewspace">个人空间</a></li>
 			<li style="float:right"><a href="logout">登出</a></li>

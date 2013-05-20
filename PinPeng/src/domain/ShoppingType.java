@@ -15,6 +15,9 @@ public class ShoppingType implements java.io.Serializable {
 	private Double discountRate;
 	private Double quantityTo;
 	private Double freePost;
+	private Integer shoppingStore;
+	private String subShoppingStore;
+	private Integer discountType;
 
 	// Constructors
 
@@ -23,20 +26,27 @@ public class ShoppingType implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public ShoppingType(Myrequest myrequest) {
+	public ShoppingType(Myrequest myrequest, Integer shoppingStore,
+			Integer discountType) {
 		this.myrequest = myrequest;
+		this.shoppingStore = shoppingStore;
+		this.discountType = discountType;
 	}
 
 	/** full constructor */
 	public ShoppingType(Myrequest myrequest, Double amountTo,
 			Double discountDown, Double discountRate, Double quantityTo,
-			Double freePost) {
+			Double freePost, Integer shoppingStore, String subShoppingStore,
+			Integer discountType) {
 		this.myrequest = myrequest;
 		this.amountTo = amountTo;
 		this.discountDown = discountDown;
 		this.discountRate = discountRate;
 		this.quantityTo = quantityTo;
 		this.freePost = freePost;
+		this.shoppingStore = shoppingStore;
+		this.subShoppingStore = subShoppingStore;
+		this.discountType = discountType;
 	}
 
 	// Property accessors
@@ -95,6 +105,30 @@ public class ShoppingType implements java.io.Serializable {
 
 	public void setFreePost(Double freePost) {
 		this.freePost = freePost;
+	}
+
+	public Integer getShoppingStore() {
+		return this.shoppingStore;
+	}
+
+	public void setShoppingStore(Integer shoppingStore) {
+		this.shoppingStore = shoppingStore;
+	}
+
+	public String getSubShoppingStore() {
+		return this.subShoppingStore;
+	}
+
+	public void setSubShoppingStore(String subShoppingStore) {
+		this.subShoppingStore = subShoppingStore;
+	}
+
+	public Integer getDiscountType() {
+		return this.discountType;
+	}
+
+	public void setDiscountType(Integer discountType) {
+		this.discountType = discountType;
 	}
 
 }

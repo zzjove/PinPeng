@@ -12,7 +12,7 @@ import domain.CustomerOrder;
 
 public class CustomerOrderDao {
 
-	public static CustomerOrder findby_customerid(int customerid) {
+	public static List<CustomerOrder> findby_customerid(int customerid) {
 
 		Session session = HibernateSessionFactory.getSession();
 
@@ -23,12 +23,8 @@ public class CustomerOrderDao {
 
 		session.close();
 
-		Iterator it = customerorder_list.iterator();
-		if (it.hasNext()) {
-			return ((CustomerOrder) it.next());
-		} else {
-			return null;
-		}
+		return customerorder_list;
+
 	}
 
 	public static CustomerOrder findby_orderid(int orderid) {
@@ -48,14 +44,14 @@ public class CustomerOrderDao {
 			return null;
 		}
 	}
-	
-	public static void add_CustomerOrder(CustomerOrder customerorder){
-		Session session=HibernateSessionFactory.getSession();
-		Transaction transaction=session.beginTransaction();
-		
+
+	public static void add_CustomerOrder(CustomerOrder customerorder) {
+		Session session = HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+
 		session.update(customerorder);
 		session.flush();
-		
+
 		transaction.commit();
 		session.close();
 	}

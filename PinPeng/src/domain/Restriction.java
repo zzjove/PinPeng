@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Date;
+
 /**
  * Restriction entity. @author MyEclipse Persistence Tools
  */
@@ -10,17 +12,15 @@ public class Restriction implements java.io.Serializable {
 
 	private Integer restrictionid;
 	private Myrequest myrequest;
-	private Integer type;
 	private Integer maxPeople;
-	private Integer shoppingStore;
-	private Integer maxDay;
+	private Date endDay;
 	private Integer payment;
 	private Integer payer;
-	private Boolean dormLimited;
-	private Boolean othertakeLimited;
-	private Boolean manLimited;
-	private Boolean buyLimited;
-	private Boolean goodsFree;
+	private Integer dormLimited;
+	private Integer othertakeLimited;
+	private Integer manLimited;
+	private Integer buyLimited;
+	private Integer goodsFree;
 	private String notice;
 
 	// Constructors
@@ -30,16 +30,11 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Restriction(Myrequest myrequest, Integer type, Integer maxPeople,
-			Integer shoppingStore, Integer maxDay, Integer payment,
-			Integer payer, Boolean dormLimited, Boolean othertakeLimited,
-			Boolean manLimited, Boolean buyLimited, Boolean goodsFree) {
+	public Restriction(Myrequest myrequest, Integer maxPeople, Integer payer,
+			Integer dormLimited, Integer othertakeLimited, Integer manLimited,
+			Integer buyLimited, Integer goodsFree) {
 		this.myrequest = myrequest;
-		this.type = type;
 		this.maxPeople = maxPeople;
-		this.shoppingStore = shoppingStore;
-		this.maxDay = maxDay;
-		this.payment = payment;
 		this.payer = payer;
 		this.dormLimited = dormLimited;
 		this.othertakeLimited = othertakeLimited;
@@ -49,16 +44,13 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Restriction(Myrequest myrequest, Integer type, Integer maxPeople,
-			Integer shoppingStore, Integer maxDay, Integer payment,
-			Integer payer, Boolean dormLimited, Boolean othertakeLimited,
-			Boolean manLimited, Boolean buyLimited, Boolean goodsFree,
-			String notice) {
+	public Restriction(Myrequest myrequest, Integer maxPeople, Date endDay,
+			Integer payment, Integer payer, Integer dormLimited,
+			Integer othertakeLimited, Integer manLimited, Integer buyLimited,
+			Integer goodsFree, String notice) {
 		this.myrequest = myrequest;
-		this.type = type;
 		this.maxPeople = maxPeople;
-		this.shoppingStore = shoppingStore;
-		this.maxDay = maxDay;
+		this.endDay = endDay;
 		this.payment = payment;
 		this.payer = payer;
 		this.dormLimited = dormLimited;
@@ -87,14 +79,6 @@ public class Restriction implements java.io.Serializable {
 		this.myrequest = myrequest;
 	}
 
-	public Integer getType() {
-		return this.type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
 	public Integer getMaxPeople() {
 		return this.maxPeople;
 	}
@@ -103,20 +87,12 @@ public class Restriction implements java.io.Serializable {
 		this.maxPeople = maxPeople;
 	}
 
-	public Integer getShoppingStore() {
-		return this.shoppingStore;
+	public Date getEndDay() {
+		return this.endDay;
 	}
 
-	public void setShoppingStore(Integer shoppingStore) {
-		this.shoppingStore = shoppingStore;
-	}
-
-	public Integer getMaxDay() {
-		return this.maxDay;
-	}
-
-	public void setMaxDay(Integer maxDay) {
-		this.maxDay = maxDay;
+	public void setEndDay(Date endDay) {
+		this.endDay = endDay;
 	}
 
 	public Integer getPayment() {
@@ -135,43 +111,43 @@ public class Restriction implements java.io.Serializable {
 		this.payer = payer;
 	}
 
-	public Boolean getDormLimited() {
+	public Integer getDormLimited() {
 		return this.dormLimited;
 	}
 
-	public void setDormLimited(Boolean dormLimited) {
+	public void setDormLimited(Integer dormLimited) {
 		this.dormLimited = dormLimited;
 	}
 
-	public Boolean getOthertakeLimited() {
+	public Integer getOthertakeLimited() {
 		return this.othertakeLimited;
 	}
 
-	public void setOthertakeLimited(Boolean othertakeLimited) {
+	public void setOthertakeLimited(Integer othertakeLimited) {
 		this.othertakeLimited = othertakeLimited;
 	}
 
-	public Boolean getManLimited() {
+	public Integer getManLimited() {
 		return this.manLimited;
 	}
 
-	public void setManLimited(Boolean manLimited) {
+	public void setManLimited(Integer manLimited) {
 		this.manLimited = manLimited;
 	}
 
-	public Boolean getBuyLimited() {
+	public Integer getBuyLimited() {
 		return this.buyLimited;
 	}
 
-	public void setBuyLimited(Boolean buyLimited) {
+	public void setBuyLimited(Integer buyLimited) {
 		this.buyLimited = buyLimited;
 	}
 
-	public Boolean getGoodsFree() {
+	public Integer getGoodsFree() {
 		return this.goodsFree;
 	}
 
-	public void setGoodsFree(Boolean goodsFree) {
+	public void setGoodsFree(Integer goodsFree) {
 		this.goodsFree = goodsFree;
 	}
 

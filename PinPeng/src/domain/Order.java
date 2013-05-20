@@ -1,6 +1,7 @@
 package domain;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,9 +14,9 @@ public class Order implements java.io.Serializable {
 	// Fields
 
 	private Integer orderid;
-	private Short status;
-	private Timestamp beginTime;
-	private Timestamp endTime;
+	private Integer status;
+	private Date beginTime;
+	private Date endTime;
 	private Integer maxPeople;
 	private Integer discountMoney;
 	private Double price;
@@ -28,18 +29,17 @@ public class Order implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Order(Short status, Timestamp beginTime, Timestamp endTime,
-			Integer maxPeople, Integer discountMoney, Double price) {
+	public Order(Integer status, Timestamp beginTime, Integer maxPeople,
+			Integer discountMoney, Double price) {
 		this.status = status;
 		this.beginTime = beginTime;
-		this.endTime = endTime;
 		this.maxPeople = maxPeople;
 		this.discountMoney = discountMoney;
 		this.price = price;
 	}
 
 	/** full constructor */
-	public Order(Short status, Timestamp beginTime, Timestamp endTime,
+	public Order(Integer status, Timestamp beginTime, Timestamp endTime,
 			Integer maxPeople, Integer discountMoney, Double price,
 			Set orderRequests) {
 		this.status = status;
@@ -61,27 +61,27 @@ public class Order implements java.io.Serializable {
 		this.orderid = orderid;
 	}
 
-	public Short getStatus() {
+	public Integer getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Short status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
-	public Timestamp getBeginTime() {
+	public Date getBeginTime() {
 		return this.beginTime;
 	}
 
-	public void setBeginTime(Timestamp beginTime) {
+	public void setBeginTime(Date beginTime) {
 		this.beginTime = beginTime;
 	}
 
-	public Timestamp getEndTime() {
+	public Date getEndTime() {
 		return this.endTime;
 	}
 
-	public void setEndTime(Timestamp endTime) {
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
 

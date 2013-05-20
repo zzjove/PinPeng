@@ -9,6 +9,7 @@ public class OrderRequest implements java.io.Serializable {
 	// Fields
 
 	private OrderRequestId id;
+	private Myrequest myrequestByToRequestid;
 
 	// Constructors
 
@@ -17,8 +18,9 @@ public class OrderRequest implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public OrderRequest(OrderRequestId id) {
+	public OrderRequest(OrderRequestId id, Myrequest myrequestByToRequestid) {
 		this.id = id;
+		this.myrequestByToRequestid = myrequestByToRequestid;
 	}
 
 	// Property accessors
@@ -29,6 +31,14 @@ public class OrderRequest implements java.io.Serializable {
 
 	public void setId(OrderRequestId id) {
 		this.id = id;
+	}
+
+	public Myrequest getMyrequestByToRequestid() {
+		return this.myrequestByToRequestid;
+	}
+
+	public void setMyrequestByToRequestid(Myrequest myrequestByToRequestid) {
+		this.myrequestByToRequestid = myrequestByToRequestid;
 	}
 
 }

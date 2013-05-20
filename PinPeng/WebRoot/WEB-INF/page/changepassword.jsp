@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -30,12 +31,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div style=" width:600px; float:left">
     <h2>修改密码</h2>
     <s:form action="#" method="post">
-    	<input type="text" name="#" placeholder="原密码" /><br />
-    	<input type="text" name="#" placeholder="新密码" /><br />
-    	<input type="text" name="#" placeholder="再次输入新密码" /><br />
+    	<input type="password" name="#" placeholder="原密码" /><br />
+    	<input type="password" name="#" placeholder="新密码" /><br />
+    	<input type="password" name="#" placeholder="再次输入新密码" /><br />
     	
     	<input type="submit" value="确认">
-    	</s:form>
+    </s:form>
     </div>
     </div>
   </body>

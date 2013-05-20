@@ -12,7 +12,7 @@ import domain.Admin;
 
 public class AdminDao {
 
-	public static Admin add_admin(Admin admin) {
+	public static void add_admin(Admin admin) {
 
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
@@ -22,8 +22,6 @@ public class AdminDao {
 
 		transaction.commit();
 		session.close();
-
-		return null;
 	}
 
 	public static Admin findby_adminid(int adminid) {

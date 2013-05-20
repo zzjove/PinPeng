@@ -22,6 +22,15 @@
         <property name="price" type="java.lang.Double">
             <column name="price" precision="11" not-null="true" />
         </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" not-null="true" />
+        </property>
+        <property name="weight" type="java.lang.Integer">
+            <column name="weight" not-null="true" />
+        </property>
         <set name="restrictions" inverse="true">
             <key>
                 <column name="requestid" not-null="true" />
@@ -40,7 +49,13 @@
             </key>
             <one-to-many class="domain.Preference" />
         </set>
-        <set name="orderRequests" inverse="true">
+        <set name="orderRequestsForToRequestid" inverse="true">
+            <key>
+                <column name="to_requestid" not-null="true" />
+            </key>
+            <one-to-many class="domain.OrderRequest" />
+        </set>
+        <set name="orderRequestsForRequestid" inverse="true">
             <key>
                 <column name="requestid" not-null="true" />
             </key>

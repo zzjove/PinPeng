@@ -28,8 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <s:form action="register" method="post">
     	<input type="text" name="studentid" placeholder="学号" /><br />
     	<input type="text" name="name" placeholder="姓名" /><br />
-    	<input type="text" name="password" placeholder="密码" /><br />
-    	<input type="text" name="repassword" placeholder="再次输入密码" /><br />
+    	<input type="password" name="password" placeholder="密码" /><br />
+    	<input type="password" name="repassword" placeholder="再次输入密码" /><br />
     	<input type="email" name="email" placeholder="邮箱" /><br />
     	<input type="text" name="qqnumber" placeholder="qq号" /><br />
     	<input type="text" name="telnumber" placeholder="手机号码" /><br />

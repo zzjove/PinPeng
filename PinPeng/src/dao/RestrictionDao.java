@@ -6,12 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import domain.Restriction;
 
 public class RestrictionDao {
 
-	public static Restriction findby_requestid(int requestid) {
+	public static Restriction findby_requestid(int requestid) {//根据一个requestid寻找一个restriction
 
 		Session session = HibernateSessionFactory.getSession();
 
@@ -29,7 +30,7 @@ public class RestrictionDao {
 		}
 	}
 
-	public static Restriction findby_restrictiontid(int restrictiontid) {
+	public static Restriction findby_restrictiontid(int restrictiontid) {//根据restrictionid虚招一个restriction
 
 		Session session = HibernateSessionFactory.getSession();
 
@@ -46,6 +47,17 @@ public class RestrictionDao {
 		} else {
 			return null;
 		}
+	}
+
+	public static void add_restriction(Restriction restriction) {//添加一个restriction
+		Session session = HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+
+		session.save(restriction);
+		session.flush();
+
+		transaction.commit();
+		session.close();
 	}
 
 }
