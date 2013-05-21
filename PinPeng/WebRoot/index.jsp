@@ -19,8 +19,8 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="WEB-INF/page/css/bootstrap.css" >
-<link rel="stylesheet" type="text/css" href="WEB-INF/page/css/bootstrap-responsive.css" >
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" >
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" >
 
 <body>
 	
