@@ -1,4 +1,9 @@
+<%@page import="compute.DataConverter"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="domain.ShoppingType"%>
+<%@page import="domain.Myrequest"%>
+<%@page import="domain.Restriction"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,21 +27,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
+  <%
+ 		//Myrequest myrequest = (Myrequest) ActionContext.getContext().getSession()
+ 		//		.get("myrequest");
+ 		//ShoppingType shoppingtype = (ShoppingType) ActionContext.getContext().getSession()
+ 		//		.get("shoppingtype");
+ 		//Restriction restriction = (Restriction) ActionContext.getContext().getSession()
+ 		//		.get("restriction");
+ 		//String store = DataConverter.convert_shoppingstore(shoppingtype.getShoppingStore());
+ 		//ActionContext.getContext().getSession()
+  %>
+  
   <body>
     <h4>这是一个导航栏</h4>
     <hr/>
    <i> 当前要匹配的订单信息：</i>
     <p>
     <font size=2 color="grey">
-    	购物区域：天猫<br/>
-    	优惠类型：满就送<br/>
-    	已消费金额：500元<br/>
-    	优惠需要金额：600元<br/>
-    	物品重量：2KG <br/>
-    	.<br/>
-    	.<br/>
-    	.<br/>
-    	谁来付款：我
+    	订单号：${myrequest.requestid}<br/>
+    	购物区域：${store}<br/>
+    	子商家：${shoppingtype.subShoppingStore }<br/>
+    	优惠类型：免邮费<br/>
+    	已消费金额：${myrequest.price} 元<br/>
+    	购买件数：${myrequest.amount} 件<br/>
+    	<!--  优惠需要金额：600元<br/>-->
+    	物品重量：${myrequest.weight}KG <br/>
+    	订单结束日期：${restriction.endDay}<br/>
+    	最大拼单人数：${restriction.maxPeople}<br/>
+    	宿舍楼限定：${dormlimited}<br/>
+    	谁来付款：${payer}<br/>
+    	谁取快递：${othertakelimited}<br/>
+    	谁要礼物：${goodsfree}<br/>
+    	性别限定：${manlimited}<br/>
+    	是否有限购物品：${buylimited}<br/>
+    	补充说明：${restriction.notice}<br/>
    </font>
     </p>
    <hr/>

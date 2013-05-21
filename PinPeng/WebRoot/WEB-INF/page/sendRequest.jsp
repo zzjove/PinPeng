@@ -83,8 +83,9 @@
 			   <input type="radio" name="goodsfree" value="2">我
 		<br />
 		 
-		性别限制: <input type="radio" name="manlimited" value="1" />男
-			   <input type="radio" name="manlimited" value="0">女
+		性别限制: <input type="radio" name="manlimited" value="0" />都可
+			   <input type="radio" name="manlimited" value="1">男
+			   <input type="radio" name="manlimited" value="2">女
 		<br />
 		是否有限购物品:<input type="radio" name="buylimited" value="0" />否
 			  	  <input type="radio" name="buylimited" value="1">是

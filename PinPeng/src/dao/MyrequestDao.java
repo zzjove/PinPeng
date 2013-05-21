@@ -55,7 +55,7 @@ public class MyrequestDao {
 	public static List findby_customerid(int customerid) {// 通过customerid寻找所有myrequest
 
 		Session session = HibernateSessionFactory.getSession();
-		
+
 		String sql = "select * from myrequest where customerid=";
 		List myrequest_list = session.createSQLQuery(sql + customerid + ";")
 				.addEntity(Myrequest.class).list();
@@ -65,4 +65,31 @@ public class MyrequestDao {
 		return myrequest_list;
 	}
 
+	public static int find_max_requestid() {// 寻找最大的requestid
+
+		Session session = HibernateSessionFactory.getSession();
+
+		int max = (Integer) session.createQuery(
+				"select max(m.requestid) from Myrequest m").uniqueResult();
+
+		session.close();
+
+		return max;
+	}
+
+	public static List find_valid_request() {// 寻找所有有效的request
+
+		Session session = hibernatesession.HibernateSessionFactory.getSession();
+
+		String sql = "select myrequest.* from myrequest,restriction,shopping_type "
+				+ "where myrequest.requestid = restriction.requestid "
+				+ "and myrequest.requestid = shopping_type.requestid"
+				+ "and restriction.end_day > CURRENT_DATE"
+				+ "and myrequest.status BETWEEN 1 and 2;";
+
+		List myrequest_list = session.createSQLQuery(sql)
+				.addEntity(Myrequest.class).list();		
+		
+		return myrequest_list;
+	}
 }

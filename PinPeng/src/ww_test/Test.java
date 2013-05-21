@@ -1,23 +1,27 @@
 package ww_test;
 
+import hibernatesession.HibernateSessionFactory;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import org.hibernate.Session;
 
 public class Test {
 
 	/**
 	 * @param args
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	public static void main(String[] args) throws ParseException {
-		
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-		String strDate = "2012-03-01";
-		Date date=sf.parse(strDate);
-		
-		System.out.println(sf.format(date));
+
+		Session session = HibernateSessionFactory.getSession();
+
+		int max = (Integer) session.createQuery(
+				"select max(m.requestid) from Myrequest m").uniqueResult();
+
+		session.close();
+
+		System.out.println(max);
 	}
 
 }
