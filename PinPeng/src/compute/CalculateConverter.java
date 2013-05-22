@@ -16,12 +16,12 @@ public class CalculateConverter {
 			ShoppingType temp_shoppingtype, Restriction restriction,
 			Restriction temp_restriction) {
 
-		if (shoppingtype.getDiscountType() != temp_shoppingtype
+		if ((int) shoppingtype.getDiscountType() != (int) temp_shoppingtype
 				.getDiscountType()
-				|| shoppingtype.getShoppingStore() != temp_shoppingtype
+				|| (int) shoppingtype.getShoppingStore() != (int) temp_shoppingtype
 						.getShoppingStore()
-				|| shoppingtype.getAmountTo() - myrequest.getPrice() > temp_myrequest
-						.getPrice()) {
+				|| shoppingtype.getAmountTo() > myrequest.getPrice()
+						+ temp_myrequest.getPrice()) {
 			return -1;
 		} else {
 			int result = 0;
@@ -36,31 +36,31 @@ public class CalculateConverter {
 							.getDormLimited()) {
 				result = result + compute.ConstantValue.DORM_VALUE;
 			}
-			
+
 			if (temp_restriction.getOthertakeLimited() == 0
 					|| temp_restriction.getOthertakeLimited() == restriction
 							.getOthertakeLimited()) {
 				result = result + compute.ConstantValue.OTHERTAKE_VALUE;
 			}
-			
+
 			if (temp_restriction.getManLimited() == 0
 					|| temp_restriction.getManLimited() == restriction
 							.getManLimited()) {
 				result = result + compute.ConstantValue.MAN_VALUE;
 			}
-			
+
 			if (temp_restriction.getBuyLimited() == 0
 					|| temp_restriction.getBuyLimited() == restriction
 							.getBuyLimited()) {
 				result = result + compute.ConstantValue.BUY_VALUE;
 			}
-			
+
 			if (temp_restriction.getGoodsFree() == 0
 					|| temp_restriction.getGoodsFree() == restriction
 							.getGoodsFree()) {
 				result = result + compute.ConstantValue.GOODSFREE_VALUE;
 			}
-			
+
 			return result;
 		}
 

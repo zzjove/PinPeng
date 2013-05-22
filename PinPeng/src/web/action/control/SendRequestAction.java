@@ -29,9 +29,10 @@ public class SendRequestAction extends ActionSupport {
 	private Myrequest myrequest;
 	private ShoppingType shoppingtype;
 	private Restriction restriction;
-	private Customer customer;
 
-	private void get_form_and_saveit() {
+	// private Customer customer;
+
+	private void get_form_and_saveit() { // 从form中得到信息并存入数据库
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		SendRequestForm form = utils.WebUtils.requestToBean(request,
@@ -45,6 +46,7 @@ public class SendRequestAction extends ActionSupport {
 		dao.MyrequestDao.add_myrequest(myrequest);
 
 		shoppingtype = form.get_shoppingtype(myrequest); // 得到shoppingtype并且保存
+		shoppingtype.setAmountTo((double) 100);
 		dao.ShoppingTypeDao.add_shoppingtype(shoppingtype);
 
 		restriction = form.get_restriction(myrequest); // 得到restriction并且保存
@@ -53,7 +55,7 @@ public class SendRequestAction extends ActionSupport {
 		Order order = form.get_order(myrequest); // 产生新的一个order
 	}
 
-	private void set_to_session() {
+	private void set_to_session() { // 将form中的信息放入session
 
 		ActionContext.getContext().getSession().put("myrequest", myrequest); // 全部放入session
 		ActionContext.getContext().getSession()
@@ -118,39 +120,61 @@ public class SendRequestAction extends ActionSupport {
 								.getBuyLimited()));
 	}
 
-	private void get_match_list() {
-		// customer = (Customer) ActionContext.getContext().getSession()
-		// .get("customer");
+	private void get_match_list() { // 得到匹配列表
 		List<Myrequest> myrequest_list = dao.MyrequestDao.find_valid_request();
-		//List<ShoppingType> shoppingtype_list = new ArrayList<ShoppingType>();
-		//List<Restriction> restriction_list = new ArrayList<Restriction>();
-		// List<Integer> match_list = new ArrayList<Integer>();
 		List<Match> match_list = new ArrayList<Match>();
 
 		Iterator<Myrequest> it = myrequest_list.iterator();
 		while (it.hasNext()) {
-
-			// Match match=new Match();
 
 			Myrequest temp_myrequest = (Myrequest) it.next();
 			ShoppingType temp_shoppingtype = dao.ShoppingTypeDao
 					.findby_requestid(temp_myrequest.getRequestid());
 			Restriction temp_restriction = dao.RestrictionDao
 					.findby_requestid(temp_myrequest.getRequestid());
+			Customer temp_customer = temp_myrequest.getCustomer();
 
 			int value = compute.CalculateConverter.get_match_value(myrequest,
 					temp_myrequest, shoppingtype, temp_shoppingtype,
 					restriction, temp_restriction);
 
-			Match match = new Match(value, temp_myrequest, temp_shoppingtype,
-					temp_restriction);
-			match_list.add(match);
-			//shoppingtype_list.add(temp_shoppingtype);
-			//restriction_list.add(temp_restriction);
-
+			if (value != -1) {
+				Match match = new Match(value, temp_myrequest,
+						temp_shoppingtype, temp_restriction, temp_customer);
+				match_list.add(match);
+			}
 		}
-		
+
 		Collections.sort(match_list, new ComparatorMatch());
+		if (match_list.size() >= 5)
+			match_list = match_list.subList(0, 5);
+
+		List<Myrequest> new_myrequest_list = new ArrayList();
+		List<ShoppingType> new_shoppingtype_list = new ArrayList();
+		List<Restriction> new_restriction_list = new ArrayList();
+		List<Customer> new_customer_list = new ArrayList();
+
+		Iterator<Match> new_it = match_list.iterator();
+		while (new_it.hasNext()) {
+
+			Match match = (Match) new_it.next();
+			new_myrequest_list.add(match.getMyrequest());
+			new_shoppingtype_list.add(match.getShoppingType());
+			new_restriction_list.add(match.getRestriction());
+			new_customer_list.add(match.getCustomer());
+			
+		}
+
+		ActionContext.getContext().getSession()
+				.put("myrequest_list", new_myrequest_list);
+		ActionContext.getContext().getSession()
+				.put("shoppingtype_list", new_shoppingtype_list);
+		ActionContext.getContext().getSession()
+				.put("restriction_list", new_restriction_list);
+		ActionContext.getContext().getSession()
+				.put("customer_list", new_customer_list);
+
+		ActionContext.getContext().getSession().put("match_list", match_list);
 
 	}
 

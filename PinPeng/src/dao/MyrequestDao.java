@@ -83,13 +83,13 @@ public class MyrequestDao {
 
 		String sql = "select myrequest.* from myrequest,restriction,shopping_type "
 				+ "where myrequest.requestid = restriction.requestid "
-				+ "and myrequest.requestid = shopping_type.requestid"
-				+ "and restriction.end_day > CURRENT_DATE"
+				+ "and myrequest.requestid = shopping_type.requestid "
+				+ "and restriction.end_day > CURRENT_DATE "
 				+ "and myrequest.status BETWEEN 1 and 2;";
 
 		List myrequest_list = session.createSQLQuery(sql)
-				.addEntity(Myrequest.class).list();		
-		
+				.addEntity(Myrequest.class).list();
+
 		return myrequest_list;
 	}
 }

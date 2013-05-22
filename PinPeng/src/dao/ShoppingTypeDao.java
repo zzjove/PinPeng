@@ -12,11 +12,11 @@ import domain.ShoppingType;
 
 public class ShoppingTypeDao {
 
-	public static ShoppingType findby_requestid(int requestid) {//根据requestid找一个shoppingtype
+	public static ShoppingType findby_requestid(int requestid) {// 根据requestid找一个shoppingtype
 
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from restriction where requestid=";
+		String sql = "select * from shopping_type where requestid=";
 		List restriction_list = session.createSQLQuery(sql + requestid + ";")
 				.addEntity(ShoppingType.class).list();
 
@@ -30,11 +30,11 @@ public class ShoppingTypeDao {
 		}
 	}
 
-	public static ShoppingType findby_shoppingtypeid(int shoppingtypeid) {//根据shoppingtypeid找一个shoppingtype
+	public static ShoppingType findby_shoppingtypeid(int shoppingtypeid) {// 根据shoppingtypeid找一个shoppingtype
 
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from restriction where requestid=";
+		String sql = "select * from shopping_type where shopping_typeid=";
 		List restriction_list = session
 				.createSQLQuery(sql + shoppingtypeid + ";")
 				.addEntity(ShoppingType.class).list();
@@ -48,18 +48,18 @@ public class ShoppingTypeDao {
 			return null;
 		}
 	}
-	
-	public static void add_shoppingtype(ShoppingType shoppingtype){//添加一个shoppingtype
-		
+
+	public static void add_shoppingtype(ShoppingType shoppingtype) {// 添加一个shoppingtype
+
 		Session session = HibernateSessionFactory.getSession();
-		Transaction transaction=session.beginTransaction();
-		
+		Transaction transaction = session.beginTransaction();
+
 		session.save(shoppingtype);
 		session.flush();
-		
+
 		transaction.commit();
 		session.close();
-		
+
 	}
 
 }

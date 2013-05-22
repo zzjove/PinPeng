@@ -1,5 +1,6 @@
 package compute;
 
+import domain.Customer;
 import domain.Myrequest;
 import domain.Restriction;
 import domain.ShoppingType;
@@ -10,13 +11,15 @@ public class Match {
 	private Myrequest myrequest;
 	private ShoppingType shoppingtype;
 	private Restriction restriction;
+	private Customer customer;
 
 	public Match(int value, Myrequest myrequest, ShoppingType shoppingtype,
-			Restriction restriction) {
+			Restriction restriction, Customer customer) {
 		this.value = value;
 		this.myrequest = myrequest;
 		this.shoppingtype = shoppingtype;
 		this.restriction = restriction;
+		this.customer = customer;
 	}
 
 	public int getValue() {
@@ -51,4 +54,11 @@ public class Match {
 		this.restriction = restriction;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 }

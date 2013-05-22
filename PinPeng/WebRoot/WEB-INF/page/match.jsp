@@ -4,6 +4,9 @@
 <%@page import="domain.ShoppingType"%>
 <%@page import="domain.Myrequest"%>
 <%@page import="domain.Restriction"%>
+<%@page import="compute.Match"%>
+<%@page import="domain.Customer"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -79,19 +82,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <hr/>
   
-  <%
-  		//dao.
-   %>
   
  <table frame="vsides" align="center">
  <caption>匹配结果</caption>
  <tr>
+ 	<th>订单号</th>
  	<th>姓名</th>
  	<th>性别</th>
  	<th>慷慨度</th>
  	<th>信用值</th>
  	<th>订单金额</th>
  </tr>
+<% 
+
+	List match_list=(List)ActionContext.getContext().getSession().get("match_list");
+	Iterator it=match_list.iterator();
+	while (it.hasNext()) 
+	{
+		Match match = (Match) it.next();
+		Myrequest myrequst = match.getMyrequest();
+		//ShoppingType matchshoppingtype = match.getShoppingType();
+		//Restriction matchrestriction = match.getRestriction();
+		Customer customer = match.getCustomer();
+		ActionContext.getContext().getSession().put("myrequst", myrequst);
+		ActionContext.getContext().getSession().put("mycustomer", customer);
+%>
+  <tr>
+  	<td>${myrequest.requestid}</td>
+ 	<td>${mycustomer.name}</td>
+ 	<td>男</td>
+ 	<td>${mycustomer.generosity}</td>
+ 	<td>${mycustomer.credit}</td>
+ 	<td>${myrequst.price}</td>
+ 	<td><input type="button" value="匹配"></td>
+ 	<td><input type="button" value="收藏"></td>
+ </tr>
+ <% 
+ 	}
+ 	ActionContext.getContext().getSession().remove("match_list");
+ 	ActionContext.getContext().getSession().remove("myrequest");
+ 	ActionContext.getContext().getSession().remove("mycustomer");
+ %>
+ <!--  
  <tr>
  	<td>周壮</td>
  	<td>男</td>
@@ -128,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<td><input type="button" value="匹配"></td>
  	<td><input type="button" value="收藏"></td>
  </tr>
-
+-->
  </table>
   </body>
 </html>
