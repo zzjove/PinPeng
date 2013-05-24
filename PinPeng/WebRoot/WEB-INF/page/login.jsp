@@ -18,10 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="all">
 </head>
 
 <body>
@@ -30,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         if (customer == null)
         {
     %>
-	<s:form action="login" method="post" >
+	<s:form class="form-horizontal" action="login" method="post" >
 		<div>
 				<p>
 					<label> 用户名： </label>
