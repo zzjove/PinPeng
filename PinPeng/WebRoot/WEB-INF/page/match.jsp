@@ -1,10 +1,10 @@
-<%@page import="compute.DataConverter"%>
+<%@page import="service.DataConverter"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="com.opensymphony.xwork2.ActionContext"%>
 <%@page import="domain.ShoppingType"%>
 <%@page import="domain.Myrequest"%>
 <%@page import="domain.Restriction"%>
-<%@page import="compute.Match"%>
+<%@page import="service.Match"%>
 <%@page import="domain.Customer"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%

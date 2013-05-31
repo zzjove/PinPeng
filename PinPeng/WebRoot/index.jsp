@@ -32,14 +32,14 @@
         			<span class="icon-bar"> </span>
         			<span class="icon-bar"> </span>
      			 </a>
-  				<a class="brand" href="#">拼朋</a>
+  				<a class="brand" href="index.jsp">拼朋</a>
   				<div class="nav-collapse collapse">
         			<ul class="nav">
-  						<li><a href="#">首页</a></li>
+  						<li><a href="index.jsp">首页</a></li>
   						<li class="divider-vertical"> </li>
-  						<li><a href="#">个人空间</a></li>
+  						<li><a href="viewspace">个人空间</a></li>
   						<li class="divider-vertical"> </li>
-	  					<li><a href="#">我要拼单</a></li>
+	  					<li><a href="viewsendrequest">我要拼单</a></li>
 	  					<li class="divider-vertical"> </li>
   						<li><a href="#">消息提醒</a></li>
   					</ul>

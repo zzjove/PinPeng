@@ -10,9 +10,10 @@ import java.util.List;
 
 import org.hibernate.Session;
 
+import service.ComparatorMatch;
+import service.Match;
+
 import com.opensymphony.xwork2.ActionContext;
-import compute.ComparatorMatch;
-import compute.Match;
 
 import dao.MyrequestDao;
 import domain.Customer;
@@ -45,28 +46,21 @@ public class Test {
 					.findby_requestid(temp_myrequest.getRequestid());
 			Customer temp_customer = temp_myrequest.getCustomer();
 
-			int value = compute.CalculateConverter.get_match_value(myrequest,
+			int value = service.CalculateConverter.get_match_value(myrequest,
 					temp_myrequest, shoppingtype, temp_shoppingtype,
 					restriction, temp_restriction);
-
+			
 			if (value != -1) {
-				System.out.println(temp_myrequest.getRequestid() + "    "
-						+ shoppingtype.getDiscountType() + "    "
-						+ temp_shoppingtype.getDiscountType() + "    " + value);
 				Match match = new Match(value, temp_myrequest,
 						temp_shoppingtype, temp_restriction, temp_customer);
 				match_list.add(match);
 			}
-			// System.out.println("!!!!!!");
 		}
-
-		System.out.println(match_list.size());
 
 		Collections.sort(match_list, new ComparatorMatch());
 		if (match_list.size() >= 5)
 			match_list = match_list.subList(0, 5);
-		// System.out.println();
-		// ActionContext.getContext().getSession().put("matchlist", match_list);
+
 		List<Myrequest> new_myrequest_list = new ArrayList();
 		List<ShoppingType> new_shoppingtype_list = new ArrayList();
 		List<Restriction> new_restriction_list = new ArrayList();
@@ -80,13 +74,7 @@ public class Test {
 			new_shoppingtype_list.add(match.getShoppingType());
 			new_restriction_list.add(match.getRestriction());
 			new_customer_list.add(match.getCustomer());
-		}
 
-		Iterator temp_it = new_myrequest_list.iterator();
-		while (temp_it.hasNext()) {
-			Myrequest temp_customer = (Myrequest) temp_it.next();
-			// Myrequest temp_myrequest=(Myrequest)temp_it.
-			System.out.println(temp_customer.getRequestid());
 		}
 
 	}
