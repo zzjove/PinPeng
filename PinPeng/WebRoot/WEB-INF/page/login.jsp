@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
+<jsp:include page="topmenu.jsp"></jsp:include>
 	<%
         Customer customer = (Customer)(session.getAttribute("customer"));
         if (customer == null)

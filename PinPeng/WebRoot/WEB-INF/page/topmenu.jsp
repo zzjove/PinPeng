@@ -19,45 +19,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
 
 
 </head>
 
 <body>
-<%
-        Customer customer = (Customer)(session.getAttribute("customer"));
-        if (customer == null)
-        {
-    %>
-	<div id="topNav">
-		<ul>
-			<li><a href="index.jsp"><img src="logo.png"></a></li>
-			<li><a href="index.jsp"  class="hover">home</a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
-			<li style="float:right"><a href="#">为什么选择拼朋</a></li>
-		</ul>
-	</div>
-	 <% 
-        }
-        else
-        {
-    %>
-    <div id="topNav">
-		<ul>
-			<li><a href="index.jsp"><img src="logo.png"></a></li>
-			<li><a href="index.jsp"  class="hover">home</a></li>
-			<li><a href="viewsendrequest">我要拼单</a></li>
-			<li><a href="#">啥来着</a></li>
-			<li><a href="viewspace">个人空间</a></li>
-			<li style="float:right"><a href="logout">登出</a></li>
-		</ul>
-	</div>
-    <%
-       }
-    %>
+
+<div class="navbar navbar-static-top">
+  		<div class="navbar-inner">
+  			<div class="container">
+  				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+       				<span class="icon-bar"> </span>
+        			<span class="icon-bar"> </span>
+        			<span class="icon-bar"> </span>
+     			 </a>
+  				<a class="brand" href="#">拼朋</a>
+  				<div class="nav-collapse collapse">
+        			<ul class="nav">
+  						<li><a href="#">首页</a></li>
+  						<li class="divider-vertical"> </li>
+  						<li><a href="#">个人空间</a></li>
+  						<li class="divider-vertical"> </li>
+	  					<li><a href="#">我要拼单</a></li>
+	  					<li class="divider-vertical"> </li>
+  						<li><a href="#">消息提醒</a></li>
+  					</ul>
+  					<form class="navbar-search pull-right">
+  						<input type="text" class="search-query" placeholder="Search">
+					</form>
+      			</div>
+  				
+  			</div>
+  		</div>
+  	</div>
+    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
 </html>
