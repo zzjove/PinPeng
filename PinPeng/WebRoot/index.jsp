@@ -6,6 +6,9 @@
 			+ path + "/";
 %>
 
+<import="org.apache.struts2.ServletActionContext">
+
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html">
 <html>
@@ -23,7 +26,6 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" >
 
 <body>
-	
 
 	<table width="700" border="0" align="center" >
 		<tr>

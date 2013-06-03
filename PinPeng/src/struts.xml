@@ -28,7 +28,7 @@
 		</action>
 		<action name="viewsendrequest" class="web.action.view.ViewSendrequestAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/sendrequest.jsp</result>
+			<result name="success">/WEB-INF/page/sendRequest.jsp</result>
 		</action>
 	</package>
 

@@ -1,6 +1,6 @@
 <%@page import="domain.Customer"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@page import="domain.Customer"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,7 +26,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-
+<%
+	Customer customer = (Customer) (session.getAttribute("customer"));
+        if (customer == null)
+        {
+ %>
+ <div class="navbar navbar-static-top">
+  		<div class="navbar-inner">
+  			<div class="container">
+  				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+       				<span class="icon-bar"> </span>
+        			<span class="icon-bar"> </span>
+        			<span class="icon-bar"> </span>
+     			 </a>
+  				<a class="brand" href="#">拼朋</a>
+  				<div class="nav-collapse collapse">
+        			<ul class="nav">
+  						<li><a href="index.jsp">首页</a></li>
+  						<li class="divider-vertical"> </li>
+  					</ul>
+  					<form class="navbar-search pull-right">
+  						<input type="text" class="search-query" placeholder="Search">
+					</form>
+      			</div>
+  				
+  			</div>
+  		</div>
+  	</div>
+ <%
+ 		}
+ 		else
+ 		{
+  %>
 <div class="navbar navbar-static-top">
   		<div class="navbar-inner">
   			<div class="container">
@@ -38,11 +69,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<a class="brand" href="#">拼朋</a>
   				<div class="nav-collapse collapse">
         			<ul class="nav">
-  						<li><a href="#">首页</a></li>
+  						<li><a href="index.jsp">首页</a></li>
   						<li class="divider-vertical"> </li>
-  						<li><a href="#">个人空间</a></li>
+  						<li><a href="viewspace">个人空间</a></li>
   						<li class="divider-vertical"> </li>
-	  					<li><a href="#">我要拼单</a></li>
+	  					<li><a href="viewsendrequest">我要拼单</a></li>
 	  					<li class="divider-vertical"> </li>
   						<li><a href="#">消息提醒</a></li>
   					</ul>
@@ -57,5 +88,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    
+    <% 
+    	}
+    %>
 </body>
 </html>

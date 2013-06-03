@@ -18,7 +18,6 @@ import web.formbean.SendRequestForm;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 import domain.Customer;
 import domain.Myrequest;
 import domain.Order;
@@ -125,6 +124,10 @@ public class SendRequestAction extends ActionSupport {
 		List<Myrequest> myrequest_list = dao.MyrequestDao.find_valid_request();
 		List<Match> match_list = new ArrayList<Match>();
 
+		myrequest = dao.MyrequestDao.findby_requestid(33);
+		shoppingtype = dao.ShoppingTypeDao.findby_requestid(33);
+		restriction = dao.RestrictionDao.findby_requestid(33);
+
 		Iterator<Myrequest> it = myrequest_list.iterator();
 		while (it.hasNext()) {
 
@@ -163,7 +166,7 @@ public class SendRequestAction extends ActionSupport {
 			new_shoppingtype_list.add(match.getShoppingType());
 			new_restriction_list.add(match.getRestriction());
 			new_customer_list.add(match.getCustomer());
-			
+
 		}
 
 		ActionContext.getContext().getSession()
@@ -183,8 +186,8 @@ public class SendRequestAction extends ActionSupport {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 
-		get_form_and_saveit();
-		set_to_session();
+		//get_form_and_saveit();
+		//set_to_session();
 		get_match_list();
 
 		return "success";

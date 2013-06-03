@@ -1,6 +1,5 @@
 <%@page import="service.DataConverter"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@page import="com.opensymphony.xwork2.ActionContext"%>
 <%@page import="domain.ShoppingType"%>
 <%@page import="domain.Myrequest"%>
 <%@page import="domain.Restriction"%>
@@ -95,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </tr>
 <% 
 
-	List match_list=(List)ActionContext.getContext().getSession().get("match_list");
+	List match_list=(List)session.getAttribute("match_list");
 	Iterator it=match_list.iterator();
 	while (it.hasNext()) 
 	{
@@ -104,8 +103,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//ShoppingType matchshoppingtype = match.getShoppingType();
 		//Restriction matchrestriction = match.getRestriction();
 		Customer customer = match.getCustomer();
-		ActionContext.getContext().getSession().put("myrequst", myrequst);
-		ActionContext.getContext().getSession().put("mycustomer", customer);
+		session.putValue("myrequst", myrequst);
+		session.putValue("mycustomer", customer);
 %>
   <tr>
   	<td>${myrequest.requestid}</td>
@@ -119,9 +118,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </tr>
  <% 
  	}
- 	ActionContext.getContext().getSession().remove("match_list");
- 	ActionContext.getContext().getSession().remove("myrequest");
- 	ActionContext.getContext().getSession().remove("mycustomer");
+ 	session.removeAttribute("match_list");
+ 	session.removeAttribute("myrequest");
+ 	session.removeAttribute("mycustomer");
  %>
  <!--  
  <tr>
