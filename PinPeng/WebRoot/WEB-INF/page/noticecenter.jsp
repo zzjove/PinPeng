@@ -76,11 +76,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<h3 id="myModalLabel">发送新消息</h3>
  		</div>
   		<div class="modal-body">
-    		<form class="form-horizontal">
+    		<form class="form-horizontal" action="sendnotice" method="post">
     			<div class="control-group">
     				<label class="control-label" for="inputreciever">收件人</label>
     				<div class="controls">
-    					<input type="text" name="reciever" placeholder="收件人" id="inputreciever" />
+    					<input type="text" name="send_to" placeholder="收件人" id="inputsend_to" />
     				</div>
     			</div>
     			<div class="control-group">
@@ -89,11 +89,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					<input type="textarea" rows="3" cols="20" name="content" placeholder="内容" id="inputcontent" />
     				</div>
     			</div>
+    			<div class="control-group">
+    				<!--  <div class="controls">
+    					<input type="submit" class="btn btn-primary" value="确认">
+    				</div>-->
+  					<div class="modal-footer">
+    					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+    					<button type="submit" class="btn btn-primary">发送</button>
+  					</div>
+    			</div>
     		</form>
-  		</div>
-  		<div class="modal-footer">
-    		<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-    		<button class="btn btn-primary">发送</button>
   		</div>
   	</div>
 	<script src="http://code.jquery.com/jquery.js"></script>

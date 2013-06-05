@@ -30,6 +30,10 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/sendRequest.jsp</result>
 		</action>
+		<action name="viewnoticecenter" class="web.action.view.ViewNoticeAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/noticecenter.jsp</result>
+		</action>
 	</package>
 
 	<package name="webcontrol" extends="struts-default">
@@ -49,6 +53,10 @@
 		<action name="logout" class="web.action.control.LogoutAction"
 			method="execute">
 			<result name="success">index.jsp</result>
+		</action>
+		<action name="sendnotice" class="web.action.control.SendNoticeAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
 		</action>
 	</package>
 </struts>    

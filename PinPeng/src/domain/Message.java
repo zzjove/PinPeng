@@ -1,6 +1,6 @@
 package domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Message entity. @author MyEclipse Persistence Tools
@@ -13,7 +13,7 @@ public class Message implements java.io.Serializable {
 	private Integer messageid;
 	private Customer customer;
 	private String content;
-	private Timestamp sendTime;
+	private Date sendTime;
 	private Integer sendTo;
 	private Boolean status;
 
@@ -24,7 +24,7 @@ public class Message implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Message(Customer customer, Timestamp sendTime, Integer sendTo,
+	public Message(Customer customer, Date sendTime, Integer sendTo,
 			Boolean status) {
 		this.customer = customer;
 		this.sendTime = sendTime;
@@ -33,7 +33,7 @@ public class Message implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Message(Customer customer, String content, Timestamp sendTime,
+	public Message(Customer customer, String content, Date sendTime,
 			Integer sendTo, Boolean status) {
 		this.customer = customer;
 		this.content = content;
@@ -68,11 +68,11 @@ public class Message implements java.io.Serializable {
 		this.content = content;
 	}
 
-	public Timestamp getSendTime() {
+	public Date getSendTime() {
 		return this.sendTime;
 	}
 
-	public void setSendTime(Timestamp sendTime) {
+	public void setSendTime(Date sendTime) {
 		this.sendTime = sendTime;
 	}
 

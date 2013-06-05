@@ -32,7 +32,7 @@ public class CustomerDao {
 	}
 
 	public static Customer loginby_studentid_pw(int studentid, String password) {// 通过学号与密码寻找顾客
-		
+
 		Session session = HibernateSessionFactory.getSession();
 
 		String sql = "select * from customer where studentid=";
@@ -45,18 +45,36 @@ public class CustomerDao {
 			if (customer_temp.getPassword().equals(password))
 				return customer_temp;
 		}
-		
+
 		return null;
 	}
 
-	public static void add_customer(Customer customer){
-		Session session=hibernatesession.HibernateSessionFactory.getSession();
-		Transaction transaction=session.beginTransaction();
-		
+	public static void add_customer(Customer customer) {
+		Session session = hibernatesession.HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+
 		session.save(customer);
 		session.flush();
-		
+
 		transaction.commit();
 		session.close();
+	}
+
+	public static Customer findby_name(String name) {
+		Session session = HibernateSessionFactory.getSession();
+
+		String sql = "select * from customer where name='";
+		List customer_list = session.createSQLQuery(sql + name + "';")
+				.addEntity(Customer.class).list();
+
+		session.close();
+
+		Iterator it = customer_list.iterator();
+		if (it.hasNext()) {
+			Customer customer_temp = (Customer) it.next();
+			return customer_temp;
+		} else {
+			return null;
+		}
 	}
 }
