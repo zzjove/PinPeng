@@ -217,16 +217,19 @@ public class SendRequestForm {
 		return shoppingtype;
 	}
 
-	public Order get_order(Myrequest myrequest){
-		
-		Order order=new Order();
-		
-		order.setStatus(1);
-		order.setBeginTime(myrequest.getMyrequestTime());
-		order.setMaxPeople(1);
-		order.setDiscountMoney(0);
-		order.setPrice(myrequest.getPrice());
-		
-		return order;
-	}
+//	public Order get_order(Myrequest myrequest,Restriction restriction){
+//		
+//		Order order=new Order();
+//		
+//		order.setBeginTime(myrequest.getMyrequestTime());
+//		order.setBuyLimited(buyLimited)
+//		
+//		order.setStatus(1);
+//		order.setBeginTime(myrequest.getMyrequestTime());
+//		order.setMaxPeople(1);
+//		order.setDiscountMoney(0);
+//		order.setPrice(myrequest.getPrice());
+//		
+//		return order;
+//	}
 }

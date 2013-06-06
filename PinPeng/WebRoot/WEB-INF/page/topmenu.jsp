@@ -76,6 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  					<li><a href="viewsendrequest">我要拼单</a></li>
 	  					<li class="divider-vertical"> </li>
   						<li><a href="viewnoticecenter">消息提醒</a></li>
+	  					<li class="divider-vertical"> </li>
+  						<li><a href="logout">登出</a></li>
   					</ul>
   					<form class="navbar-search pull-right">
   						<input type="text" class="search-query" placeholder="Search">

@@ -52,7 +52,14 @@ public class SendRequestAction extends ActionSupport {
 		restriction = form.get_restriction(myrequest); // 得到restriction并且保存
 		dao.RestrictionDao.add_restriction(restriction);
 
-		Order order = form.get_order(myrequest); // 产生新的一个order
+		// 产生新的一个order
+		Order order = new Order(1, myrequest.getMyrequestTime(),
+				restriction.getEndDay(), restriction.getMaxPeople(), 20,
+				myrequest.getPrice(), 1, restriction.getPayment(),
+				restriction.getPayer(), restriction.getDormLimited(),
+				restriction.getOthertakeLimited(), restriction.getManLimited(),
+				restriction.getBuyLimited(), restriction.getGoodsFree(), null); 
+		dao.OrderDao.add_order(order);		//将order保存至数据库
 	}
 
 	private void set_to_session() { // 将form中的信息放入session
@@ -149,7 +156,7 @@ public class SendRequestAction extends ActionSupport {
 			}
 		}
 
-		Collections.sort(match_list, new ComparatorMatch());
+		Collections.sort(match_list, new ComparatorMatch()); // 对match_list加权排序
 		if (match_list.size() >= 5)
 			match_list = match_list.subList(0, 5);
 
@@ -186,8 +193,8 @@ public class SendRequestAction extends ActionSupport {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 
-		//get_form_and_saveit();
-		//set_to_session();
+		get_form_and_saveit();
+		set_to_session();
 		get_match_list();
 
 		return "success";
