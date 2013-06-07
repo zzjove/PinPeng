@@ -61,7 +61,7 @@ public class CalculateConverter {
 							.getGoodsFree()) {
 				result = result + service.ConstantValue.GOODSFREE_VALUE;
 			}
-
+			///
 			return result;
 		}
 
