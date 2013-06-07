@@ -2,6 +2,7 @@ package web.action.control;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.apache.struts2.ServletActionContext;
 
 import service.ComparatorMatch;
 import service.Match;
+import sun.print.resources.serviceui;
 import web.formbean.SendRequestForm;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -21,8 +23,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Customer;
 import domain.Myrequest;
-import domain.Order;
-import domain.OrderRequest;
+import domain.Myorder;
 import domain.Restriction;
 import domain.ShoppingType;
 
@@ -32,6 +33,7 @@ public class SendRequestAction extends ActionSupport {
 	private ShoppingType shoppingtype;
 	private Restriction restriction;
 	private Customer customer;
+	private Myorder order;
 
 	private void get_form_and_saveit() { // 从form中得到信息并存入数据库
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -57,17 +59,15 @@ public class SendRequestAction extends ActionSupport {
 		// 产生新的一个order
 		Set myrequest_set = new HashSet();
 		myrequest_set.add(myrequest);
-		Set customer_set = new HashSet();
-		customer_set.add(customer);
+		Set shoppingtype_set = new HashSet();
+		shoppingtype_set.add(shoppingtype);
+		Set restriction_set = new HashSet();
+		restriction_set.add(restriction);
 
-		Order order = new Order(1, myrequest.getMyrequestTime(),
-				restriction.getEndDay(), restriction.getMaxPeople(), 20,
-				myrequest.getPrice(), 1, restriction.getPayment(),
-				restriction.getPayer(), restriction.getDormLimited(),
-				restriction.getOthertakeLimited(), restriction.getManLimited(),
-				restriction.getBuyLimited(), restriction.getGoodsFree(),
-				myrequest_set, customer_set);
-		dao.OrderDao.add_order(order); // 将order保存至数据库
+		order = new Myorder(customer, 1, new Date(), myrequest.getPrice(), 1,
+				myrequest.getAmount(), myrequest.getWeight(), shoppingtype_set,
+				myrequest_set, restriction_set);
+		dao.MyorderDao.add_order(order); // 将order保存至数据库
 
 	}
 
@@ -136,8 +136,9 @@ public class SendRequestAction extends ActionSupport {
 								.getBuyLimited()));
 	}
 
-	private void get_match_list() { // 得到匹配列表
-		List<Myrequest> myrequest_list = dao.MyrequestDao.find_valid_request();
+	private void get_match_request_list() { // 得到匹配列表
+		List<Myrequest> myrequest_list = dao.MyrequestDao
+				.find_valid_request_list(); // 找到相匹配的request
 		List<Match> match_list = new ArrayList<Match>();
 
 		myrequest = dao.MyrequestDao.findby_requestid(33);
@@ -198,13 +199,23 @@ public class SendRequestAction extends ActionSupport {
 
 	}
 
+	private void get_match_order_list() {
+		List<Myorder> myorder_list = dao.MyorderDao.find_valid_order_list();
+		Iterator<Myorder> it = myorder_list.iterator();
+		while (it.hasNext()) {
+			Myorder temp_myorder = (Myorder) it.next();
+			int value = service.CalculateConverter.get_match_value();
+		}
+		// List<Match>=
+	}
+
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 
 		get_form_and_saveit();
 		set_to_session();
-		get_match_list();
+		// get_match_request_list();
 
 		return "success";
 	}

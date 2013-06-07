@@ -82,13 +82,11 @@
             </key>
             <one-to-many class="domain.Evaluation" />
         </set>
-        <set name="orders" inverse="true" table="customer_order" catalog="pinpeng_db">
+        <set name="myorders" inverse="true">
             <key>
                 <column name="customerid" not-null="true" />
             </key>
-            <many-to-many entity-name="domain.Order">
-                <column name="orderid" not-null="true" />
-            </many-to-many>
+            <one-to-many class="domain.Myorder" />
         </set>
         <set name="messages" inverse="true">
             <key>

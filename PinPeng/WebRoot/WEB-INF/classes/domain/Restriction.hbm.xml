@@ -11,16 +11,16 @@
             <generator class="native" />
         </id>
         <many-to-one name="myrequest" class="domain.Myrequest" fetch="select">
-            <column name="requestid" not-null="true" />
+            <column name="requestid" />
+        </many-to-one>
+        <many-to-one name="myorder" class="domain.Myorder" fetch="select">
+            <column name="orderid" />
         </many-to-one>
         <property name="maxPeople" type="integer">
             <column name="max_people" not-null="true" />
         </property>
         <property name="endDay" type="date">
-            <column name="end_day" length="10" />
-        </property>
-        <property name="payment" type="integer">
-            <column name="payment" />
+            <column name="end_day" length="10" not-null="true" />
         </property>
         <property name="payer" type="integer">
             <column name="payer" not-null="true" />

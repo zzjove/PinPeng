@@ -23,7 +23,7 @@ public class Myrequest implements java.io.Serializable {
 	private Set restrictions = new HashSet(0);
 	private Set shoppingTypes = new HashSet(0);
 	private Set customers = new HashSet(0);
-	private Set orders = new HashSet(0);
+	private Set myorders = new HashSet(0);
 
 	// Constructors
 
@@ -45,7 +45,7 @@ public class Myrequest implements java.io.Serializable {
 	/** full constructor */
 	public Myrequest(Customer customer, Date myrequestTime, String content,
 			double price, Integer status, Integer amount, Integer weight,
-			Set restrictions, Set shoppingTypes, Set customers, Set orders) {
+			Set restrictions, Set shoppingTypes, Set customers, Set myorders) {
 		this.customer = customer;
 		this.myrequestTime = myrequestTime;
 		this.content = content;
@@ -56,7 +56,7 @@ public class Myrequest implements java.io.Serializable {
 		this.restrictions = restrictions;
 		this.shoppingTypes = shoppingTypes;
 		this.customers = customers;
-		this.orders = orders;
+		this.myorders = myorders;
 	}
 
 	// Property accessors
@@ -149,12 +149,12 @@ public class Myrequest implements java.io.Serializable {
 		this.customers = customers;
 	}
 
-	public Set getOrders() {
-		return this.orders;
+	public Set getMyorders() {
+		return this.myorders;
 	}
 
-	public void setOrders(Set orders) {
-		this.orders = orders;
+	public void setMyorders(Set myorders) {
+		this.myorders = myorders;
 	}
 
 }

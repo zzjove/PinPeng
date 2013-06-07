@@ -28,7 +28,7 @@ public class Customer implements java.io.Serializable {
 	private Set myrequests = new HashSet(0);
 	private Set myrequests_1 = new HashSet(0);
 	private Set evaluationsForRecordId = new HashSet(0);
-	private Set orders = new HashSet(0);
+	private Set myorders = new HashSet(0);
 	private Set messages = new HashSet(0);
 
 	// Constructors
@@ -48,7 +48,7 @@ public class Customer implements java.io.Serializable {
 			String password, boolean sex, String email,
 			Set customersForCustomeridB, Set customersForCustomeridA,
 			Set evaluationsForBeRecordedId, Set myrequests, Set myrequests_1,
-			Set evaluationsForRecordId, Set orders, Set messages) {
+			Set evaluationsForRecordId, Set myorders, Set messages) {
 		this.studentid = studentid;
 		this.credit = credit;
 		this.dormitory = dormitory;
@@ -65,7 +65,7 @@ public class Customer implements java.io.Serializable {
 		this.myrequests = myrequests;
 		this.myrequests_1 = myrequests_1;
 		this.evaluationsForRecordId = evaluationsForRecordId;
-		this.orders = orders;
+		this.myorders = myorders;
 		this.messages = messages;
 	}
 
@@ -207,12 +207,12 @@ public class Customer implements java.io.Serializable {
 		this.evaluationsForRecordId = evaluationsForRecordId;
 	}
 
-	public Set getOrders() {
-		return this.orders;
+	public Set getMyorders() {
+		return this.myorders;
 	}
 
-	public void setOrders(Set orders) {
-		this.orders = orders;
+	public void setMyorders(Set myorders) {
+		this.myorders = myorders;
 	}
 
 	public Set getMessages() {

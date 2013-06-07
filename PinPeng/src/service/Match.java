@@ -1,6 +1,7 @@
 package service;
 
 import domain.Customer;
+import domain.Myorder;
 import domain.Myrequest;
 import domain.Restriction;
 import domain.ShoppingType;
@@ -12,6 +13,7 @@ public class Match {
 	private ShoppingType shoppingtype;
 	private Restriction restriction;
 	private Customer customer;
+	private Myorder	myorder;
 
 	public Match(int value, Myrequest myrequest, ShoppingType shoppingtype,
 			Restriction restriction, Customer customer) {

@@ -33,13 +33,13 @@
         </property>
         <set name="restrictions" inverse="true">
             <key>
-                <column name="requestid" not-null="true" />
+                <column name="requestid" />
             </key>
             <one-to-many class="domain.Restriction" />
         </set>
         <set name="shoppingTypes" inverse="true">
             <key>
-                <column name="requestid" not-null="true" />
+                <column name="requestid" />
             </key>
             <one-to-many class="domain.ShoppingType" />
         </set>
@@ -51,11 +51,11 @@
                 <column name="customerid" not-null="true" />
             </many-to-many>
         </set>
-        <set name="orders" inverse="true" table="order_request" catalog="pinpeng_db">
+        <set name="myorders" table="order_request" catalog="pinpeng_db">
             <key>
                 <column name="requestid" not-null="true" />
             </key>
-            <many-to-many entity-name="domain.Order">
+            <many-to-many entity-name="domain.Myorder">
                 <column name="orderid" not-null="true" />
             </many-to-many>
         </set>

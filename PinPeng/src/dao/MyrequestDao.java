@@ -77,7 +77,7 @@ public class MyrequestDao {
 		return max;
 	}
 
-	public static List find_valid_request() {// 寻找所有有效的request
+	public static List find_valid_request_list() {// 寻找所有有效的request
 
 		Session session = hibernatesession.HibernateSessionFactory.getSession();
 

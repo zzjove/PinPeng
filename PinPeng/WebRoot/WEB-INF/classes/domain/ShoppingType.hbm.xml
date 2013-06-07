@@ -11,7 +11,10 @@
             <generator class="native" />
         </id>
         <many-to-one name="myrequest" class="domain.Myrequest" fetch="select">
-            <column name="requestid" not-null="true" />
+            <column name="requestid" />
+        </many-to-one>
+        <many-to-one name="myorder" class="domain.Myorder" fetch="select">
+            <column name="orderid" />
         </many-to-one>
         <property name="amountTo" type="double">
             <column name="amount_to" precision="11" />

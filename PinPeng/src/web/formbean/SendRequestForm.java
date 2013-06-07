@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ActionContext;
 
 import domain.Customer;
 import domain.Myrequest;
-import domain.Order;
 import domain.Restriction;
 import domain.ShoppingType;
 

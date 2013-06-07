@@ -31,13 +31,13 @@
 		<mapping resource="domain/Preference.hbm.xml" />
 		<mapping resource="domain/Customer.hbm.xml" />
 		<mapping resource="domain/Restriction.hbm.xml" />
-		<mapping resource="domain/Order.hbm.xml" />
 		<mapping resource="domain/Evaluation.hbm.xml" />
 		<mapping resource="domain/OrderRequest.hbm.xml" />
 		<mapping resource="domain/Admin.hbm.xml" />
 		<mapping resource="domain/Message.hbm.xml" />
 		<mapping resource="domain/Friendship.hbm.xml" />
 		<mapping resource="domain/Myrequest.hbm.xml" />
+		<mapping resource="domain/Myorder.hbm.xml" />
 
 	</session-factory>
 
