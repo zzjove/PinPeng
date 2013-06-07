@@ -6,35 +6,35 @@
 -->
 <hibernate-mapping>
     <class name="domain.ShoppingType" table="shopping_type" catalog="pinpeng_db">
-        <id name="shoppingTypeid" type="java.lang.Integer">
+        <id name="shoppingTypeid" type="integer">
             <column name="shopping_typeid" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
         <many-to-one name="myrequest" class="domain.Myrequest" fetch="select">
             <column name="requestid" not-null="true" />
         </many-to-one>
-        <property name="amountTo" type="java.lang.Double">
+        <property name="amountTo" type="double">
             <column name="amount_to" precision="11" />
         </property>
-        <property name="discountDown" type="java.lang.Double">
+        <property name="discountDown" type="double">
             <column name="discount_down" precision="11" />
         </property>
-        <property name="discountRate" type="java.lang.Double">
+        <property name="discountRate" type="double">
             <column name="discount_rate" precision="11" />
         </property>
-        <property name="quantityTo" type="java.lang.Double">
+        <property name="quantityTo" type="double">
             <column name="quantity_to" precision="11" />
         </property>
-        <property name="freePost" type="java.lang.Double">
+        <property name="freePost" type="double">
             <column name="free_post" precision="11" />
         </property>
-        <property name="shoppingStore" type="java.lang.Integer">
+        <property name="shoppingStore" type="integer">
             <column name="shopping_store" not-null="true" />
         </property>
-        <property name="subShoppingStore" type="java.lang.String">
+        <property name="subShoppingStore" type="string">
             <column name="sub_shopping_store" length="32" />
         </property>
-        <property name="discountType" type="java.lang.Integer">
+        <property name="discountType" type="integer">
             <column name="discount_type" not-null="true" />
         </property>
     </class>

@@ -6,9 +6,9 @@
 -->
 <hibernate-mapping>
     <class name="domain.Evaluation" table="evaluation" catalog="pinpeng_db">
-        <id name="evaluationid" type="java.lang.Integer">
+        <id name="evaluationid" type="integer">
             <column name="evaluationid" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
         <many-to-one name="customerByBeRecordedId" class="domain.Customer" fetch="select">
             <column name="be_recorded_id" not-null="true" />
@@ -16,10 +16,10 @@
         <many-to-one name="customerByRecordId" class="domain.Customer" fetch="select">
             <column name="record_id" not-null="true" />
         </many-to-one>
-        <property name="assess" type="java.lang.Integer">
+        <property name="assess" type="integer">
             <column name="assess" not-null="true" />
         </property>
-        <property name="recordTime" type="java.sql.Timestamp">
+        <property name="recordTime" type="timestamp">
             <column name="record_time" length="19" not-null="true" />
         </property>
     </class>

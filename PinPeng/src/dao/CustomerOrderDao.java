@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import domain.CustomerOrder;
+import domain.CustomerOrderId;
 
 public class CustomerOrderDao {
 
@@ -45,11 +46,11 @@ public class CustomerOrderDao {
 		}
 	}
 
-	public static void add_CustomerOrder(CustomerOrder customerorder) {
+	public static void add_CustomerOrderId(CustomerOrderId customerorderid) {
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
 
-		session.update(customerorder);
+		session.update(customerorderid);
 		session.flush();
 
 		transaction.commit();

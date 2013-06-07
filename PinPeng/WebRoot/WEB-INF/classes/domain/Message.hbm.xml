@@ -6,23 +6,23 @@
 -->
 <hibernate-mapping>
     <class name="domain.Message" table="message" catalog="pinpeng_db">
-        <id name="messageid" type="java.lang.Integer">
+        <id name="messageid" type="integer">
             <column name="messageid" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
         <many-to-one name="customer" class="domain.Customer" fetch="select">
             <column name="customerid" not-null="true" />
         </many-to-one>
-        <property name="content" type="java.lang.String">
+        <property name="content" type="string">
             <column name="content" length="65535" />
         </property>
-        <property name="sendTime" type="java.sql.Timestamp">
+        <property name="sendTime" type="timestamp">
             <column name="send_time" length="19" not-null="true" />
         </property>
-        <property name="sendTo" type="java.lang.Integer">
+        <property name="sendTo" type="integer">
             <column name="send_to" not-null="true" />
         </property>
-        <property name="status" type="java.lang.Boolean">
+        <property name="status" type="boolean">
             <column name="status" not-null="true" />
         </property>
     </class>

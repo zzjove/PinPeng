@@ -14,7 +14,7 @@ public class Admin implements java.io.Serializable {
 	private Integer adminid;
 	private String name;
 	private String password;
-	private Boolean sex;
+	private boolean sex;
 	private Set discounts = new HashSet(0);
 
 	// Constructors
@@ -24,14 +24,14 @@ public class Admin implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Admin(String name, String password, Boolean sex) {
+	public Admin(String name, String password, boolean sex) {
 		this.name = name;
 		this.password = password;
 		this.sex = sex;
 	}
 
 	/** full constructor */
-	public Admin(String name, String password, Boolean sex, Set discounts) {
+	public Admin(String name, String password, boolean sex, Set discounts) {
 		this.name = name;
 		this.password = password;
 		this.sex = sex;
@@ -64,11 +64,11 @@ public class Admin implements java.io.Serializable {
 		this.password = password;
 	}
 
-	public Boolean getSex() {
+	public boolean getSex() {
 		return this.sex;
 	}
 
-	public void setSex(Boolean sex) {
+	public void setSex(boolean sex) {
 		this.sex = sex;
 	}
 

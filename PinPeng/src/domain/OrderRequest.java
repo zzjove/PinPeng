@@ -10,6 +10,8 @@ public class OrderRequest implements java.io.Serializable {
 
 	private OrderRequestId id;
 	private Myrequest myrequestByToRequestid;
+	private Myrequest myrequestByRequestid;
+	private Order order;
 
 	// Constructors
 
@@ -18,9 +20,12 @@ public class OrderRequest implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public OrderRequest(OrderRequestId id, Myrequest myrequestByToRequestid) {
+	public OrderRequest(OrderRequestId id, Myrequest myrequestByToRequestid,
+			Myrequest myrequestByRequestid, Order order) {
 		this.id = id;
 		this.myrequestByToRequestid = myrequestByToRequestid;
+		this.myrequestByRequestid = myrequestByRequestid;
+		this.order = order;
 	}
 
 	// Property accessors
@@ -39,6 +44,22 @@ public class OrderRequest implements java.io.Serializable {
 
 	public void setMyrequestByToRequestid(Myrequest myrequestByToRequestid) {
 		this.myrequestByToRequestid = myrequestByToRequestid;
+	}
+
+	public Myrequest getMyrequestByRequestid() {
+		return this.myrequestByRequestid;
+	}
+
+	public void setMyrequestByRequestid(Myrequest myrequestByRequestid) {
+		this.myrequestByRequestid = myrequestByRequestid;
+	}
+
+	public Order getOrder() {
+		return this.order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 }

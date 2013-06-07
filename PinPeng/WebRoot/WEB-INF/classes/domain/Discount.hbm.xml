@@ -6,26 +6,26 @@
 -->
 <hibernate-mapping>
     <class name="domain.Discount" table="discount" catalog="pinpeng_db">
-        <id name="discountid" type="java.lang.Integer">
+        <id name="discountid" type="integer">
             <column name="discountid" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
         <many-to-one name="admin" class="domain.Admin" fetch="select">
             <column name="adminid" not-null="true" />
         </many-to-one>
-        <property name="shoppingStore" type="java.lang.Integer">
+        <property name="shoppingStore" type="integer">
             <column name="shopping_store" not-null="true" />
         </property>
-        <property name="pictureUrl" type="java.lang.String">
+        <property name="pictureUrl" type="string">
             <column name="picture_url" not-null="true" />
         </property>
-        <property name="website" type="java.lang.String">
+        <property name="website" type="string">
             <column name="website" not-null="true" />
         </property>
-        <property name="status" type="java.lang.Integer">
+        <property name="status" type="integer">
             <column name="status" not-null="true" />
         </property>
-        <property name="time" type="java.sql.Timestamp">
+        <property name="time" type="timestamp">
             <column name="time" length="19" not-null="true" />
         </property>
     </class>

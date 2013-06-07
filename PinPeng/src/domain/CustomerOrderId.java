@@ -9,7 +9,7 @@ public class CustomerOrderId implements java.io.Serializable {
 	// Fields
 
 	private Customer customer;
-	private Integer orderid;
+	private Order order;
 
 	// Constructors
 
@@ -18,9 +18,9 @@ public class CustomerOrderId implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CustomerOrderId(Customer customer, Integer orderid) {
+	public CustomerOrderId(Customer customer, Order order) {
 		this.customer = customer;
-		this.orderid = orderid;
+		this.order = order;
 	}
 
 	// Property accessors
@@ -33,12 +33,12 @@ public class CustomerOrderId implements java.io.Serializable {
 		this.customer = customer;
 	}
 
-	public Integer getOrderid() {
-		return this.orderid;
+	public Order getOrder() {
+		return this.order;
 	}
 
-	public void setOrderid(Integer orderid) {
-		this.orderid = orderid;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public boolean equals(Object other) {
@@ -53,9 +53,9 @@ public class CustomerOrderId implements java.io.Serializable {
 		return ((this.getCustomer() == castOther.getCustomer()) || (this
 				.getCustomer() != null && castOther.getCustomer() != null && this
 				.getCustomer().equals(castOther.getCustomer())))
-				&& ((this.getOrderid() == castOther.getOrderid()) || (this
-						.getOrderid() != null && castOther.getOrderid() != null && this
-						.getOrderid().equals(castOther.getOrderid())));
+				&& ((this.getOrder() == castOther.getOrder()) || (this
+						.getOrder() != null && castOther.getOrder() != null && this
+						.getOrder().equals(castOther.getOrder())));
 	}
 
 	public int hashCode() {
@@ -64,7 +64,7 @@ public class CustomerOrderId implements java.io.Serializable {
 		result = 37 * result
 				+ (getCustomer() == null ? 0 : this.getCustomer().hashCode());
 		result = 37 * result
-				+ (getOrderid() == null ? 0 : this.getOrderid().hashCode());
+				+ (getOrder() == null ? 0 : this.getOrder().hashCode());
 		return result;
 	}
 

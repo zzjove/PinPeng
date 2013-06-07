@@ -1,6 +1,5 @@
 package domain;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,15 +16,14 @@ public class Myrequest implements java.io.Serializable {
 	private Customer customer;
 	private Date myrequestTime;
 	private String content;
-	private Double price;
+	private double price;
 	private Integer status;
 	private Integer amount;
 	private Integer weight;
 	private Set restrictions = new HashSet(0);
 	private Set shoppingTypes = new HashSet(0);
-	private Set preferences = new HashSet(0);
-	private Set orderRequestsForToRequestid = new HashSet(0);
-	private Set orderRequestsForRequestid = new HashSet(0);
+	private Set customers = new HashSet(0);
+	private Set orders = new HashSet(0);
 
 	// Constructors
 
@@ -34,7 +32,7 @@ public class Myrequest implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Myrequest(Customer customer, Timestamp myrequestTime, Double price,
+	public Myrequest(Customer customer, Date myrequestTime, double price,
 			Integer status, Integer amount, Integer weight) {
 		this.customer = customer;
 		this.myrequestTime = myrequestTime;
@@ -45,11 +43,9 @@ public class Myrequest implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Myrequest(Customer customer, Timestamp myrequestTime,
-			String content, Double price, Integer status, Integer amount,
-			Integer weight, Set restrictions, Set shoppingTypes,
-			Set preferences, Set orderRequestsForToRequestid,
-			Set orderRequestsForRequestid) {
+	public Myrequest(Customer customer, Date myrequestTime, String content,
+			double price, Integer status, Integer amount, Integer weight,
+			Set restrictions, Set shoppingTypes, Set customers, Set orders) {
 		this.customer = customer;
 		this.myrequestTime = myrequestTime;
 		this.content = content;
@@ -59,9 +55,8 @@ public class Myrequest implements java.io.Serializable {
 		this.weight = weight;
 		this.restrictions = restrictions;
 		this.shoppingTypes = shoppingTypes;
-		this.preferences = preferences;
-		this.orderRequestsForToRequestid = orderRequestsForToRequestid;
-		this.orderRequestsForRequestid = orderRequestsForRequestid;
+		this.customers = customers;
+		this.orders = orders;
 	}
 
 	// Property accessors
@@ -98,11 +93,11 @@ public class Myrequest implements java.io.Serializable {
 		this.content = content;
 	}
 
-	public Double getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -146,28 +141,20 @@ public class Myrequest implements java.io.Serializable {
 		this.shoppingTypes = shoppingTypes;
 	}
 
-	public Set getPreferences() {
-		return this.preferences;
+	public Set getCustomers() {
+		return this.customers;
 	}
 
-	public void setPreferences(Set preferences) {
-		this.preferences = preferences;
+	public void setCustomers(Set customers) {
+		this.customers = customers;
 	}
 
-	public Set getOrderRequestsForToRequestid() {
-		return this.orderRequestsForToRequestid;
+	public Set getOrders() {
+		return this.orders;
 	}
 
-	public void setOrderRequestsForToRequestid(Set orderRequestsForToRequestid) {
-		this.orderRequestsForToRequestid = orderRequestsForToRequestid;
-	}
-
-	public Set getOrderRequestsForRequestid() {
-		return this.orderRequestsForRequestid;
-	}
-
-	public void setOrderRequestsForRequestid(Set orderRequestsForRequestid) {
-		this.orderRequestsForRequestid = orderRequestsForRequestid;
+	public void setOrders(Set orders) {
+		this.orders = orders;
 	}
 
 }

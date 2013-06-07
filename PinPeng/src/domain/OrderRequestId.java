@@ -8,8 +8,9 @@ public class OrderRequestId implements java.io.Serializable {
 
 	// Fields
 
-	private Order order;
-	private Myrequest myrequest;
+	private Integer orderid;
+	private Integer requestid;
+	private Integer toRequestid;
 
 	// Constructors
 
@@ -18,27 +19,37 @@ public class OrderRequestId implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public OrderRequestId(Order order, Myrequest myrequest) {
-		this.order = order;
-		this.myrequest = myrequest;
+	public OrderRequestId(Integer orderid, Integer requestid,
+			Integer toRequestid) {
+		this.orderid = orderid;
+		this.requestid = requestid;
+		this.toRequestid = toRequestid;
 	}
 
 	// Property accessors
 
-	public Order getOrder() {
-		return this.order;
+	public Integer getOrderid() {
+		return this.orderid;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrderid(Integer orderid) {
+		this.orderid = orderid;
 	}
 
-	public Myrequest getMyrequest() {
-		return this.myrequest;
+	public Integer getRequestid() {
+		return this.requestid;
 	}
 
-	public void setMyrequest(Myrequest myrequest) {
-		this.myrequest = myrequest;
+	public void setRequestid(Integer requestid) {
+		this.requestid = requestid;
+	}
+
+	public Integer getToRequestid() {
+		return this.toRequestid;
+	}
+
+	public void setToRequestid(Integer toRequestid) {
+		this.toRequestid = toRequestid;
 	}
 
 	public boolean equals(Object other) {
@@ -50,22 +61,30 @@ public class OrderRequestId implements java.io.Serializable {
 			return false;
 		OrderRequestId castOther = (OrderRequestId) other;
 
-		return ((this.getOrder() == castOther.getOrder()) || (this.getOrder() != null
-				&& castOther.getOrder() != null && this.getOrder().equals(
-				castOther.getOrder())))
-				&& ((this.getMyrequest() == castOther.getMyrequest()) || (this
-						.getMyrequest() != null
-						&& castOther.getMyrequest() != null && this
-						.getMyrequest().equals(castOther.getMyrequest())));
+		return ((this.getOrderid() == castOther.getOrderid()) || (this
+				.getOrderid() != null && castOther.getOrderid() != null && this
+				.getOrderid().equals(castOther.getOrderid())))
+				&& ((this.getRequestid() == castOther.getRequestid()) || (this
+						.getRequestid() != null
+						&& castOther.getRequestid() != null && this
+						.getRequestid().equals(castOther.getRequestid())))
+				&& ((this.getToRequestid() == castOther.getToRequestid()) || (this
+						.getToRequestid() != null
+						&& castOther.getToRequestid() != null && this
+						.getToRequestid().equals(castOther.getToRequestid())));
 	}
 
 	public int hashCode() {
 		int result = 17;
 
 		result = 37 * result
-				+ (getOrder() == null ? 0 : this.getOrder().hashCode());
+				+ (getOrderid() == null ? 0 : this.getOrderid().hashCode());
 		result = 37 * result
-				+ (getMyrequest() == null ? 0 : this.getMyrequest().hashCode());
+				+ (getRequestid() == null ? 0 : this.getRequestid().hashCode());
+		result = 37
+				* result
+				+ (getToRequestid() == null ? 0 : this.getToRequestid()
+						.hashCode());
 		return result;
 	}
 

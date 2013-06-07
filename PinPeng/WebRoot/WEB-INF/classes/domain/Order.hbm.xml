@@ -6,57 +6,67 @@
 -->
 <hibernate-mapping>
     <class name="domain.Order" table="order" catalog="pinpeng_db">
-        <id name="orderid" type="java.lang.Integer">
+        <id name="orderid" type="integer">
             <column name="orderid" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
-        <property name="status" type="java.lang.Integer">
+        <property name="status" type="integer">
             <column name="status" not-null="true" />
         </property>
-        <property name="beginTime" type="java.sql.Timestamp">
+        <property name="beginTime" type="timestamp">
             <column name="begin_time" length="19" not-null="true" />
         </property>
-        <property name="endTime" type="java.sql.Timestamp">
+        <property name="endTime" type="timestamp">
             <column name="end_time" length="19" />
         </property>
-        <property name="maxPeople" type="java.lang.Integer">
+        <property name="maxPeople" type="integer">
             <column name="max_people" not-null="true" />
         </property>
-        <property name="discountMoney" type="java.lang.Integer">
+        <property name="discountMoney" type="integer">
             <column name="discount_money" not-null="true" />
         </property>
-        <property name="price" type="java.lang.Double">
+        <property name="price" type="double">
             <column name="price" precision="11" not-null="true" />
         </property>
-        <property name="numberPeople" type="java.lang.Integer">
+        <property name="numberPeople" type="integer">
             <column name="number_people" not-null="true" />
         </property>
-        <property name="payment" type="java.lang.Integer">
+        <property name="payment" type="integer">
             <column name="payment" not-null="true" />
         </property>
-        <property name="payer" type="java.lang.Integer">
+        <property name="payer" type="integer">
             <column name="payer" not-null="true" />
         </property>
-        <property name="dormLimited" type="java.lang.Integer">
+        <property name="dormLimited" type="integer">
             <column name="dorm_limited" not-null="true" />
         </property>
-        <property name="othertakeLimited" type="java.lang.Integer">
+        <property name="othertakeLimited" type="integer">
             <column name="othertake_limited" not-null="true" />
         </property>
-        <property name="manLimited" type="java.lang.Integer">
+        <property name="manLimited" type="integer">
             <column name="man_limited" not-null="true" />
         </property>
-        <property name="buyLimited" type="java.lang.Integer">
+        <property name="buyLimited" type="integer">
             <column name="buy_limited" not-null="true" />
         </property>
-        <property name="goodsFree" type="java.lang.Integer">
+        <property name="goodsFree" type="integer">
             <column name="goods_free" not-null="true" />
         </property>
-        <set name="orderRequests" inverse="true">
+        <set name="myrequests" table="order_request" catalog="pinpeng_db">
             <key>
                 <column name="orderid" not-null="true" />
             </key>
-            <one-to-many class="domain.OrderRequest" />
+            <many-to-many entity-name="domain.Myrequest">
+                <column name="requestid" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="customers" table="customer_order" catalog="pinpeng_db">
+            <key>
+                <column name="orderid" not-null="true" />
+            </key>
+            <many-to-many entity-name="domain.Customer">
+                <column name="customerid" not-null="true" />
+            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>

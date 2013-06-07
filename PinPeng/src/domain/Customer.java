@@ -20,15 +20,15 @@ public class Customer implements java.io.Serializable {
 	private Integer generosity;
 	private String name;
 	private String password;
-	private Boolean sex;
+	private boolean sex;
 	private String email;
-	private Set friendshipsForCustomeridA = new HashSet(0);
-	private Set friendshipsForCustomeridB = new HashSet(0);
+	private Set customersForCustomeridB = new HashSet(0);
+	private Set customersForCustomeridA = new HashSet(0);
 	private Set evaluationsForBeRecordedId = new HashSet(0);
-	private Set preferences = new HashSet(0);
 	private Set myrequests = new HashSet(0);
+	private Set myrequests_1 = new HashSet(0);
 	private Set evaluationsForRecordId = new HashSet(0);
-	private Set customerOrders = new HashSet(0);
+	private Set orders = new HashSet(0);
 	private Set messages = new HashSet(0);
 
 	// Constructors
@@ -45,10 +45,10 @@ public class Customer implements java.io.Serializable {
 	/** full constructor */
 	public Customer(Integer studentid, Integer credit, Integer dormitory,
 			String telNumber, String qqNumber, Integer generosity, String name,
-			String password, Boolean sex, String email,
-			Set friendshipsForCustomeridA, Set friendshipsForCustomeridB,
-			Set evaluationsForBeRecordedId, Set preferences, Set myrequests,
-			Set evaluationsForRecordId, Set customerOrders, Set messages) {
+			String password, boolean sex, String email,
+			Set customersForCustomeridB, Set customersForCustomeridA,
+			Set evaluationsForBeRecordedId, Set myrequests, Set myrequests_1,
+			Set evaluationsForRecordId, Set orders, Set messages) {
 		this.studentid = studentid;
 		this.credit = credit;
 		this.dormitory = dormitory;
@@ -59,13 +59,13 @@ public class Customer implements java.io.Serializable {
 		this.password = password;
 		this.sex = sex;
 		this.email = email;
-		this.friendshipsForCustomeridA = friendshipsForCustomeridA;
-		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
+		this.customersForCustomeridB = customersForCustomeridB;
+		this.customersForCustomeridA = customersForCustomeridA;
 		this.evaluationsForBeRecordedId = evaluationsForBeRecordedId;
-		this.preferences = preferences;
 		this.myrequests = myrequests;
+		this.myrequests_1 = myrequests_1;
 		this.evaluationsForRecordId = evaluationsForRecordId;
-		this.customerOrders = customerOrders;
+		this.orders = orders;
 		this.messages = messages;
 	}
 
@@ -143,11 +143,11 @@ public class Customer implements java.io.Serializable {
 		this.password = password;
 	}
 
-	public Boolean getSex() {
+	public boolean getSex() {
 		return this.sex;
 	}
 
-	public void setSex(Boolean sex) {
+	public void setSex(boolean sex) {
 		this.sex = sex;
 	}
 
@@ -159,20 +159,20 @@ public class Customer implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public Set getFriendshipsForCustomeridA() {
-		return this.friendshipsForCustomeridA;
+	public Set getCustomersForCustomeridB() {
+		return this.customersForCustomeridB;
 	}
 
-	public void setFriendshipsForCustomeridA(Set friendshipsForCustomeridA) {
-		this.friendshipsForCustomeridA = friendshipsForCustomeridA;
+	public void setCustomersForCustomeridB(Set customersForCustomeridB) {
+		this.customersForCustomeridB = customersForCustomeridB;
 	}
 
-	public Set getFriendshipsForCustomeridB() {
-		return this.friendshipsForCustomeridB;
+	public Set getCustomersForCustomeridA() {
+		return this.customersForCustomeridA;
 	}
 
-	public void setFriendshipsForCustomeridB(Set friendshipsForCustomeridB) {
-		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
+	public void setCustomersForCustomeridA(Set customersForCustomeridA) {
+		this.customersForCustomeridA = customersForCustomeridA;
 	}
 
 	public Set getEvaluationsForBeRecordedId() {
@@ -183,20 +183,20 @@ public class Customer implements java.io.Serializable {
 		this.evaluationsForBeRecordedId = evaluationsForBeRecordedId;
 	}
 
-	public Set getPreferences() {
-		return this.preferences;
-	}
-
-	public void setPreferences(Set preferences) {
-		this.preferences = preferences;
-	}
-
 	public Set getMyrequests() {
 		return this.myrequests;
 	}
 
 	public void setMyrequests(Set myrequests) {
 		this.myrequests = myrequests;
+	}
+
+	public Set getMyrequests_1() {
+		return this.myrequests_1;
+	}
+
+	public void setMyrequests_1(Set myrequests_1) {
+		this.myrequests_1 = myrequests_1;
 	}
 
 	public Set getEvaluationsForRecordId() {
@@ -207,12 +207,12 @@ public class Customer implements java.io.Serializable {
 		this.evaluationsForRecordId = evaluationsForRecordId;
 	}
 
-	public Set getCustomerOrders() {
-		return this.customerOrders;
+	public Set getOrders() {
+		return this.orders;
 	}
 
-	public void setCustomerOrders(Set customerOrders) {
-		this.customerOrders = customerOrders;
+	public void setOrders(Set orders) {
+		this.orders = orders;
 	}
 
 	public Set getMessages() {

@@ -18,7 +18,7 @@ public class Order implements java.io.Serializable {
 	private Date endTime;
 	private Integer maxPeople;
 	private Integer discountMoney;
-	private Double price;
+	private double price;
 	private Integer numberPeople;
 	private Integer payment;
 	private Integer payer;
@@ -27,7 +27,8 @@ public class Order implements java.io.Serializable {
 	private Integer manLimited;
 	private Integer buyLimited;
 	private Integer goodsFree;
-	private Set orderRequests = new HashSet(0);
+	private Set myrequests = new HashSet(0);
+	private Set customers = new HashSet(0);
 
 	// Constructors
 
@@ -37,7 +38,7 @@ public class Order implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Order(Integer status, Date beginTime, Integer maxPeople,
-			Integer discountMoney, Double price, Integer numberPeople,
+			Integer discountMoney, double price, Integer numberPeople,
 			Integer payment, Integer payer, Integer dormLimited,
 			Integer othertakeLimited, Integer manLimited, Integer buyLimited,
 			Integer goodsFree) {
@@ -58,10 +59,10 @@ public class Order implements java.io.Serializable {
 
 	/** full constructor */
 	public Order(Integer status, Date beginTime, Date endTime,
-			Integer maxPeople, Integer discountMoney, Double price,
+			Integer maxPeople, Integer discountMoney, double price,
 			Integer numberPeople, Integer payment, Integer payer,
 			Integer dormLimited, Integer othertakeLimited, Integer manLimited,
-			Integer buyLimited, Integer goodsFree, Set orderRequests) {
+			Integer buyLimited, Integer goodsFree, Set myrequests, Set customers) {
 		this.status = status;
 		this.beginTime = beginTime;
 		this.endTime = endTime;
@@ -76,7 +77,8 @@ public class Order implements java.io.Serializable {
 		this.manLimited = manLimited;
 		this.buyLimited = buyLimited;
 		this.goodsFree = goodsFree;
-		this.orderRequests = orderRequests;
+		this.myrequests = myrequests;
+		this.customers = customers;
 	}
 
 	// Property accessors
@@ -129,11 +131,11 @@ public class Order implements java.io.Serializable {
 		this.discountMoney = discountMoney;
 	}
 
-	public Double getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -201,12 +203,20 @@ public class Order implements java.io.Serializable {
 		this.goodsFree = goodsFree;
 	}
 
-	public Set getOrderRequests() {
-		return this.orderRequests;
+	public Set getMyrequests() {
+		return this.myrequests;
 	}
 
-	public void setOrderRequests(Set orderRequests) {
-		this.orderRequests = orderRequests;
+	public void setMyrequests(Set myrequests) {
+		this.myrequests = myrequests;
+	}
+
+	public Set getCustomers() {
+		return this.customers;
+	}
+
+	public void setCustomers(Set customers) {
+		this.customers = customers;
 	}
 
 }

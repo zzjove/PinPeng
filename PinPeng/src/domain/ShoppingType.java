@@ -10,11 +10,11 @@ public class ShoppingType implements java.io.Serializable {
 
 	private Integer shoppingTypeid;
 	private Myrequest myrequest;
-	private Double amountTo;
-	private Double discountDown;
-	private Double discountRate;
-	private Double quantityTo;
-	private Double freePost;
+	private double amountTo;
+	private double discountDown;
+	private double discountRate;
+	private double quantityTo;
+	private double freePost;
 	private Integer shoppingStore;
 	private String subShoppingStore;
 	private Integer discountType;
@@ -34,9 +34,9 @@ public class ShoppingType implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ShoppingType(Myrequest myrequest, Double amountTo,
-			Double discountDown, Double discountRate, Double quantityTo,
-			Double freePost, Integer shoppingStore, String subShoppingStore,
+	public ShoppingType(Myrequest myrequest, double amountTo,
+			double discountDown, double discountRate, double quantityTo,
+			double freePost, Integer shoppingStore, String subShoppingStore,
 			Integer discountType) {
 		this.myrequest = myrequest;
 		this.amountTo = amountTo;
@@ -67,43 +67,43 @@ public class ShoppingType implements java.io.Serializable {
 		this.myrequest = myrequest;
 	}
 
-	public Double getAmountTo() {
+	public double getAmountTo() {
 		return this.amountTo;
 	}
 
-	public void setAmountTo(Double amountTo) {
+	public void setAmountTo(double amountTo) {
 		this.amountTo = amountTo;
 	}
 
-	public Double getDiscountDown() {
+	public double getDiscountDown() {
 		return this.discountDown;
 	}
 
-	public void setDiscountDown(Double discountDown) {
+	public void setDiscountDown(double discountDown) {
 		this.discountDown = discountDown;
 	}
 
-	public Double getDiscountRate() {
+	public double getDiscountRate() {
 		return this.discountRate;
 	}
 
-	public void setDiscountRate(Double discountRate) {
+	public void setDiscountRate(double discountRate) {
 		this.discountRate = discountRate;
 	}
 
-	public Double getQuantityTo() {
+	public double getQuantityTo() {
 		return this.quantityTo;
 	}
 
-	public void setQuantityTo(Double quantityTo) {
+	public void setQuantityTo(double quantityTo) {
 		this.quantityTo = quantityTo;
 	}
 
-	public Double getFreePost() {
+	public double getFreePost() {
 		return this.freePost;
 	}
 
-	public void setFreePost(Double freePost) {
+	public void setFreePost(double freePost) {
 		this.freePost = freePost;
 	}
 

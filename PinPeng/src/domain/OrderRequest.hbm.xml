@@ -7,15 +7,24 @@
 <hibernate-mapping>
     <class name="domain.OrderRequest" table="order_request" catalog="pinpeng_db">
         <composite-id name="id" class="domain.OrderRequestId">
-            <key-many-to-one name="order" class="domain.Order">
+            <key-property name="orderid" type="integer">
                 <column name="orderid" />
-            </key-many-to-one>
-            <key-many-to-one name="myrequest" class="domain.Myrequest">
+            </key-property>
+            <key-property name="requestid" type="integer">
                 <column name="requestid" />
-            </key-many-to-one>
+            </key-property>
+            <key-property name="toRequestid" type="integer">
+                <column name="to_requestid" />
+            </key-property>
         </composite-id>
-        <many-to-one name="myrequestByToRequestid" class="domain.Myrequest" fetch="select">
+        <many-to-one name="myrequestByToRequestid" class="domain.Myrequest" update="false" insert="false" fetch="select">
             <column name="to_requestid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="myrequestByRequestid" class="domain.Myrequest" update="false" insert="false" fetch="select">
+            <column name="requestid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="order" class="domain.Order" update="false" insert="false" fetch="select">
+            <column name="orderid" not-null="true" />
         </many-to-one>
     </class>
 </hibernate-mapping>

@@ -1,9 +1,11 @@
 package web.action.control;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Collections;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +14,6 @@ import org.apache.struts2.ServletActionContext;
 
 import service.ComparatorMatch;
 import service.Match;
-
 import web.formbean.SendRequestForm;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -21,6 +22,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import domain.Customer;
 import domain.Myrequest;
 import domain.Order;
+import domain.OrderRequest;
 import domain.Restriction;
 import domain.ShoppingType;
 
@@ -29,8 +31,7 @@ public class SendRequestAction extends ActionSupport {
 	private Myrequest myrequest;
 	private ShoppingType shoppingtype;
 	private Restriction restriction;
-
-	// private Customer customer;
+	private Customer customer;
 
 	private void get_form_and_saveit() { // 从form中得到信息并存入数据库
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -38,8 +39,9 @@ public class SendRequestAction extends ActionSupport {
 		SendRequestForm form = utils.WebUtils.requestToBean(request,
 				SendRequestForm.class);
 
-		// Customer
-		// customer=(Customer)ActionContext.getContext().getSession().get("customer");
+		// 得到当前customer
+		customer = (Customer) ActionContext.getContext().getSession()
+				.get("customer");
 
 		myrequest = form.get_myrequest(); // 得到myrequest并且保存
 		myrequest.setRequestid(dao.MyrequestDao.find_max_requestid() + 1);
@@ -53,13 +55,20 @@ public class SendRequestAction extends ActionSupport {
 		dao.RestrictionDao.add_restriction(restriction);
 
 		// 产生新的一个order
+		Set myrequest_set = new HashSet();
+		myrequest_set.add(myrequest);
+		Set customer_set = new HashSet();
+		customer_set.add(customer);
+
 		Order order = new Order(1, myrequest.getMyrequestTime(),
 				restriction.getEndDay(), restriction.getMaxPeople(), 20,
 				myrequest.getPrice(), 1, restriction.getPayment(),
 				restriction.getPayer(), restriction.getDormLimited(),
 				restriction.getOthertakeLimited(), restriction.getManLimited(),
-				restriction.getBuyLimited(), restriction.getGoodsFree(), null); 
-		dao.OrderDao.add_order(order);		//将order保存至数据库
+				restriction.getBuyLimited(), restriction.getGoodsFree(),
+				myrequest_set, customer_set);
+		dao.OrderDao.add_order(order); // 将order保存至数据库
+
 	}
 
 	private void set_to_session() { // 将form中的信息放入session
