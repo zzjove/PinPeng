@@ -26,7 +26,7 @@ public class MyorderDao {
 	public static Myorder findby_orderid(int orderid) {
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from order where orderid=";
+		String sql = "select * from myorder where orderid=";
 		List order_list = session.createSQLQuery(sql + orderid + ";")
 				.addEntity(Myorder.class).list();
 		session.close();
@@ -43,9 +43,10 @@ public class MyorderDao {
 	public static List find_valid_order_list() {
 		Session session = hibernatesession.HibernateSessionFactory.getSession();
 
-		String sql = "select orderid from myorder "
-				+ "where end_time > CURRENT_DATE and status BETWEEN 1 and 2;";
-
+		String sql = "SELECT myorder.* FROM myorder,restriction "
+				+ "WHERE restriction.end_day > CURRENT_DATE "
+				+ "AND restriction.orderid=myorder.orderid "
+				+ "AND status BETWEEN 1 AND 2;";
 		List myorder_list = session.createSQLQuery(sql)
 				.addEntity(Myorder.class).list();
 

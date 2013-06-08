@@ -13,12 +13,21 @@ public class Match {
 	private ShoppingType shoppingtype;
 	private Restriction restriction;
 	private Customer customer;
-	private Myorder	myorder;
+	private Myorder myorder;
 
 	public Match(int value, Myrequest myrequest, ShoppingType shoppingtype,
 			Restriction restriction, Customer customer) {
 		this.value = value;
 		this.myrequest = myrequest;
+		this.shoppingtype = shoppingtype;
+		this.restriction = restriction;
+		this.customer = customer;
+	}
+
+	public Match(int value, Myorder myorder, ShoppingType shoppingtype,
+			Restriction restriction, Customer customer) {
+		this.value = value;
+		this.myorder = myorder;
 		this.shoppingtype = shoppingtype;
 		this.restriction = restriction;
 		this.customer = customer;
@@ -40,14 +49,6 @@ public class Match {
 		this.myrequest = myrequest;
 	}
 
-	public ShoppingType getShoppingType() {
-		return shoppingtype;
-	}
-
-	public void setShoppingType(ShoppingType shoppingType) {
-		this.shoppingtype = shoppingType;
-	}
-
 	public Restriction getRestriction() {
 		return restriction;
 	}
@@ -62,5 +63,21 @@ public class Match {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public ShoppingType getShoppingtype() {
+		return shoppingtype;
+	}
+
+	public void setShoppingtype(ShoppingType shoppingtype) {
+		this.shoppingtype = shoppingtype;
+	}
+
+	public Myorder getMyorder() {
+		return myorder;
+	}
+
+	public void setMyorder(Myorder myorder) {
+		this.myorder = myorder;
 	}
 }

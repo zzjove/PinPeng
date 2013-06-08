@@ -62,4 +62,21 @@ public class ShoppingTypeDao {
 
 	}
 
+	public static ShoppingType findby_orderid(int orderid) {// 根据orderid找一个shoppingtype
+
+		Session session = HibernateSessionFactory.getSession();
+
+		String sql = "select * from shopping_type where orderid=";
+		List restriction_list = session.createSQLQuery(sql + orderid + ";")
+				.addEntity(ShoppingType.class).list();
+
+		session.close();
+
+		Iterator it = restriction_list.iterator();
+		if (it.hasNext()) {
+			return ((ShoppingType) it.next());
+		} else {
+			return null;
+		}
+	}
 }
