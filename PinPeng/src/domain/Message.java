@@ -15,7 +15,7 @@ public class Message implements java.io.Serializable {
 	private String content;
 	private Date sendTime;
 	private Integer sendTo;
-	private Boolean status;
+	private boolean status;
 
 	// Constructors
 
@@ -25,7 +25,7 @@ public class Message implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Message(Customer customer, Date sendTime, Integer sendTo,
-			Boolean status) {
+			boolean status) {
 		this.customer = customer;
 		this.sendTime = sendTime;
 		this.sendTo = sendTo;
@@ -34,7 +34,7 @@ public class Message implements java.io.Serializable {
 
 	/** full constructor */
 	public Message(Customer customer, String content, Date sendTime,
-			Integer sendTo, Boolean status) {
+			Integer sendTo, boolean status) {
 		this.customer = customer;
 		this.content = content;
 		this.sendTime = sendTime;
@@ -84,11 +84,11 @@ public class Message implements java.io.Serializable {
 		this.sendTo = sendTo;
 	}
 
-	public Boolean getStatus() {
+	public boolean getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 

@@ -12,9 +12,9 @@ public class Restriction implements java.io.Serializable {
 
 	private Integer restrictionid;
 	private Myrequest myrequest;
+	private Myorder myorder;
 	private Integer maxPeople;
 	private Date endDay;
-	private Integer payment;
 	private Integer payer;
 	private Integer dormLimited;
 	private Integer othertakeLimited;
@@ -30,11 +30,11 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Restriction(Myrequest myrequest, Integer maxPeople, Integer payer,
+	public Restriction(Integer maxPeople, Date endDay, Integer payer,
 			Integer dormLimited, Integer othertakeLimited, Integer manLimited,
 			Integer buyLimited, Integer goodsFree) {
-		this.myrequest = myrequest;
 		this.maxPeople = maxPeople;
+		this.endDay = endDay;
 		this.payer = payer;
 		this.dormLimited = dormLimited;
 		this.othertakeLimited = othertakeLimited;
@@ -44,14 +44,14 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Restriction(Myrequest myrequest, Integer maxPeople, Date endDay,
-			Integer payment, Integer payer, Integer dormLimited,
+	public Restriction(Myrequest myrequest, Myorder myorder, Integer maxPeople,
+			Date endDay, Integer payer, Integer dormLimited,
 			Integer othertakeLimited, Integer manLimited, Integer buyLimited,
 			Integer goodsFree, String notice) {
 		this.myrequest = myrequest;
+		this.myorder = myorder;
 		this.maxPeople = maxPeople;
 		this.endDay = endDay;
-		this.payment = payment;
 		this.payer = payer;
 		this.dormLimited = dormLimited;
 		this.othertakeLimited = othertakeLimited;
@@ -79,6 +79,14 @@ public class Restriction implements java.io.Serializable {
 		this.myrequest = myrequest;
 	}
 
+	public Myorder getMyorder() {
+		return this.myorder;
+	}
+
+	public void setMyorder(Myorder myorder) {
+		this.myorder = myorder;
+	}
+
 	public Integer getMaxPeople() {
 		return this.maxPeople;
 	}
@@ -93,14 +101,6 @@ public class Restriction implements java.io.Serializable {
 
 	public void setEndDay(Date endDay) {
 		this.endDay = endDay;
-	}
-
-	public Integer getPayment() {
-		return this.payment;
-	}
-
-	public void setPayment(Integer payment) {
-		this.payment = payment;
 	}
 
 	public Integer getPayer() {

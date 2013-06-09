@@ -1,6 +1,6 @@
 package domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Evaluation entity. @author MyEclipse Persistence Tools
@@ -14,7 +14,7 @@ public class Evaluation implements java.io.Serializable {
 	private Customer customerByBeRecordedId;
 	private Customer customerByRecordId;
 	private Integer assess;
-	private Timestamp recordTime;
+	private Date recordTime;
 
 	// Constructors
 
@@ -24,7 +24,7 @@ public class Evaluation implements java.io.Serializable {
 
 	/** full constructor */
 	public Evaluation(Customer customerByBeRecordedId,
-			Customer customerByRecordId, Integer assess, Timestamp recordTime) {
+			Customer customerByRecordId, Integer assess, Date recordTime) {
 		this.customerByBeRecordedId = customerByBeRecordedId;
 		this.customerByRecordId = customerByRecordId;
 		this.assess = assess;
@@ -65,11 +65,11 @@ public class Evaluation implements java.io.Serializable {
 		this.assess = assess;
 	}
 
-	public Timestamp getRecordTime() {
+	public Date getRecordTime() {
 		return this.recordTime;
 	}
 
-	public void setRecordTime(Timestamp recordTime) {
+	public void setRecordTime(Date recordTime) {
 		this.recordTime = recordTime;
 	}
 

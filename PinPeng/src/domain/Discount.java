@@ -1,6 +1,6 @@
 package domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Discount entity. @author MyEclipse Persistence Tools
@@ -16,7 +16,7 @@ public class Discount implements java.io.Serializable {
 	private String pictureUrl;
 	private String website;
 	private Integer status;
-	private Timestamp time;
+	private Date time;
 
 	// Constructors
 
@@ -26,7 +26,7 @@ public class Discount implements java.io.Serializable {
 
 	/** full constructor */
 	public Discount(Admin admin, Integer shoppingStore, String pictureUrl,
-			String website, Integer status, Timestamp time) {
+			String website, Integer status, Date time) {
 		this.admin = admin;
 		this.shoppingStore = shoppingStore;
 		this.pictureUrl = pictureUrl;
@@ -85,11 +85,11 @@ public class Discount implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public Timestamp getTime() {
+	public Date getTime() {
 		return this.time;
 	}
 
-	public void setTime(Timestamp time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 

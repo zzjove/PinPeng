@@ -12,7 +12,7 @@ import domain.Restriction;
 
 public class RestrictionDao {
 
-	public static Restriction findby_requestid(int requestid) {//根据一个requestid寻找一个restriction
+	public static Restriction findby_requestid(int requestid) {// 根据一个requestid寻找一个restriction
 
 		Session session = HibernateSessionFactory.getSession();
 
@@ -30,7 +30,7 @@ public class RestrictionDao {
 		}
 	}
 
-	public static Restriction findby_restrictiontid(int restrictiontid) {//根据restrictionid虚招一个restriction
+	public static Restriction findby_restrictiontid(int restrictiontid) {// 根据restrictionid虚招一个restriction
 
 		Session session = HibernateSessionFactory.getSession();
 
@@ -49,7 +49,7 @@ public class RestrictionDao {
 		}
 	}
 
-	public static void add_restriction(Restriction restriction) {//添加一个restriction
+	public static void add_restriction(Restriction restriction) {// 添加一个restriction
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
 
@@ -60,4 +60,21 @@ public class RestrictionDao {
 		session.close();
 	}
 
+	public static Restriction findby_orderid(int orderid) {// 根据一个orderid寻找一个restriction
+
+		Session session = HibernateSessionFactory.getSession();
+
+		String sql = "select * from restriction where orderid=";
+		List restriction_list = session.createSQLQuery(sql + orderid + ";")
+				.addEntity(Restriction.class).list();
+
+		session.close();
+
+		Iterator it = restriction_list.iterator();
+		if (it.hasNext()) {
+			return ((Restriction) it.next());
+		} else {
+			return null;
+		}
+	}
 }

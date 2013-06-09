@@ -6,17 +6,17 @@
 -->
 <hibernate-mapping>
     <class name="domain.Admin" table="admin" catalog="pinpeng_db">
-        <id name="adminid" type="java.lang.Integer">
+        <id name="adminid" type="integer">
             <column name="adminid" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
-        <property name="name" type="java.lang.String">
+        <property name="name" type="string">
             <column name="name" length="32" not-null="true" />
         </property>
-        <property name="password" type="java.lang.String">
+        <property name="password" type="string">
             <column name="password" length="16" not-null="true" />
         </property>
-        <property name="sex" type="java.lang.Boolean">
+        <property name="sex" type="boolean">
             <column name="sex" not-null="true" />
         </property>
         <set name="discounts" inverse="true">
