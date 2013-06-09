@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,7 +9,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
     <title>My JSP 'noticecenter.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -39,8 +39,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					<h4>我的站内信</h4>
   					
   					<ul>
-  						<li><a href="#">收到的消息</a></li>
-  						<li><a href="#">发送的消息</a></li>
+  						<li><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消息</a></li>
+  						<li><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=out">发送的消息</a></li>
   					</ul>
   						
   			
@@ -50,17 +50,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<div class="container-fluid">
   					<div class="hero-unit">
   						<ul>
-  							<li>这</li>
-  							<li>里</li>
-  							<li>是</li>
-  							<li>显</li>
-  							<li>示</li>
-  							<li>消</li>
-  							<li>息</li>
-  							<li>的</li>
-  							<li>地</li>
-  							<li>方</li>
-  							<li>！</li>
+  							<c:forEach var="item" items="${messageBox }">
+ 								<li>${item.content }</li>
+							 </c:forEach>
   						</ul>
   						
   					</div>
