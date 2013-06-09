@@ -29,7 +29,8 @@ public class Customer implements java.io.Serializable {
 	private Set myrequests_1 = new HashSet(0);
 	private Set evaluationsForRecordId = new HashSet(0);
 	private Set myorders = new HashSet(0);
-	private Set messages = new HashSet(0);
+	private Set messagesForSendTo = new HashSet(0);
+	private Set messagesForCustomerid = new HashSet(0);
 
 	// Constructors
 
@@ -48,7 +49,8 @@ public class Customer implements java.io.Serializable {
 			String password, boolean sex, String email,
 			Set customersForCustomeridB, Set customersForCustomeridA,
 			Set evaluationsForBeRecordedId, Set myrequests, Set myrequests_1,
-			Set evaluationsForRecordId, Set myorders, Set messages) {
+			Set evaluationsForRecordId, Set myorders, Set messagesForSendTo,
+			Set messagesForCustomerid) {
 		this.studentid = studentid;
 		this.credit = credit;
 		this.dormitory = dormitory;
@@ -66,7 +68,8 @@ public class Customer implements java.io.Serializable {
 		this.myrequests_1 = myrequests_1;
 		this.evaluationsForRecordId = evaluationsForRecordId;
 		this.myorders = myorders;
-		this.messages = messages;
+		this.messagesForSendTo = messagesForSendTo;
+		this.messagesForCustomerid = messagesForCustomerid;
 	}
 
 	// Property accessors
@@ -215,12 +218,20 @@ public class Customer implements java.io.Serializable {
 		this.myorders = myorders;
 	}
 
-	public Set getMessages() {
-		return this.messages;
+	public Set getMessagesForSendTo() {
+		return this.messagesForSendTo;
 	}
 
-	public void setMessages(Set messages) {
-		this.messages = messages;
+	public void setMessagesForSendTo(Set messagesForSendTo) {
+		this.messagesForSendTo = messagesForSendTo;
+	}
+
+	public Set getMessagesForCustomerid() {
+		return this.messagesForCustomerid;
+	}
+
+	public void setMessagesForCustomerid(Set messagesForCustomerid) {
+		this.messagesForCustomerid = messagesForCustomerid;
 	}
 
 }

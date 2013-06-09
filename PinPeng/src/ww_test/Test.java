@@ -11,6 +11,7 @@ import java.util.Set;
 import service.Match;
 
 import domain.Customer;
+import domain.Message;
 import domain.Myorder;
 import domain.Myrequest;
 import domain.Restriction;
@@ -53,9 +54,9 @@ public class Test {
 	}
 
 	private static void test_2() {
-		Set myrequest_set = dao.CustomerDao.find_prefer_myrequestlist(2);
-		System.out.println(((Myrequest) myrequest_set.iterator().next())
-				.getRequestid());
+		List message_list = dao.MessageDao.findby_customerid(2);
+		System.out.println(((Message) message_list.iterator().next())
+				.getMessageid());
 	}
 
 	public static void main(String[] args) throws ParseException {

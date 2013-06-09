@@ -10,7 +10,10 @@
             <column name="messageid" />
             <generator class="native" />
         </id>
-        <many-to-one name="customer" class="domain.Customer" fetch="select">
+        <many-to-one name="customerBySendTo" class="domain.Customer" fetch="select">
+            <column name="send_to" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customerByCustomerid" class="domain.Customer" fetch="select">
             <column name="customerid" not-null="true" />
         </many-to-one>
         <property name="content" type="string">
@@ -18,9 +21,6 @@
         </property>
         <property name="sendTime" type="timestamp">
             <column name="send_time" length="19" not-null="true" />
-        </property>
-        <property name="sendTo" type="integer">
-            <column name="send_to" not-null="true" />
         </property>
         <property name="status" type="boolean">
             <column name="status" not-null="true" />

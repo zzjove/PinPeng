@@ -11,10 +11,10 @@ public class Message implements java.io.Serializable {
 	// Fields
 
 	private Integer messageid;
-	private Customer customer;
+	private Customer customerBySendTo;
+	private Customer customerByCustomerid;
 	private String content;
 	private Date sendTime;
-	private Integer sendTo;
 	private boolean status;
 
 	// Constructors
@@ -24,21 +24,21 @@ public class Message implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Message(Customer customer, Date sendTime, Integer sendTo,
-			boolean status) {
-		this.customer = customer;
+	public Message(Customer customerBySendTo, Customer customerByCustomerid,
+			Date sendTime, boolean status) {
+		this.customerBySendTo = customerBySendTo;
+		this.customerByCustomerid = customerByCustomerid;
 		this.sendTime = sendTime;
-		this.sendTo = sendTo;
 		this.status = status;
 	}
 
 	/** full constructor */
-	public Message(Customer customer, String content, Date sendTime,
-			Integer sendTo, boolean status) {
-		this.customer = customer;
+	public Message(Customer customerBySendTo, Customer customerByCustomerid,
+			String content, Date sendTime, boolean status) {
+		this.customerBySendTo = customerBySendTo;
+		this.customerByCustomerid = customerByCustomerid;
 		this.content = content;
 		this.sendTime = sendTime;
-		this.sendTo = sendTo;
 		this.status = status;
 	}
 
@@ -52,12 +52,20 @@ public class Message implements java.io.Serializable {
 		this.messageid = messageid;
 	}
 
-	public Customer getCustomer() {
-		return this.customer;
+	public Customer getCustomerBySendTo() {
+		return this.customerBySendTo;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerBySendTo(Customer customerBySendTo) {
+		this.customerBySendTo = customerBySendTo;
+	}
+
+	public Customer getCustomerByCustomerid() {
+		return this.customerByCustomerid;
+	}
+
+	public void setCustomerByCustomerid(Customer customerByCustomerid) {
+		this.customerByCustomerid = customerByCustomerid;
 	}
 
 	public String getContent() {
@@ -74,14 +82,6 @@ public class Message implements java.io.Serializable {
 
 	public void setSendTime(Date sendTime) {
 		this.sendTime = sendTime;
-	}
-
-	public Integer getSendTo() {
-		return this.sendTo;
-	}
-
-	public void setSendTo(Integer sendTo) {
-		this.sendTo = sendTo;
 	}
 
 	public boolean getStatus() {

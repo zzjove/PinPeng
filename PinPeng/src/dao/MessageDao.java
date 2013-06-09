@@ -56,7 +56,7 @@ public class MessageDao {
 	public static List findby_customerid(int customerid) {
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from where customerid=";
+		String sql = "select * from message where customerid=";
 
 		List message_list = session.createSQLQuery(sql + customerid + ";")
 				.addEntity(Message.class).list();
@@ -68,7 +68,7 @@ public class MessageDao {
 	public static List find_unreadmessage(int sendto){
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from where status=0 and sendto=";
+		String sql = "select * from message where status=0 and sendto=";
 
 		List message_list = session.createSQLQuery(sql + sendto + ";")
 				.addEntity(Message.class).list();
