@@ -12,6 +12,7 @@ import service.Match;
 
 import domain.Customer;
 import domain.Myorder;
+import domain.Myrequest;
 import domain.Restriction;
 import domain.ShoppingType;
 
@@ -21,8 +22,8 @@ public class Test {
 	 * @param args
 	 * @throws ParseException
 	 */
-	public static void main(String[] args) throws ParseException {
 
+	private void test_1() {
 		Customer customer = dao.CustomerDao.findby_customerid(2);
 		Myorder myorder = dao.MyorderDao.findby_orderid(2);
 		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(2);
@@ -49,12 +50,16 @@ public class Test {
 				System.out.println(match.getMyorder().getOrderid());
 			}
 		}
-		// Set customerSet = new HashSet();
-		// customerSet.add(customer);
-		// order.setCustomers(customerSet);
-		// dao.MyorderDao.add_order(order);
-		// CustomerOrder customerorderid = new CustomerOrderId(customer, order);
-		// CustomerOrderDao.add_CustomerOrderId(customerorderid);
+	}
 
+	private static void test_2() {
+		Set myrequest_set = dao.CustomerDao.find_prefer_myrequestlist(2);
+		System.out.println(((Myrequest) myrequest_set.iterator().next())
+				.getRequestid());
+	}
+
+	public static void main(String[] args) throws ParseException {
+
+		test_2();
 	}
 }

@@ -4,6 +4,7 @@ import hibernatesession.HibernateSessionFactory;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -74,6 +75,26 @@ public class CustomerDao {
 			Customer customer_temp = (Customer) it.next();
 			return customer_temp;
 		} else {
+			return null;
+		}
+	}
+
+	public static Set find_prefer_myrequestlist(int customerid) {
+
+		Session session = HibernateSessionFactory.getSession();
+
+		String sql = "select * from customer where customerid=";
+		List customer_list = session.createSQLQuery(sql + customerid + ";")
+				.addEntity(Customer.class).list();
+
+		Iterator it = customer_list.iterator();
+		if (it.hasNext()) {
+			Customer customer_temp = (Customer) it.next();
+			Set myrequest_set = customer_temp.getMyrequests();
+			session.close();
+			return myrequest_set;
+		} else {
+			session.close();
 			return null;
 		}
 	}
