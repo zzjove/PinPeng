@@ -102,7 +102,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			</select>
     		</div>
     	</div>
-    	
+    	<div class="control-group">
+    		<label class="control-label" for="inputdormitory">验证码</label>
+    		<div class="controls">						
+				<input type="text" name="checkcode" />
+				<img src="checkcode" style="height: 20px;" />	
+    		</div>
+    	</div>
     	<div class="control-group">
     		<div class="controls">
     			<input type="submit" class="btn btn-primary" value="确认">

@@ -24,7 +24,8 @@
 		</action>
 		<action name="viewprofile" class="web.action.view.ViewProfileAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/profile.jsp</result>
+			<result name="view">/WEB-INF/page/profile.jsp</result>
+			<result name="edit">/WEB-INF/page/updateprofile.jsp</result>
 		</action>
 		<action name="viewsendrequest" class="web.action.view.ViewSendrequestAction"
 			method="execute">
@@ -37,6 +38,7 @@
 	</package>
 
 	<package name="webcontrol" extends="struts-default">
+		<action name="checkcode" class="utils.CheckCodeServlet" method="execute"></action>
 		<action name="login" class="web.action.control.LoginAction"
 			method="execute">
 			<result name="success">index.jsp</result>
@@ -55,6 +57,10 @@
 			<result name="success">index.jsp</result>
 		</action>
 		<action name="sendnotice" class="web.action.control.SendNoticeAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
+		</action>
+		<action name="updateprofile" class="web.action.control.UpdateProfileAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
 		</action>

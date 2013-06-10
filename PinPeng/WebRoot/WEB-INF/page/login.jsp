@@ -49,8 +49,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						style="color: red">${form.errors.password }<br />
 				</p>
 				<p>
+					请输入验证码
+					<input type="text" name="checkcode" />
+				    <img src="checkcode" style="height: 20px;" />					
+				</p>
+				<p>
 					<input type="submit" value="登入" style="float: right" />
 				</p>
+				
 			</div>
 	</s:form>
 	<s:form action="viewregister" method="post">
