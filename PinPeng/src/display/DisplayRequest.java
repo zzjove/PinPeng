@@ -7,7 +7,8 @@ import domain.ShoppingType;
 
 public class DisplayRequest {
 
-	private String myrequestTime; // request的信息
+	private int requestid;// request的信息
+	private String myrequestTime;
 	private String content;
 	private double price;
 	private String status;
@@ -181,8 +182,17 @@ public class DisplayRequest {
 		this.notice = notice;
 	}
 
+	public int getRequestid() {
+		return requestid;
+	}
+
+	public void setRequestid(int requestid) {
+		this.requestid = requestid;
+	}
+
 	public void toDisplay(Myrequest myrequest, ShoppingType shoppingtype,
 			Restriction restriction) {
+		requestid = myrequest.getRequestid();
 		myrequestTime = DataConverter.convert_date_time(myrequest
 				.getMyrequestTime());
 		content = myrequest.getContent();
