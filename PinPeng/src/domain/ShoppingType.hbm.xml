@@ -10,12 +10,8 @@
             <column name="shopping_typeid" />
             <generator class="native" />
         </id>
-        <many-to-one name="myrequest" class="domain.Myrequest" fetch="select">
-            <column name="requestid" />
-        </many-to-one>
-        <many-to-one name="myorder" class="domain.Myorder" fetch="select">
-            <column name="orderid" />
-        </many-to-one>
+        <one-to-one name="myrequest" class="domain.Myrequest"></one-to-one>
+        <one-to-one name="myorder" class="domain.Myorder"></one-to-one>
         <property name="amountTo" type="double">
             <column name="amount_to" precision="11" />
         </property>

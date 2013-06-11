@@ -62,5 +62,6 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/checkrequest.jsp</result>
 		</action>
+		<action name="preferrequest" 
 	</package>
 </struts>    

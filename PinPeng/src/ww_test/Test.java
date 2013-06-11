@@ -54,9 +54,22 @@ public class Test {
 	}
 
 	private static void test_2() {
-		List message_list = dao.MessageDao.findby_customerid(2);
-		System.out.println(((Message) message_list.iterator().next())
-				.getMessageid());
+		Customer customer = new Customer(102989);
+		// customer.setCustomerid(22);
+		// Message message = new Message(customer, customer, new Date(), false);
+		// message.set
+		Set myrequest_list = new HashSet();// .getMyrequests();
+		Myrequest myrequest=new Myrequest(customer, new Date(), 1, 0, 1, 1);
+		myrequest.setCustomer(customer);
+		// myrequest_list.add(myrequest);
+		// customer.getMessagesForCustomerid();
+		customer.setCredit(200);
+		customer.getMyrequests().add(myrequest);
+		// myrequest.setCustomer(customer)
+		dao.CustomerDao.add_customer(customer);
+
+		// System.out.println(((Myrequest) myrequest_list.iterator().next())
+		// .getRequestid());
 	}
 
 	public static void main(String[] args) throws ParseException {

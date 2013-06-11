@@ -12,7 +12,7 @@ import domain.Message;
 
 public class MessageDao {
 
-	public static Message fingby_messageid(int messageid) {
+	public static Message findby_messageid(int messageid) {
 
 		Session session = HibernateSessionFactory.getSession();
 

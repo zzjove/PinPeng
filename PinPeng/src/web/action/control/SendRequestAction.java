@@ -60,14 +60,14 @@ public class SendRequestAction extends ActionSupport {
 		// 产生新的一个order
 		Set myrequest_set = new HashSet();
 		myrequest_set.add(myrequest);
-		Set shoppingtype_set = new HashSet();
-		shoppingtype_set.add(shoppingtype);
-		Set restriction_set = new HashSet();
-		restriction_set.add(restriction);
+		// Set shoppingtype_set = new HashSet();
+		// shoppingtype_set.add(shoppingtype);
+		// Set restriction_set = new HashSet();
+		// restriction_set.add(restriction);
 
 		myorder = new Myorder(customer, 1, new Date(), myrequest.getPrice(), 1,
-				myrequest.getAmount(), myrequest.getWeight(), shoppingtype_set,
-				myrequest_set, restriction_set);
+				myrequest.getAmount(), myrequest.getWeight(), shoppingtype,
+				myrequest_set, restriction);
 		dao.MyorderDao.add_order(myorder); // 将order保存至数据库
 
 	}
@@ -84,9 +84,8 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("store",
-						utils.DataConverter
-								.convert_shoppingstore(shoppingtype
-										.getShoppingStore()));
+						utils.DataConverter.convert_shoppingstore(shoppingtype
+								.getShoppingStore()));
 
 		// 将是否限定寝室转换成字符串后放入session
 		ActionContext

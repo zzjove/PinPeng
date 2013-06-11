@@ -31,21 +31,11 @@
         <property name="weight" type="integer">
             <column name="weight" not-null="true" />
         </property>
-        <set name="restrictions" inverse="true">
-            <key>
-                <column name="requestid" />
-            </key>
-            <one-to-many class="domain.Restriction" />
-        </set>
-        <set name="shoppingTypes" inverse="true">
-            <key>
-                <column name="requestid" />
-            </key>
-            <one-to-many class="domain.ShoppingType" />
-        </set>
+        <one-to-one name="restriction" class="domain.Restriction"></one-to-one>
+        <one-to-one name="shoppingType" class="domain.ShoppingType"></one-to-one>
         <set name="customers" table="preference" catalog="pinpeng_db">
             <key>
-                <column name="requestrid" not-null="true" />
+                <column name="requestid" not-null="true" />
             </key>
             <many-to-many entity-name="domain.Customer">
                 <column name="customerid" not-null="true" />

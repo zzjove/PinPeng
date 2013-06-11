@@ -61,6 +61,17 @@ public class CustomerDao {
 		session.close();
 	}
 
+	public static void mofidy_customer(Customer customer) {
+		Session session = hibernatesession.HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+
+		session.update(customer);
+		session.flush();
+
+		transaction.commit();
+		session.close();
+	}
+
 	public static Customer findby_name(String name) {
 		Session session = HibernateSessionFactory.getSession();
 

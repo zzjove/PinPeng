@@ -31,12 +31,7 @@
         <property name="weight" type="double">
             <column name="weight" precision="22" scale="0" />
         </property>
-        <set name="shoppingTypes" inverse="true">
-            <key>
-                <column name="orderid" />
-            </key>
-            <one-to-many class="domain.ShoppingType" />
-        </set>
+        <one-to-one name="shoppingType" class="domain.ShoppingType"></one-to-one>
         <set name="myrequests" inverse="true" table="order_request" catalog="pinpeng_db">
             <key>
                 <column name="orderid" not-null="true" />
@@ -45,11 +40,6 @@
                 <column name="requestid" not-null="true" />
             </many-to-many>
         </set>
-        <set name="restrictions" inverse="true">
-            <key>
-                <column name="orderid" />
-            </key>
-            <one-to-many class="domain.Restriction" />
-        </set>
+        <one-to-one name="restriction" class="domain.Restriction"></one-to-one>
     </class>
 </hibernate-mapping>

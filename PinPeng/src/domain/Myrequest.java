@@ -20,8 +20,8 @@ public class Myrequest implements java.io.Serializable {
 	private Integer status;
 	private Integer amount;
 	private Integer weight;
-	private Set restrictions = new HashSet(0);
-	private Set shoppingTypes = new HashSet(0);
+	private Restriction restriction;
+	private ShoppingType shoppingType;
 	private Set customers = new HashSet(0);
 	private Set myorders = new HashSet(0);
 
@@ -45,7 +45,8 @@ public class Myrequest implements java.io.Serializable {
 	/** full constructor */
 	public Myrequest(Customer customer, Date myrequestTime, String content,
 			double price, Integer status, Integer amount, Integer weight,
-			Set restrictions, Set shoppingTypes, Set customers, Set myorders) {
+			Restriction restriction, ShoppingType shoppingType, Set customers,
+			Set myorders) {
 		this.customer = customer;
 		this.myrequestTime = myrequestTime;
 		this.content = content;
@@ -53,8 +54,8 @@ public class Myrequest implements java.io.Serializable {
 		this.status = status;
 		this.amount = amount;
 		this.weight = weight;
-		this.restrictions = restrictions;
-		this.shoppingTypes = shoppingTypes;
+		this.restriction = restriction;
+		this.shoppingType = shoppingType;
 		this.customers = customers;
 		this.myorders = myorders;
 	}
@@ -125,20 +126,20 @@ public class Myrequest implements java.io.Serializable {
 		this.weight = weight;
 	}
 
-	public Set getRestrictions() {
-		return this.restrictions;
+	public Restriction getRestriction() {
+		return this.restriction;
 	}
 
-	public void setRestrictions(Set restrictions) {
-		this.restrictions = restrictions;
+	public void setRestriction(Restriction restriction) {
+		this.restriction = restriction;
 	}
 
-	public Set getShoppingTypes() {
-		return this.shoppingTypes;
+	public ShoppingType getShoppingType() {
+		return this.shoppingType;
 	}
 
-	public void setShoppingTypes(Set shoppingTypes) {
-		this.shoppingTypes = shoppingTypes;
+	public void setShoppingType(ShoppingType shoppingType) {
+		this.shoppingType = shoppingType;
 	}
 
 	public Set getCustomers() {

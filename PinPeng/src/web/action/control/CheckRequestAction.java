@@ -9,7 +9,7 @@ import domain.Myrequest;
 import domain.Restriction;
 import domain.ShoppingType;
 
-public class CheckRequest extends ActionSupport {
+public class CheckRequestAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
