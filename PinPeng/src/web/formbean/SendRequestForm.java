@@ -39,7 +39,7 @@ public class SendRequestForm {
 	public void setBuylimited(String buylimited) {
 		this.buylimited = buylimited;
 	}
-	
+
 	public String getShoppingstore() {
 		return shoppingstore;
 	}
@@ -168,7 +168,7 @@ public class SendRequestForm {
 
 		myrequest.setMyrequestTime(new Date());
 		myrequest.setCustomer(customer);
-		myrequest.setPrice((double)Integer.parseInt(price));
+		myrequest.setPrice((double) Integer.parseInt(price));
 		myrequest.setStatus(1);
 		myrequest.setAmount(Integer.parseInt(amount));
 		myrequest.setWeight(Integer.parseInt(weight));
@@ -179,16 +179,16 @@ public class SendRequestForm {
 	public Restriction get_restriction(Myrequest myrequest) {
 
 		Restriction restriction = new Restriction();
-		
+
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-		Date tempdate=new Date();
+		Date tempdate = new Date();
 		try {
 			tempdate = sf.parse(endday);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		restriction.setMyrequest(myrequest);
 		restriction.setMaxPeople(Integer.parseInt(maxpeople));
 		restriction.setEndDay(tempdate);
@@ -208,7 +208,7 @@ public class SendRequestForm {
 		ShoppingType shoppingtype = new ShoppingType();
 
 		shoppingtype.setMyrequest(myrequest);
-		
+
 		shoppingtype.setDiscountType(Integer.parseInt(discounttype));
 		shoppingtype.setShoppingStore(Integer.parseInt(shoppingstore));
 		shoppingtype.setSubShoppingStore(subshoppingstore);
@@ -216,19 +216,19 @@ public class SendRequestForm {
 		return shoppingtype;
 	}
 
-//	public Order get_order(Myrequest myrequest,Restriction restriction){
-//		
-//		Order order=new Order();
-//		
-//		order.setBeginTime(myrequest.getMyrequestTime());
-//		order.setBuyLimited(buyLimited)
-//		
-//		order.setStatus(1);
-//		order.setBeginTime(myrequest.getMyrequestTime());
-//		order.setMaxPeople(1);
-//		order.setDiscountMoney(0);
-//		order.setPrice(myrequest.getPrice());
-//		
-//		return order;
-//	}
+	// public Order get_order(Myrequest myrequest,Restriction restriction){
+	//
+	// Order order=new Order();
+	//
+	// order.setBeginTime(myrequest.getMyrequestTime());
+	// order.setBuyLimited(buyLimited)
+	//
+	// order.setStatus(1);
+	// order.setBeginTime(myrequest.getMyrequestTime());
+	// order.setMaxPeople(1);
+	// order.setDiscountMoney(0);
+	// order.setPrice(myrequest.getPrice());
+	//
+	// return order;
+	// }
 }

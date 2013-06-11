@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import service.Match;
+import utils.Match;
 
 import domain.Customer;
 import domain.Message;
@@ -41,7 +41,7 @@ public class Test {
 			Restriction temp_restriction = dao.RestrictionDao
 					.findby_orderid(temp_myorder.getOrderid());
 
-			int value = service.CalculateConverter.get_match_value(myorder,
+			int value = utils.CalculateConverter.get_match_value(myorder,
 					temp_myorder, shoppingtype, temp_shoppingtype, restriction,
 					temp_restriction);
 			if (value != -1) {

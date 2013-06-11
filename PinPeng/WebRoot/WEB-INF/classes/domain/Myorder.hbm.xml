@@ -28,8 +28,8 @@
         <property name="amount" type="integer">
             <column name="amount" />
         </property>
-        <property name="weight" type="integer">
-            <column name="weight" />
+        <property name="weight" type="double">
+            <column name="weight" precision="22" scale="0" />
         </property>
         <set name="shoppingTypes" inverse="true">
             <key>

@@ -1,4 +1,4 @@
-package service;
+package utils;
 
 import domain.Myorder;
 import domain.Myrequest;
@@ -105,37 +105,37 @@ public class CalculateConverter {
 
 			if (temp_restriction.getPayer() == 0
 					|| temp_restriction.getPayer() == restriction.getPayer()) {
-				result = result + service.ConstantValue.PAYER_VALUE;
+				result = result + utils.ConstantValue.PAYER_VALUE;
 			}
 
 			if (temp_restriction.getDormLimited() == 0
 					|| temp_restriction.getDormLimited() == restriction
 							.getDormLimited()) {
-				result = result + service.ConstantValue.DORM_VALUE;
+				result = result + utils.ConstantValue.DORM_VALUE;
 			}
 
 			if (temp_restriction.getOthertakeLimited() == 0
 					|| temp_restriction.getOthertakeLimited() == restriction
 							.getOthertakeLimited()) {
-				result = result + service.ConstantValue.OTHERTAKE_VALUE;
+				result = result + utils.ConstantValue.OTHERTAKE_VALUE;
 			}
 
 			if (temp_restriction.getManLimited() == 0
 					|| temp_restriction.getManLimited() == restriction
 							.getManLimited()) {
-				result = result + service.ConstantValue.MAN_VALUE;
+				result = result + utils.ConstantValue.MAN_VALUE;
 			}
 
 			if (temp_restriction.getBuyLimited() == 0
 					|| temp_restriction.getBuyLimited() == restriction
 							.getBuyLimited()) {
-				result = result + service.ConstantValue.BUY_VALUE;
+				result = result + utils.ConstantValue.BUY_VALUE;
 			}
 
 			if (temp_restriction.getGoodsFree() == 0
 					|| temp_restriction.getGoodsFree() == restriction
 							.getGoodsFree()) {
-				result = result + service.ConstantValue.GOODSFREE_VALUE;
+				result = result + utils.ConstantValue.GOODSFREE_VALUE;
 			}
 
 			return result;

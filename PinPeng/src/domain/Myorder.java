@@ -19,7 +19,7 @@ public class Myorder implements java.io.Serializable {
 	private double price;
 	private Integer numberPeople;
 	private Integer amount;
-	private Integer weight;
+	private double weight;
 	private Set shoppingTypes = new HashSet(0);
 	private Set myrequests = new HashSet(0);
 	private Set restrictions = new HashSet(0);
@@ -42,7 +42,7 @@ public class Myorder implements java.io.Serializable {
 
 	/** full constructor */
 	public Myorder(Customer customer, Integer status, Date beginTime,
-			double price, Integer numberPeople, Integer amount, Integer weight,
+			double price, Integer numberPeople, Integer amount, double weight,
 			Set shoppingTypes, Set myrequests, Set restrictions) {
 		this.customer = customer;
 		this.status = status;
@@ -114,11 +114,11 @@ public class Myorder implements java.io.Serializable {
 		this.amount = amount;
 	}
 
-	public Integer getWeight() {
+	public double getWeight() {
 		return this.weight;
 	}
 
-	public void setWeight(Integer weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
