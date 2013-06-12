@@ -1,10 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
 
 <import="org.apache.struts2.ServletActionContext">
 
@@ -13,9 +7,9 @@
 <!DOCTYPE html">
 <html>
 <head>
-<base href="<%=basePath%>">
 
-<title>My JSP 'index.jsp' starting page</title>
+
+<title>主页</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">

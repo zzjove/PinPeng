@@ -64,5 +64,9 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
 		</action>
+		<action name="search" class="web.action.control.SearchAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/searchresult.jsp</result>
+		</action>
 	</package>
 </struts>    

@@ -15,9 +15,11 @@ import domain.Customer;
 
 public class LoginAction extends ActionSupport {
 
-	private Customer customer;
+	private Customer user;
+	
 	private String randomNum;
-	private static Cookie cookie = null;
+
+
 
 	@Override
 	public String execute() throws Exception {
@@ -27,19 +29,25 @@ public class LoginAction extends ActionSupport {
 		randomNum = (String) request.getSession().getAttribute("randomNum");
 		LoginForm form = utils.WebUtils.requestToBean(request, LoginForm.class);
 		form.setRandomNum(randomNum);
-
-		int studentid = Integer.parseInt(form.getStudentid());
-		customer = dao.CustomerDao.loginby_studentid_pw(studentid,
+		boolean check = form.vaild();
+		//校验失败跳回表单提交页面，回显信息
+		if(!check){
+			request.setAttribute("form", form);
+			return "error";
+		}
+		int studentid = Integer.parseInt(form.getCustomer());
+		user = dao.CustomerDao.loginby_studentid_pw(studentid,
 				form.getPassword());
 
-		if (customer == null) {
+		if (user == null) {
 			form.getErrors().put("name", "用户名与密码不匹配");
 			request.setAttribute("form", form);
 			return "error";
 		}
 
-		ActionContext.getContext().getSession().put("customer", customer);
+		ActionContext.getContext().getSession().put("customer", user);
 		return "success";
+		
 	}
 
 }

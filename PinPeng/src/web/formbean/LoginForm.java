@@ -7,7 +7,7 @@ import java.util.Map;
 public class LoginForm {
 
 	private String password;
-	private String studentid;
+	private String customer;
 	private String checkcode;
 	private String randomNum;
 	private Map errors = new HashMap();
@@ -20,12 +20,14 @@ public class LoginForm {
 		this.password = password;
 	}
 
-	public String getStudentid() {
-		return studentid;
+
+
+	public String getCustomer() {
+		return customer;
 	}
 
-	public void setStudentid(String studentid) {
-		this.studentid = studentid;
+	public void setCustomer(String customer) {
+		this.customer = customer;
 	}
 
 	public String getCheckcode() {
@@ -56,11 +58,11 @@ public class LoginForm {
 	public boolean vaild() {
 		boolean isOK = true;
 
-		if (this.studentid == null || this.studentid.trim().equals("")) {
+		if (this.customer == null || this.customer.trim().equals("")) {
 			isOK = false;
 			errors.put("username", "用户名不能为空");
 		} else {
-			if (!this.studentid.matches("[0-9]{6,6}")) {
+			if (!this.customer.matches("[0-9]{6,6}")) {
 				isOK = false;
 				errors.put("username", "用户名应为6位数字");
 			}

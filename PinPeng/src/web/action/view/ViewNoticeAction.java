@@ -29,33 +29,13 @@ public class ViewNoticeAction extends ActionSupport {
 		if(type== null || !type.equals("out")){
 			type = "in";
 			//收信	
-			Message msg1 = new Message();
-			msg1.setContent("aaa");
-			Message msg2 = new Message();
-			msg2.setContent("bbb");
-			Message msg3 = new Message();
-			msg3.setContent("ccc");
-			messageBox.add(msg1);
-			messageBox.add(msg2);
-			messageBox.add(msg3);
+			messageBox = service.getInMsgByUserId(customer);
 		}
 		else{
 			//发信
-			Message msg1 = new Message();
-			msg1.setContent("ddd");
-			Message msg2 = new Message();
-			msg2.setContent("eee");
-			Message msg3 = new Message();
-			msg3.setContent("fff");
-			messageBox.add(msg1);
-			messageBox.add(msg2);
-			messageBox.add(msg3);
+			messageBox = service.getOutMsgByUserId(customer);
 		}
-		//List inMessage = service.getInMsgByUserId(customer);
-
-
 		ActionContext.getContext().put("messageBox", messageBox);		
-
 		return "success";
 	}
 	

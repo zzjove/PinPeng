@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<label> 用户名： </label>
 				</p>
 				<p>
-					<input type="text" name="studentid" autofocus="autofocus"
+					<input type="text" name="customer" autofocus="autofocus"
 						required="required" autocomplete="off" placeholder="请输入用户名"
 						class="loginInput" /> <br /> <span style="color: red">${form.errors.username
 						}<br />
@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<p>
 					请输入验证码
 					<input type="text" name="checkcode" />
-				    <img src="checkcode" style="height: 20px;" />					
+				    <img src="checkcode" style="height: 20px;" />${form.errors.checkcode }					
 				</p>
 				<p>
 					<input type="submit" value="登入" style="float: right" />
