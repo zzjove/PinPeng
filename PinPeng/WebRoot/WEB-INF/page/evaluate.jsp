@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -24,20 +25,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <h2>用户评价</h2>
-    <div>
+    <s:form action="evaluate" method="post" >
+   		<div>
     		<p>请对本次拼单中wangwei的表现作出评价:</p>
     		<div>
-    			<select>
-					<option value="1">满意</option>
-					<option value="2">一般</option>
-					<option value="3">不满意</option>
+    			<select name="assess">
+					<option value="5">非常满意</option>
+					<option value="4">满意</option>
+					<option value="3">一般</option>
+					<option value="1">不满意</option>
+					<option value="0">非常不满意</option>
 				</select>
     		</div>
     		<div>
-    		<p>更多评价</p>
-    		<input type="text"  />
-    		</div>
+    		<p>
+					<input type="submit" value="确定"/>
+			</p>
     	</div>
-    
+    </s:form>
   </body>
 </html>

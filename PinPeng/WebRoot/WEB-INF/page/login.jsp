@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="submit" value="注册" style="float: right" />
 		</p>
 	</s:form>
-	<s:form action="checkrequest" method="post">
+	<s:form action="viewevaluate" method="post">
 		<p>
 			<input type="submit" value="TEST" style="float: right" />
 		</p>
