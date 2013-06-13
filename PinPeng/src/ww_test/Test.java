@@ -54,26 +54,51 @@ public class Test {
 	}
 
 	private static void test_2() {
-		Customer customer = new Customer(102989);
-		// customer.setCustomerid(22);
-		// Message message = new Message(customer, customer, new Date(), false);
-		// message.set
-		Set myrequest_list = new HashSet();// .getMyrequests();
-		Myrequest myrequest=new Myrequest(customer, new Date(), 1, 0, 1, 1);
-		myrequest.setCustomer(customer);
-		// myrequest_list.add(myrequest);
-		// customer.getMessagesForCustomerid();
-		customer.setCredit(200);
-		customer.getMyrequests().add(myrequest);
-		// myrequest.setCustomer(customer)
-		dao.CustomerDao.add_customer(customer);
+		Customer customer = dao.CustomerDao.findby_customerid(2);
+		Myrequest myrequest = new Myrequest(customer, new Date(), 1, 1, 1, 1);
 
-		// System.out.println(((Myrequest) myrequest_list.iterator().next())
-		// .getRequestid());
+		myrequest.getCustomers().add(customer);
+		customer.getMyrequests().add(myrequest);
+
+		dao.MyrequestDao.add_myrequest(myrequest);
+		dao.CustomerDao.mofidy_customer(customer);
+
+		Customer newcustomer = dao.CustomerDao.findby_customerid(2);
+		if (newcustomer.getMyrequests().isEmpty()) {
+			System.out.println("new CustomeridB is empty!!!");
+		}
+
+	}
+
+	private static void test_3() {
+//		Customer customer = dao.CustomerDao.findby_customerid(2);
+//		Customer otherCustomer = dao.CustomerDao.findby_customerid(17);
+//
+//		if (customer.getCustomersForCustomeridA().isEmpty()) {
+//			System.out.println("~~~~~~~~ is empty!!!");
+//		}
+//		// otherCustomer.set
+//		customer.getCustomersForCustomeridA().add(otherCustomer);
+//		customer.setCredit(2222);
+//
+//		otherCustomer.getCustomersForCustomeridA().add(customer);
+//		dao.CustomerDao.mofidy_customer(customer);
+//		dao.CustomerDao.mofidy_customer(otherCustomer);
+//
+//		if (customer.getCustomersForCustomeridA().isEmpty()) {
+//			System.out.println("CustomeridB is empty!!!");
+//		}
+//
+//		// =========================test
+//		Customer newcustomer = dao.CustomerDao.findby_customerid(2);
+//		if (newcustomer.getCustomersForCustomeridA().isEmpty()) {
+//			System.out.println("new CustomeridB is empty!!!");
+//		}
+
 	}
 
 	public static void main(String[] args) throws ParseException {
 
-		test_2();
+		test_3();
 	}
 }

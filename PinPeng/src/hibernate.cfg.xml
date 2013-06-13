@@ -25,7 +25,6 @@
 		<property name="myeclipse.connection.profile">
 			MySQLDriver
 		</property>
-		<mapping resource="domain/Admin.hbm.xml" />
 		<mapping resource="domain/Customer.hbm.xml" />
 		<mapping resource="domain/Discount.hbm.xml" />
 		<mapping resource="domain/Evaluation.hbm.xml" />
@@ -34,6 +33,8 @@
 		<mapping resource="domain/Myrequest.hbm.xml" />
 		<mapping resource="domain/Restriction.hbm.xml" />
 		<mapping resource="domain/ShoppingType.hbm.xml" />
+		<mapping resource="domain/Admin.hbm.xml" />
+		<mapping resource="domain/Friendship.hbm.xml" />
 
 	</session-factory>
 

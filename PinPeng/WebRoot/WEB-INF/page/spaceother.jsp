@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -25,7 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <div>
     <h2>wangwei的个人空间</h2>
-    <p>您还不是他的好友，只能查看部分信息哟   <a href="#">立即加为好友</a></p>
+    <p>您还不是他的好友，只能查看部分信息哟   
+    <s:form action="makefriends" method="post" >
+    	<input type="submit" value="加为好友"/>
+    </s:form>
     <p>学号：</p>
     <p>姓名：</p>
     <p>信用等级：</p>

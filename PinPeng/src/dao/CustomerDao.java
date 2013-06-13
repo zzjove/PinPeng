@@ -65,7 +65,7 @@ public class CustomerDao {
 		Session session = hibernatesession.HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
 
-		session.update(customer);
+		session.merge(customer);
 		session.flush();
 
 		transaction.commit();
