@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.opensymphony.xwork2.ActionContext;
+
 import utils.Match;
 
 import domain.Customer;
@@ -72,32 +74,21 @@ public class Test {
 	}
 
 	private static void test_3() {
-		Customer customer = dao.CustomerDao.findby_customerid(2);
-		Customer otherCustomer = dao.CustomerDao.findby_customerid(17);
+		Myrequest myrequest = dao.MyrequestDao.findby_requestid(10);// Test
+		Myorder otherOrder = dao.MyorderDao.findby_orderid(1);
 
-		Friendship friendship = new Friendship(customer, otherCustomer);
-		dao.FriendshipDao.add_friendship(friendship);
+		myrequest.setStatus(2);
+		dao.MyrequestDao.modify_myrequest(myrequest);
 
-		// if (customer.getFriendshipsForCustomeridB().isEmpty()) {
-		// System.out.println("~~~~~~~~ is empty!!!");
-		// }
-		// otherCustomer.set
-		// customer.getFriendshipsForCustomeridB().add(otherCustomer);
-		// customer.setCredit(2222);
-		//
-		// otherCustomer.getFriendshipsForCustomeridB().add(customer);
-		// dao.CustomerDao.mofidy_customer(customer);
-		// dao.CustomerDao.mofidy_customer(otherCustomer);
-		//
-		// if (customer.getFriendshipsForCustomeridB().isEmpty()) {
-		// System.out.println("CustomeridB is empty!!!");
-		// }
-		//
-		// // =========================test
-		// Customer newcustomer = dao.CustomerDao.findby_customerid(2);
-		// if (newcustomer.getFriendshipsForCustomeridB().isEmpty()) {
-		// System.out.println("new CustomeridB is empty!!!");
-		// }
+		Set myorderSet = myrequest.getMyorders();
+		myorderSet.add(otherOrder);
+
+		dao.MyrequestDao.modify_myrequest(myrequest);
+
+		// otherOrder.getRestriction();
+		// Set otherorderSet=otherRequest.getMyorders();
+		// Iterator it =myorderSet.iterator();
+		// while (it
 
 	}
 
