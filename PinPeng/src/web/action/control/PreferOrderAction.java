@@ -2,10 +2,11 @@ package web.action.control;
 
 import java.util.Iterator;
 
+import utils.DisplayRequest;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import display.DisplayRequest;
 import domain.Customer;
 import domain.Myrequest;
 

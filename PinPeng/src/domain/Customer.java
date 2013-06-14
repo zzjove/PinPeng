@@ -22,7 +22,8 @@ public class Customer implements java.io.Serializable {
 	private String password;
 	private boolean sex;
 	private String email;
-	private Friendship friendship;
+	private Friendship friendshipByCustomerid;
+	private Set friendshipsForCustomeridB = new HashSet(0);
 	private Set evaluationsForBeRecordedId = new HashSet(0);
 	private Set myrequests = new HashSet(0);
 	private Set myrequests_1 = new HashSet(0);
@@ -45,7 +46,8 @@ public class Customer implements java.io.Serializable {
 	/** full constructor */
 	public Customer(Integer studentid, Integer credit, Integer dormitory,
 			String telNumber, String qqNumber, Integer generosity, String name,
-			String password, boolean sex, String email, Friendship friendship,
+			String password, boolean sex, String email,
+			Friendship friendshipByCustomerid, Set friendshipsForCustomeridB,
 			Set evaluationsForBeRecordedId, Set myrequests, Set myrequests_1,
 			Set evaluationsForRecordId, Set myorders, Set messagesForSendTo,
 			Set messagesForCustomerid) {
@@ -59,7 +61,8 @@ public class Customer implements java.io.Serializable {
 		this.password = password;
 		this.sex = sex;
 		this.email = email;
-		this.friendship = friendship;
+		this.friendshipByCustomerid = friendshipByCustomerid;
+		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
 		this.evaluationsForBeRecordedId = evaluationsForBeRecordedId;
 		this.myrequests = myrequests;
 		this.myrequests_1 = myrequests_1;
@@ -159,12 +162,20 @@ public class Customer implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public Friendship getFriendship() {
-		return this.friendship;
+	public Friendship getFriendshipByCustomerid() {
+		return this.friendshipByCustomerid;
 	}
 
-	public void setFriendship(Friendship friendship) {
-		this.friendship = friendship;
+	public void setFriendshipByCustomerid(Friendship friendshipByCustomerid) {
+		this.friendshipByCustomerid = friendshipByCustomerid;
+	}
+
+	public Set getFriendshipsForCustomeridB() {
+		return this.friendshipsForCustomeridB;
+	}
+
+	public void setFriendshipsForCustomeridB(Set friendshipsForCustomeridB) {
+		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
 	}
 
 	public Set getEvaluationsForBeRecordedId() {

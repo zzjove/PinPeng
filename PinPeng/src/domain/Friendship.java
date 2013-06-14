@@ -8,8 +8,9 @@ public class Friendship implements java.io.Serializable {
 
 	// Fields
 
-	private FriendshipId id;
-	private Customer customer;
+	private Integer friendshipid;
+	private Customer customerByCustomerid;
+	private Customer customerByCustomeridB;
 
 	// Constructors
 
@@ -18,32 +19,41 @@ public class Friendship implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Friendship(FriendshipId id) {
-		this.id = id;
+	public Friendship(Customer customerByCustomeridB) {
+		this.customerByCustomeridB = customerByCustomeridB;
 	}
 
 	/** full constructor */
-	public Friendship(FriendshipId id, Customer customer) {
-		this.id = id;
-		this.customer = customer;
+	public Friendship(Customer customerByCustomerid,
+			Customer customerByCustomeridB) {
+		this.customerByCustomerid = customerByCustomerid;
+		this.customerByCustomeridB = customerByCustomeridB;
 	}
 
 	// Property accessors
 
-	public FriendshipId getId() {
-		return this.id;
+	public Integer getFriendshipid() {
+		return this.friendshipid;
 	}
 
-	public void setId(FriendshipId id) {
-		this.id = id;
+	public void setFriendshipid(Integer friendshipid) {
+		this.friendshipid = friendshipid;
 	}
 
-	public Customer getCustomer() {
-		return this.customer;
+	public Customer getCustomerByCustomerid() {
+		return this.customerByCustomerid;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerByCustomerid(Customer customerByCustomerid) {
+		this.customerByCustomerid = customerByCustomerid;
+	}
+
+	public Customer getCustomerByCustomeridB() {
+		return this.customerByCustomeridB;
+	}
+
+	public void setCustomerByCustomeridB(Customer customerByCustomeridB) {
+		this.customerByCustomeridB = customerByCustomeridB;
 	}
 
 }

@@ -6,14 +6,13 @@
 -->
 <hibernate-mapping>
     <class name="domain.Friendship" table="friendship" catalog="pinpeng_db">
-        <composite-id name="id" class="domain.FriendshipId">
-            <key-property name="customeridA" type="integer">
-                <column name="customerid_a" />
-            </key-property>
-            <key-property name="customeridB" type="integer">
-                <column name="customerid_b" />
-            </key-property>
-        </composite-id>
-        <one-to-one name="customer" class="domain.Customer"></one-to-one>
+        <id name="friendshipid" type="integer">
+            <column name="friendshipid" />
+            <generator class="native" />
+        </id>
+        <one-to-one name="customerByCustomerid" class="domain.Customer"></one-to-one>
+        <many-to-one name="customerByCustomeridB" class="domain.Customer" fetch="select">
+            <column name="customerid_b" not-null="true" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

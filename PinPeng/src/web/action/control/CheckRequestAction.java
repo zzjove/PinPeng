@@ -1,9 +1,10 @@
 package web.action.control;
 
+import utils.DisplayRequest;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import display.DisplayRequest;
 import domain.Myrequest;
 import domain.Restriction;
 import domain.ShoppingType;

@@ -52,4 +52,18 @@ public class MyorderDao {
 
 		return myorder_list;
 	}
+
+	public static List find_valid_order_list_by_customerid(int customerid) {
+		Session session = hibernatesession.HibernateSessionFactory.getSession();
+
+		String sql = "SELECT myorder.* FROM myorder,restriction "
+				+ "WHERE restriction.end_day > CURRENT_DATE "
+				+ "AND restriction.orderid=myorder.orderid "
+				+ "AND status BETWEEN 1 AND 2;" 
+				+ "AND customerid=" + customerid + ";";
+		List myorder_list = session.createSQLQuery(sql)
+				.addEntity(Myorder.class).list();
+
+		return myorder_list;
+	}
 }
