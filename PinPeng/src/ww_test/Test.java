@@ -10,6 +10,7 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import utils.CalculateConverter;
 import utils.Match;
 
 import domain.Customer;
@@ -80,10 +81,22 @@ public class Test {
 		myrequest.setStatus(2);
 		dao.MyrequestDao.modify_myrequest(myrequest);
 
-		Set myorderSet = myrequest.getMyorders();
-		myorderSet.add(otherOrder);
+		int value = CalculateConverter.get_match_value(myrequest, otherOrder,
+				myrequest.getShoppingType(), otherOrder.getShoppingType(),
+				myrequest.getRestriction(), otherOrder.getRestriction());
 
-		dao.MyrequestDao.modify_myrequest(myrequest);
+		// 是否符合匹配项
+		if (value == -1) { // 不匹配
+			System.out.println("匹配不合适!");
+		} else {// 匹配
+			Set myorderSet = myrequest.getMyorders();
+			myorderSet.add(otherOrder); // 添加RequestOrder项
+			dao.MyrequestDao.modify_myrequest(myrequest); // 更新数据库
+
+			CalculateConverter.plus_restriction(myrequest.getRestriction(),
+					otherOrder.getRestriction()); // 将restriction合并
+			dao.RestrictionDao.modify_restriction(otherOrder.getRestriction());// 更新数据库
+		}
 
 		// otherOrder.getRestriction();
 		// Set otherorderSet=otherRequest.getMyorders();
