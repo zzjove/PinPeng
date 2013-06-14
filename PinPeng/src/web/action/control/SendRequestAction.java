@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-import service.ComparatorMatch;
-import service.Match;
 import sun.print.resources.serviceui;
+import utils.ComparatorMatch;
+import utils.Match;
 import web.formbean.SendRequestForm;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -60,14 +60,14 @@ public class SendRequestAction extends ActionSupport {
 		// 产生新的一个order
 		Set myrequest_set = new HashSet();
 		myrequest_set.add(myrequest);
-		Set shoppingtype_set = new HashSet();
-		shoppingtype_set.add(shoppingtype);
-		Set restriction_set = new HashSet();
-		restriction_set.add(restriction);
+		// Set shoppingtype_set = new HashSet();
+		// shoppingtype_set.add(shoppingtype);
+		// Set restriction_set = new HashSet();
+		// restriction_set.add(restriction);
 
 		myorder = new Myorder(customer, 1, new Date(), myrequest.getPrice(), 1,
-				myrequest.getAmount(), myrequest.getWeight(), shoppingtype_set,
-				myrequest_set, restriction_set);
+				myrequest.getAmount(), myrequest.getWeight(), shoppingtype,
+				myrequest_set, restriction);
 		dao.MyorderDao.add_order(myorder); // 将order保存至数据库
 
 	}
@@ -84,16 +84,15 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("store",
-						service.DataConverter
-								.convert_shoppingstore(shoppingtype
-										.getShoppingStore()));
+						utils.DataConverter.convert_shoppingstore(shoppingtype
+								.getShoppingStore()));
 
 		// 将是否限定寝室转换成字符串后放入session
 		ActionContext
 				.getContext()
 				.getSession()
 				.put("dormlimited",
-						service.DataConverter.convert_yes_no(restriction
+						utils.DataConverter.convert_yes_no(restriction
 								.getDormLimited()));
 
 		// 将是否限定付款人转换成字符串后放入session
@@ -101,7 +100,7 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("payer",
-						service.DataConverter.convert_me_other(restriction
+						utils.DataConverter.convert_me_other(restriction
 								.getPayer()));
 
 		// 将是否限定取件人转换成字符串后放入session
@@ -109,7 +108,7 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("othertakelimited",
-						service.DataConverter.convert_me_other(restriction
+						utils.DataConverter.convert_me_other(restriction
 								.getOthertakeLimited()));
 
 		// 将是否要礼物转换成字符串后放入session
@@ -117,7 +116,7 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("goodsfree",
-						service.DataConverter.convert_me_other(restriction
+						utils.DataConverter.convert_me_other(restriction
 								.getGoodsFree()));
 
 		// 将性别转换成字符串后放入session
@@ -125,7 +124,7 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("manlimited",
-						service.DataConverter.convert_me_other(restriction
+						utils.DataConverter.convert_me_other(restriction
 								.getManLimited()));
 
 		// 将是否限购转换成字符串后放入session
@@ -133,7 +132,7 @@ public class SendRequestAction extends ActionSupport {
 				.getContext()
 				.getSession()
 				.put("buylimited",
-						service.DataConverter.convert_yes_no(restriction
+						utils.DataConverter.convert_yes_no(restriction
 								.getBuyLimited()));
 	}
 
@@ -212,7 +211,7 @@ public class SendRequestAction extends ActionSupport {
 			Restriction temp_restriction = dao.RestrictionDao
 					.findby_orderid(temp_myorder.getOrderid());
 
-			int value = service.CalculateConverter.get_match_value(myorder,
+			int value = utils.CalculateConverter.get_match_value(myorder,
 					temp_myorder, shoppingtype, temp_shoppingtype, restriction,
 					temp_restriction);
 			if (value != -1) {

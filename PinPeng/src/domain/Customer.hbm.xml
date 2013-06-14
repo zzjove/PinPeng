@@ -40,21 +40,12 @@
         <property name="email" type="string">
             <column name="email" length="64" />
         </property>
-        <set name="customersForCustomeridB" inverse="true" table="friendship" catalog="pinpeng_db">
-            <key>
-                <column name="customerid_a" not-null="true" />
-            </key>
-            <many-to-many entity-name="domain.Customer">
-                <column name="customerid_b" not-null="true" />
-            </many-to-many>
-        </set>
-        <set name="customersForCustomeridA" table="friendship" catalog="pinpeng_db">
+        <one-to-one name="friendshipByCustomerid" class="domain.Friendship"></one-to-one>
+        <set name="friendshipsForCustomeridB" inverse="true">
             <key>
                 <column name="customerid_b" not-null="true" />
             </key>
-            <many-to-many entity-name="domain.Customer">
-                <column name="customerid_a" not-null="true" />
-            </many-to-many>
+            <one-to-many class="domain.Friendship" />
         </set>
         <set name="evaluationsForBeRecordedId" inverse="true">
             <key>
@@ -67,7 +58,7 @@
                 <column name="customerid" not-null="true" />
             </key>
             <many-to-many entity-name="domain.Myrequest">
-                <column name="requestrid" not-null="true" />
+                <column name="requestid" not-null="true" />
             </many-to-many>
         </set>
         <set name="myrequests_1" inverse="true">
@@ -88,7 +79,13 @@
             </key>
             <one-to-many class="domain.Myorder" />
         </set>
-        <set name="messages" inverse="true">
+        <set name="messagesForSendTo" inverse="true">
+            <key>
+                <column name="send_to" not-null="true" />
+            </key>
+            <one-to-many class="domain.Message" />
+        </set>
+        <set name="messagesForCustomerid" inverse="true">
             <key>
                 <column name="customerid" not-null="true" />
             </key>

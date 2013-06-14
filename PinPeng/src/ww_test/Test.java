@@ -8,10 +8,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import service.Match;
+import utils.Match;
 
 import domain.Customer;
+import domain.Friendship;
+import domain.Message;
 import domain.Myorder;
+import domain.Myrequest;
 import domain.Restriction;
 import domain.ShoppingType;
 
@@ -21,8 +24,8 @@ public class Test {
 	 * @param args
 	 * @throws ParseException
 	 */
-	public static void main(String[] args) throws ParseException {
 
+	private void test_1() {
 		Customer customer = dao.CustomerDao.findby_customerid(2);
 		Myorder myorder = dao.MyorderDao.findby_orderid(2);
 		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(2);
@@ -39,7 +42,7 @@ public class Test {
 			Restriction temp_restriction = dao.RestrictionDao
 					.findby_orderid(temp_myorder.getOrderid());
 
-			int value = service.CalculateConverter.get_match_value(myorder,
+			int value = utils.CalculateConverter.get_match_value(myorder,
 					temp_myorder, shoppingtype, temp_shoppingtype, restriction,
 					temp_restriction);
 			if (value != -1) {
@@ -49,12 +52,57 @@ public class Test {
 				System.out.println(match.getMyorder().getOrderid());
 			}
 		}
-		// Set customerSet = new HashSet();
-		// customerSet.add(customer);
-		// order.setCustomers(customerSet);
-		// dao.MyorderDao.add_order(order);
-		// CustomerOrder customerorderid = new CustomerOrderId(customer, order);
-		// CustomerOrderDao.add_CustomerOrderId(customerorderid);
+	}
 
+	private static void test_2() {
+		Customer customer = dao.CustomerDao.findby_customerid(2);
+		Myrequest myrequest = new Myrequest(customer, new Date(), 1, 1, 1, 1);
+
+		myrequest.getCustomers().add(customer);
+		customer.getMyrequests().add(myrequest);
+
+		dao.MyrequestDao.add_myrequest(myrequest);
+		dao.CustomerDao.mofidy_customer(customer);
+
+		Customer newcustomer = dao.CustomerDao.findby_customerid(2);
+		if (newcustomer.getMyrequests().isEmpty()) {
+			System.out.println("new CustomeridB is empty!!!");
+		}
+
+	}
+
+	private static void test_3() {
+		Customer customer = dao.CustomerDao.findby_customerid(2);
+		Customer otherCustomer = dao.CustomerDao.findby_customerid(17);
+
+		Friendship friendship = new Friendship(customer, otherCustomer);
+		dao.FriendshipDao.add_friendship(friendship);
+
+		// if (customer.getFriendshipsForCustomeridB().isEmpty()) {
+		// System.out.println("~~~~~~~~ is empty!!!");
+		// }
+		// otherCustomer.set
+		// customer.getFriendshipsForCustomeridB().add(otherCustomer);
+		// customer.setCredit(2222);
+		//
+		// otherCustomer.getFriendshipsForCustomeridB().add(customer);
+		// dao.CustomerDao.mofidy_customer(customer);
+		// dao.CustomerDao.mofidy_customer(otherCustomer);
+		//
+		// if (customer.getFriendshipsForCustomeridB().isEmpty()) {
+		// System.out.println("CustomeridB is empty!!!");
+		// }
+		//
+		// // =========================test
+		// Customer newcustomer = dao.CustomerDao.findby_customerid(2);
+		// if (newcustomer.getFriendshipsForCustomeridB().isEmpty()) {
+		// System.out.println("new CustomeridB is empty!!!");
+		// }
+
+	}
+
+	public static void main(String[] args) throws ParseException {
+
+		test_3();
 	}
 }

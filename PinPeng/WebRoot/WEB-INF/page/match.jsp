@@ -1,9 +1,9 @@
-<%@page import="service.DataConverter"%>
+<%@page import="utils.DataConverter"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="domain.ShoppingType"%>
 <%@page import="domain.Myrequest"%>
 <%@page import="domain.Restriction"%>
-<%@page import="service.Match"%>
+<%@page import="utils.Match"%>
 <%@page import="domain.Customer"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%

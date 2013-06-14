@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="webview" location="777,10" size="234,520">
-    <action name="index" location="54,104" size="150,41">
+  <package name="webview" location="777,10" size="217,612">
+    <action name="index" location="55,105" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="viewregister" location="56,44" size="150,41">
+    <action name="viewregister" location="57,45" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="register.jsp" />
       </result>
     </action>
-    <action name="viewspace" location="51,158" size="150,41">
+    <action name="viewspace" location="52,159" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="space.jsp" />
       </result>
     </action>
-    <action name="viewchangepassword" location="53,214" size="150,41">
+    <action name="viewchangepassword" location="54,215" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="changepassword.jsp" />
       </result>
     </action>
-    <action name="viewhistory" location="51,270" size="150,41">
+    <action name="viewhistory" location="52,271" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="history.jsp" />
       </result>
     </action>
-    <action name="viewprofile" location="50,393" size="150,41">
+    <action name="viewprofile" location="51,394" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="profile.jsp" />
       </result>
     </action>
-    <action name="viewsendrequest" location="48,460" size="150,41">
+    <action name="viewsendrequest" location="49,461" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="sendRequest.jsp" />
       </result>
     </action>
+    <action name="viewnoticecenter" location="11,561" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="noticecenter.jsp" />
+      </result>
+    </action>
   </package>
-  <package name="webcontrol" location="12,85" size="211,433">
-    <action name="login" location="55,49" size="150,62">
+  <package name="webcontrol" location="12,85" size="216,712">
+    <action name="login" location="36,51" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
@@ -46,29 +51,48 @@
         <resourceEdge source="error" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="register" location="36,186" size="150,41">
+    <action name="register" location="37,187" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="sendrequest" location="36,286" size="150,41">
+    <action name="sendrequest" location="37,287" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="match.jsp" />
       </result>
     </action>
-    <action name="logout" location="36,386" size="150,41">
+    <action name="logout" location="32,379" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
+    <action name="sendnotice" location="11,461" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="sendnoticesuccess.jsp" />
+      </result>
+    </action>
+    <action name="checkrequest" location="11,561" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="checkrequest.jsp" />
+      </result>
+    </action>
+    <action name="preferrequest" location="11,661" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="test.jsp" />
+      </result>
+    </action>
   </package>
-  <webResource name="index.jsp" path="index.jsp" location="359,209" size="150,55" />
+  <webResource name="index.jsp" path="index.jsp" location="390,178" size="150,55" />
   <webResource name="register.jsp" path="/WEB-INF/page/register.jsp" location="528,44" size="150,55" />
   <webResource name="space.jsp" path="/WEB-INF/page/space.jsp" location="577,150" size="150,55" />
   <webResource name="changepassword.jsp" path="/WEB-INF/page/changepassword.jsp" location="579,229" size="150,55" />
   <webResource name="history.jsp" path="/WEB-INF/page/history.jsp" location="593,318" size="150,55" />
   <webResource name="profile.jsp" path="/WEB-INF/page/profile.jsp" location="588,405" size="150,55" />
   <webResource name="match.jsp" path="/WEB-INF/page/match.jsp" location="287,369" size="150,55" />
-  <webResource name="sendRequest.jsp" path="/WEB-INF/page/sendRequest.jsp" location="589,497" size="150,55" />
+  <webResource name="sendRequest.jsp" path="/WEB-INF/page/sendRequest.jsp" location="582,475" size="150,55" />
+  <webResource name="noticecenter.jsp" path="/WEB-INF/page/noticecenter.jsp" location="595,564" size="150,55" />
+  <webResource name="sendnoticesuccess.jsp" path="/WEB-INF/page/sendnoticesuccess.jsp" location="353,570" size="150,55" />
+  <webResource name="checkrequest.jsp" path="/WEB-INF/page/checkrequest.jsp" location="351,667" size="150,55" />
+  <webResource name="test.jsp" path="/WEB-INF/page/test.jsp" location="361,739" size="150,55" />
 </Struts2Diagram>
 

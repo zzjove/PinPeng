@@ -2,94 +2,104 @@ package domain;
 
 import java.util.Date;
 
+
 /**
  * Message entity. @author MyEclipse Persistence Tools
  */
 
-public class Message implements java.io.Serializable {
+public class Message  implements java.io.Serializable {
 
-	// Fields
 
-	private Integer messageid;
-	private Customer customer;
-	private String content;
-	private Date sendTime;
-	private Integer sendTo;
-	private boolean status;
+    // Fields    
 
-	// Constructors
+     private Integer messageid;
+     private Customer customerBySendTo;
+     private Customer customerByCustomerid;
+     private String content;
+     private Date sendTime;
+     private boolean status;
 
-	/** default constructor */
-	public Message() {
-	}
+
+    // Constructors
+
+    /** default constructor */
+    public Message() {
+    }
 
 	/** minimal constructor */
-	public Message(Customer customer, Date sendTime, Integer sendTo,
-			boolean status) {
-		this.customer = customer;
-		this.sendTime = sendTime;
-		this.sendTo = sendTo;
-		this.status = status;
-	}
+    public Message(Customer customerBySendTo, Customer customerByCustomerid, Date sendTime, boolean status) {
+        this.customerBySendTo = customerBySendTo;
+        this.customerByCustomerid = customerByCustomerid;
+        this.sendTime = sendTime;
+        this.status = status;
+    }
+    
+    /** full constructor */
+    public Message(Customer customerBySendTo, Customer customerByCustomerid, String content, Date sendTime, boolean status) {
+        this.customerBySendTo = customerBySendTo;
+        this.customerByCustomerid = customerByCustomerid;
+        this.content = content;
+        this.sendTime = sendTime;
+        this.status = status;
+    }
 
-	/** full constructor */
-	public Message(Customer customer, String content, Date sendTime,
-			Integer sendTo, boolean status) {
-		this.customer = customer;
-		this.content = content;
-		this.sendTime = sendTime;
-		this.sendTo = sendTo;
-		this.status = status;
-	}
+   
+    // Property accessors
 
-	// Property accessors
+    public Integer getMessageid() {
+        return this.messageid;
+    }
+    
+    public void setMessageid(Integer messageid) {
+        this.messageid = messageid;
+    }
 
-	public Integer getMessageid() {
-		return this.messageid;
-	}
+    public Customer getCustomerBySendTo() {
+        return this.customerBySendTo;
+    }
+    
+    public void setCustomerBySendTo(Customer customerBySendTo) {
+        this.customerBySendTo = customerBySendTo;
+    }
 
-	public void setMessageid(Integer messageid) {
-		this.messageid = messageid;
-	}
+    public Customer getCustomerByCustomerid() {
+        return this.customerByCustomerid;
+    }
+    
+    public void setCustomerByCustomerid(Customer customerByCustomerid) {
+        this.customerByCustomerid = customerByCustomerid;
+    }
 
-	public Customer getCustomer() {
-		return this.customer;
-	}
+    public String getContent() {
+        return this.content;
+    }
+    
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+    public Date getSendTime() {
+        return this.sendTime;
+    }
+    
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
+    }
 
-	public String getContent() {
-		return this.content;
-	}
+    public boolean getStatus() {
+        return this.status;
+    }
+    
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+   
 
-	public void setContent(String content) {
-		this.content = content;
-	}
 
-	public Date getSendTime() {
-		return this.sendTime;
-	}
 
-	public void setSendTime(Date sendTime) {
-		this.sendTime = sendTime;
-	}
 
-	public Integer getSendTo() {
-		return this.sendTo;
-	}
 
-	public void setSendTo(Integer sendTo) {
-		this.sendTo = sendTo;
-	}
 
-	public boolean getStatus() {
-		return this.status;
-	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
 
 }

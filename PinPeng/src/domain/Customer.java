@@ -22,14 +22,15 @@ public class Customer implements java.io.Serializable {
 	private String password;
 	private boolean sex;
 	private String email;
-	private Set customersForCustomeridB = new HashSet(0);
-	private Set customersForCustomeridA = new HashSet(0);
+	private Friendship friendshipByCustomerid;
+	private Set friendshipsForCustomeridB = new HashSet(0);
 	private Set evaluationsForBeRecordedId = new HashSet(0);
 	private Set myrequests = new HashSet(0);
 	private Set myrequests_1 = new HashSet(0);
 	private Set evaluationsForRecordId = new HashSet(0);
 	private Set myorders = new HashSet(0);
-	private Set messages = new HashSet(0);
+	private Set messagesForSendTo = new HashSet(0);
+	private Set messagesForCustomerid = new HashSet(0);
 
 	// Constructors
 
@@ -46,9 +47,10 @@ public class Customer implements java.io.Serializable {
 	public Customer(Integer studentid, Integer credit, Integer dormitory,
 			String telNumber, String qqNumber, Integer generosity, String name,
 			String password, boolean sex, String email,
-			Set customersForCustomeridB, Set customersForCustomeridA,
+			Friendship friendshipByCustomerid, Set friendshipsForCustomeridB,
 			Set evaluationsForBeRecordedId, Set myrequests, Set myrequests_1,
-			Set evaluationsForRecordId, Set myorders, Set messages) {
+			Set evaluationsForRecordId, Set myorders, Set messagesForSendTo,
+			Set messagesForCustomerid) {
 		this.studentid = studentid;
 		this.credit = credit;
 		this.dormitory = dormitory;
@@ -59,14 +61,15 @@ public class Customer implements java.io.Serializable {
 		this.password = password;
 		this.sex = sex;
 		this.email = email;
-		this.customersForCustomeridB = customersForCustomeridB;
-		this.customersForCustomeridA = customersForCustomeridA;
+		this.friendshipByCustomerid = friendshipByCustomerid;
+		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
 		this.evaluationsForBeRecordedId = evaluationsForBeRecordedId;
 		this.myrequests = myrequests;
 		this.myrequests_1 = myrequests_1;
 		this.evaluationsForRecordId = evaluationsForRecordId;
 		this.myorders = myorders;
-		this.messages = messages;
+		this.messagesForSendTo = messagesForSendTo;
+		this.messagesForCustomerid = messagesForCustomerid;
 	}
 
 	// Property accessors
@@ -159,20 +162,20 @@ public class Customer implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public Set getCustomersForCustomeridB() {
-		return this.customersForCustomeridB;
+	public Friendship getFriendshipByCustomerid() {
+		return this.friendshipByCustomerid;
 	}
 
-	public void setCustomersForCustomeridB(Set customersForCustomeridB) {
-		this.customersForCustomeridB = customersForCustomeridB;
+	public void setFriendshipByCustomerid(Friendship friendshipByCustomerid) {
+		this.friendshipByCustomerid = friendshipByCustomerid;
 	}
 
-	public Set getCustomersForCustomeridA() {
-		return this.customersForCustomeridA;
+	public Set getFriendshipsForCustomeridB() {
+		return this.friendshipsForCustomeridB;
 	}
 
-	public void setCustomersForCustomeridA(Set customersForCustomeridA) {
-		this.customersForCustomeridA = customersForCustomeridA;
+	public void setFriendshipsForCustomeridB(Set friendshipsForCustomeridB) {
+		this.friendshipsForCustomeridB = friendshipsForCustomeridB;
 	}
 
 	public Set getEvaluationsForBeRecordedId() {
@@ -215,12 +218,20 @@ public class Customer implements java.io.Serializable {
 		this.myorders = myorders;
 	}
 
-	public Set getMessages() {
-		return this.messages;
+	public Set getMessagesForSendTo() {
+		return this.messagesForSendTo;
 	}
 
-	public void setMessages(Set messages) {
-		this.messages = messages;
+	public void setMessagesForSendTo(Set messagesForSendTo) {
+		this.messagesForSendTo = messagesForSendTo;
+	}
+
+	public Set getMessagesForCustomerid() {
+		return this.messagesForCustomerid;
+	}
+
+	public void setMessagesForCustomerid(Set messagesForCustomerid) {
+		this.messagesForCustomerid = messagesForCustomerid;
 	}
 
 }

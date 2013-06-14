@@ -92,4 +92,17 @@ public class MyrequestDao {
 
 		return myrequest_list;
 	}
+
+	public static List find_all_myrequests() {// —∞’“À˘”–myrequest
+
+		Session session = HibernateSessionFactory.getSession();
+
+		String sql = "select * from myrequest;";
+		List myrequest_list = session.createSQLQuery(sql)
+				.addEntity(Myrequest.class).list();
+
+		session.close();
+
+		return myrequest_list;
+	}
 }

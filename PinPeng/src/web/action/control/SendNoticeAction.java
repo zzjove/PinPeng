@@ -26,13 +26,13 @@ public class SendNoticeAction extends ActionSupport {
 				SendNoticeForm.class);
 
 		Customer customer = (Customer) ActionContext.getContext().getSession()
-				.get("customer");	//得到寄出人的customer
+				.get("customer"); // 得到寄出人的customer
 		Customer send_to_customer = dao.CustomerDao.findby_name(form
-				.getSend_to());		//得到收件人的customer
-		
+				.getSend_to()); // 得到收件人的customer
+
 		if (send_to_customer != null) {
-			Message message = new Message(customer, form.getContent(),
-					new Date(), send_to_customer.getCustomerid(), false);
+			Message message = new Message(send_to_customer, customer,
+					form.getContent(), new Date(), false);
 			dao.MessageDao.add_message(message);
 		}
 

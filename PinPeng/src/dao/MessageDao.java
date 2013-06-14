@@ -12,7 +12,7 @@ import domain.Message;
 
 public class MessageDao {
 
-	public static Message fingby_messageid(int messageid) {
+	public static Message findby_messageid(int messageid) {
 
 		Session session = HibernateSessionFactory.getSession();
 
@@ -68,7 +68,7 @@ public class MessageDao {
 	public static List find_unreadmessage(int sendto){
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from where status=0 and sendto=";
+		String sql = "select * from message where status=0 and sendto=";
 
 		List message_list = session.createSQLQuery(sql + sendto + ";")
 				.addEntity(Message.class).list();
