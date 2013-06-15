@@ -15,7 +15,6 @@ public class ViewSpaceAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		MyorderDao dao = new MyorderDao();
 		List orders = dao.find_valid_order_list();
-		System.out.println(orders.size());
 		ActionContext.getContext().put("orders", orders);
 		return "success";
 	}

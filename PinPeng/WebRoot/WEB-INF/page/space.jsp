@@ -40,7 +40,7 @@
 						<c:if test="${item.status == 2 }">
 							<td>联系中</td>
 						</c:if>
-						<td><a href="#">查看</a><a href="#">删除</a></td>
+						<td><a href="checkrequest">查看</a><a href="${pageContext.request.contextPath}/deleteorder.action?orderid=${item.orderid}">删除</a></td>
 					</tr>
 				</c:forEach>
 			</table>

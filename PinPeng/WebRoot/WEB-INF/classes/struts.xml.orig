@@ -60,6 +60,7 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
 		</action>
+<<<<<<< HEAD
 		<action name="updateprofile" class="web.action.control.UpdateProfileAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
@@ -67,7 +68,7 @@
 		<action name="search" class="web.action.control.SearchAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/searchresult.jsp</result>
-		</action>
+=======
 		<action name="checkrequest" class="web.action.control.CheckRequestAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/checkrequest.jsp</result>
@@ -95,10 +96,7 @@
 		<action name="makefriends" class="web.action.control.MakeFriends"
 			method="execute">
 			<result name="success">/WEB-INF/page/test.jsp</result>
-		</action>
-		<action name="deleteorder" class="web.action.control.DeleteOrderAction"
-			method="execute">
-			<result name="success" type="chain">viewspace</result>
+>>>>>>> a5693bcc2caaae9896039d685301fa6b7ebf7e23
 		</action>
 	</package>
 </struts>    
