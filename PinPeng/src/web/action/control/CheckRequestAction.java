@@ -10,12 +10,20 @@ import domain.Restriction;
 import domain.ShoppingType;
 
 public class CheckRequestAction extends ActionSupport {
+	private int requestid;
+	public int getRequestid() {
+		return requestid;
+	}
+
+	public void setRequestid(int requestid) {
+		this.requestid = requestid;
+	}
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Myrequest otherRequest = dao.MyrequestDao.findby_requestid(10);
-		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_requestid(10);
-		Restriction restriction = dao.RestrictionDao.findby_requestid(10);
+		Myrequest otherRequest = dao.MyrequestDao.findby_requestid(requestid);
+		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_requestid(requestid);
+		Restriction restriction = dao.RestrictionDao.findby_requestid(requestid);
 
 		otherRequest.setShoppingType(shoppingtype);
 		otherRequest.setRestriction(restriction);
@@ -30,4 +38,6 @@ public class CheckRequestAction extends ActionSupport {
 
 		return "success";
 	}
+
+
 }

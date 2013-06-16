@@ -19,6 +19,24 @@ public class SendRequestForm {
 	String subshoppingstore;
 	String discounttype;
 	String price;
+	//新加的
+	String moneyAmountNeed;
+	public String getMoneyAmountNeed() {
+		return moneyAmountNeed;
+	}
+
+	public void setMoneyAmountNeed(String moneyAmountNeed) {
+		this.moneyAmountNeed = moneyAmountNeed;
+	}
+	String itemstype;
+	public String getItemstype() {
+		return itemstype;
+	}
+
+	public void setItemstype(String itemstype) {
+		this.itemstype = itemstype;
+	}
+	//
 	String amount;
 	String weight;
 	String endday;
@@ -31,6 +49,41 @@ public class SendRequestForm {
 	String notice;
 	String buylimited;
 	private Map errors = new HashMap();
+
+	// 校验表单是否合法
+	public boolean vaild() {
+		boolean isOK = true;
+
+		if (this.subshoppingstore == null || this.subshoppingstore.trim().equals("")) {
+			isOK = false;
+			errors.put("subshoppingstore", "购物商家不能为空");
+		}
+		if (this.price == null || this.price.trim().equals("")) {
+			isOK = false;
+			errors.put("price", "已消费 金额不能为空");
+		}
+		if (this.moneyAmountNeed == null || this.moneyAmountNeed.trim().equals("")) {
+			isOK = false;
+			errors.put("moneyAmountNeed", "优惠需要金额不能为空");
+		}
+		if (this.amount == null || this.amount.trim().equals("")) {
+			isOK = false;
+			errors.put("amount", "购买件数不能为空");
+		} 
+		if (this.weight == null || this.weight.trim().equals("")) {
+			isOK = false;
+			errors.put("weight", "物品重量不能为空");
+		}
+		if (this.endday == null || this.endday.trim().equals("")) {
+			isOK = false;
+			errors.put("endday", "结束日期不能为空");
+		} 
+		if (this.maxpeople == null || this.maxpeople.trim().equals("")) {
+			isOK = false;
+			errors.put("maxpeople", "拼单人数不能为空");
+		}
+		return isOK;
+	}
 
 	public String getBuylimited() {
 		return buylimited;
@@ -231,4 +284,5 @@ public class SendRequestForm {
 	//
 	// return order;
 	// }
+
 }

@@ -29,10 +29,10 @@
 					<td>订单状态</td>
 					<td>可执行操作</td>
 				</tr>
-				<c:forEach var="item" items="${orders}">
+				<c:forEach var="item" items="${requests}">
 					<tr>
-						<td>${item.orderid}</td>
-						<td>${item.beginTime}</td>
+						<td>${item.requestid}</td>
+						<td>${item.myrequestTime}</td>
 						<td>${item.price}</td>
 						<c:if test="${item.status == 1 }">
 							<td>等待中</td>
@@ -40,7 +40,8 @@
 						<c:if test="${item.status == 2 }">
 							<td>联系中</td>
 						</c:if>
-						<td><a href="checkrequest">查看</a><a href="${pageContext.request.contextPath}/deleteorder.action?orderid=${item.orderid}">删除</a></td>
+						<td><a href="${pageContext.request.contextPath}/checkrequest.action?requestid=${item.requestid}">查看
+						</a><a href="${pageContext.request.contextPath}/deleteorder.action?requestid=${item.requestid}">删除</a></td>
 					</tr>
 				</c:forEach>
 			</table>

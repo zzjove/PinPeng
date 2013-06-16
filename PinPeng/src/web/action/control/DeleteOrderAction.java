@@ -1,26 +1,23 @@
 package web.action.control;
 
-import service.OrderService;
+import service.MyrequestService;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import domain.Myrequest;
-
 public class DeleteOrderAction extends ActionSupport {
-	private int orderid;
-	public int getOrderid() {
-		return orderid;
+	private int requestid;
+	public int getRequestid() {
+		return requestid;
 	}
-	public void setOrderid(int orderid) {
-		this.orderid = orderid;
+	public void setRequestid(int requestid) {
+		this.requestid = requestid;
 	}
 	@Override
 	public String execute() throws Exception {
 		//检查id是否合法
 		//。。。
-		OrderService orderService = new OrderService();
-		orderService.delete(orderid);
+		MyrequestService requestService = new MyrequestService();
+		requestService.delete(requestid);
 		return "success";
 	}
 }

@@ -80,10 +80,7 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/space.jsp</result>
 		</action>
-		<action name="confirmrequest" class="web.action.control.ConfirmRequestAction"
-			method="execute">
-			<result name="success">/WEB-INF/page/test.jsp</result>
-		</action>
+
 		<action name="evaluate" class="web.action.control.EvaluateAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/test.jsp</result>
@@ -99,6 +96,11 @@
 		<action name="deleteorder" class="web.action.control.DeleteOrderAction"
 			method="execute">
 			<result name="success" type="chain">viewspace</result>
+		</action>
+		<action name="confirmrequest" class="web.action.control.ConfirmRequestAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/confirm_request.jsp</result>
+			<result name="error">/WEB-INF/page/sendRequest.jsp</result>
 		</action>
 	</package>
 </struts>    

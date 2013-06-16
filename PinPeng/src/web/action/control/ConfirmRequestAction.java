@@ -1,22 +1,28 @@
 package web.action.control;
 
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
+import javax.servlet.http.HttpServletRequest;
 
-import domain.Myrequest;
+import org.apache.struts2.ServletActionContext;
+
+import web.formbean.SendRequestForm;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 public class ConfirmRequestAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Myrequest myreuest=dao.MyrequestDao.findby_requestid(10);
-		Myrequest otherRequest = (Myrequest) ActionContext.getContext()
-				.getSession().get("otherRequestClass");
-		
-		
-		
-		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		SendRequestForm form = utils.WebUtils.requestToBean(request,
+				SendRequestForm.class);
+		boolean check = form.vaild();
+		// 校验失败跳回表单提交页面，回显信息
+		if (!check) {
+			request.setAttribute("form", form);
+			return "error";
+		}
+		request.setAttribute("form", form);
 		return "success";
 	}
 }
