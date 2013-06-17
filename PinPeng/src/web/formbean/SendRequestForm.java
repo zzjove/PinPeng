@@ -19,8 +19,9 @@ public class SendRequestForm {
 	String subshoppingstore;
 	String discounttype;
 	String price;
-	//新加的
+	// 新加的
 	String moneyAmountNeed;
+
 	public String getMoneyAmountNeed() {
 		return moneyAmountNeed;
 	}
@@ -28,7 +29,9 @@ public class SendRequestForm {
 	public void setMoneyAmountNeed(String moneyAmountNeed) {
 		this.moneyAmountNeed = moneyAmountNeed;
 	}
+
 	String itemstype;
+
 	public String getItemstype() {
 		return itemstype;
 	}
@@ -36,6 +39,7 @@ public class SendRequestForm {
 	public void setItemstype(String itemstype) {
 		this.itemstype = itemstype;
 	}
+
 	//
 	String amount;
 	String weight;
@@ -54,7 +58,8 @@ public class SendRequestForm {
 	public boolean vaild() {
 		boolean isOK = true;
 
-		if (this.subshoppingstore == null || this.subshoppingstore.trim().equals("")) {
+		if (this.subshoppingstore == null
+				|| this.subshoppingstore.trim().equals("")) {
 			isOK = false;
 			errors.put("subshoppingstore", "购物商家不能为空");
 		}
@@ -62,14 +67,15 @@ public class SendRequestForm {
 			isOK = false;
 			errors.put("price", "已消费 金额不能为空");
 		}
-		if (this.moneyAmountNeed == null || this.moneyAmountNeed.trim().equals("")) {
+		if (this.moneyAmountNeed == null
+				|| this.moneyAmountNeed.trim().equals("")) {
 			isOK = false;
 			errors.put("moneyAmountNeed", "优惠需要金额不能为空");
 		}
 		if (this.amount == null || this.amount.trim().equals("")) {
 			isOK = false;
 			errors.put("amount", "购买件数不能为空");
-		} 
+		}
 		if (this.weight == null || this.weight.trim().equals("")) {
 			isOK = false;
 			errors.put("weight", "物品重量不能为空");
@@ -77,7 +83,7 @@ public class SendRequestForm {
 		if (this.endday == null || this.endday.trim().equals("")) {
 			isOK = false;
 			errors.put("endday", "结束日期不能为空");
-		} 
+		}
 		if (this.maxpeople == null || this.maxpeople.trim().equals("")) {
 			isOK = false;
 			errors.put("maxpeople", "拼单人数不能为空");
@@ -242,7 +248,7 @@ public class SendRequestForm {
 			e.printStackTrace();
 		}
 
-		restriction.setMyrequest(myrequest);
+		restriction.setRequestid(myrequest.getRequestid());
 		restriction.setMaxPeople(Integer.parseInt(maxpeople));
 		restriction.setEndDay(tempdate);
 		restriction.setPayer(Integer.parseInt(payer));
@@ -260,7 +266,7 @@ public class SendRequestForm {
 
 		ShoppingType shoppingtype = new ShoppingType();
 
-		shoppingtype.setMyrequest(myrequest);
+		shoppingtype.setRequestid(myrequest.getRequestid());
 
 		shoppingtype.setDiscountType(Integer.parseInt(discounttype));
 		shoppingtype.setShoppingStore(Integer.parseInt(shoppingstore));
@@ -268,7 +274,6 @@ public class SendRequestForm {
 
 		return shoppingtype;
 	}
-
 	// public Order get_order(Myrequest myrequest,Restriction restriction){
 	//
 	// Order order=new Order();

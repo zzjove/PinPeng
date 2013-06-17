@@ -94,12 +94,16 @@ public class CalculateConverter {
 		// }
 
 		if ((int) shoppingtype.getDiscountType() != (int) temp_shoppingtype
-				.getDiscountType()
-				|| (int) shoppingtype.getShoppingStore() != (int) temp_shoppingtype
-						.getShoppingStore()
-				|| shoppingtype.getAmountTo() > myorder.getPrice()
-						+ temp_myorder.getPrice()) {
+				.getDiscountType()) {
 			return -1;
+		}
+		if ((int) shoppingtype.getShoppingStore() != (int) temp_shoppingtype
+				.getShoppingStore()) {
+			return -2;
+		}
+		if (shoppingtype.getAmountTo() > myorder.getPrice()
+				+ temp_myorder.getPrice()) {
+			return -3;
 		} else {
 			int result = 0;
 

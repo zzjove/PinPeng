@@ -13,8 +13,8 @@ import com.opensymphony.xwork2.ActionContext;
 import utils.CalculateConverter;
 import utils.Match;
 
+import dao.MyorderDao;
 import domain.Customer;
-import domain.Friendship;
 import domain.Message;
 import domain.Myorder;
 import domain.Myrequest;
@@ -28,11 +28,11 @@ public class Test {
 	 * @throws ParseException
 	 */
 
-	private void test_1() {
+	private static void test_1() {
 		Customer customer = dao.CustomerDao.findby_customerid(2);
-		Myorder myorder = dao.MyorderDao.findby_orderid(2);
-		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(2);
-		Restriction restriction = dao.RestrictionDao.findby_orderid(2);
+		Myorder myorder = dao.MyorderDao.findby_orderid(1);
+		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(1);
+		Restriction restriction = dao.RestrictionDao.findby_orderid(1);
 		List<Match> match_list = new ArrayList<Match>();
 
 		List<Myorder> myorder_list = dao.MyorderDao.find_valid_order_list();
@@ -48,7 +48,8 @@ public class Test {
 			int value = utils.CalculateConverter.get_match_value(myorder,
 					temp_myorder, shoppingtype, temp_shoppingtype, restriction,
 					temp_restriction);
-			if (value != -1) {
+			System.out.println(temp_myorder.getOrderid() + "        " + value);
+			if (value >= 0) {
 				Match match = new Match(value, temp_myorder, temp_shoppingtype,
 						temp_restriction, customer);
 				match_list.add(match);
@@ -74,39 +75,51 @@ public class Test {
 
 	}
 
-	private static void test_3() {
-		Myrequest myrequest = dao.MyrequestDao.findby_requestid(10);// Test
-		Myorder otherOrder = dao.MyorderDao.findby_orderid(1);
+	// private static void test_3() {
+	// Myrequest myrequest = dao.MyrequestDao.findby_requestid(10);// Test
+	// Myorder otherOrder = dao.MyorderDao.findby_orderid(1);
+	//
+	// myrequest.setStatus(2);
+	// dao.MyrequestDao.modify_myrequest(myrequest);
+	//
+	// int value = CalculateConverter.get_match_value(myrequest, otherOrder,
+	// myrequest.getShoppingType(), otherOrder.getShoppingType(),
+	// myrequest.getRestriction(), otherOrder.getRestriction());
+	//
+	// // 是否符合匹配项
+	// if (value == -1) { // 不匹配
+	// System.out.println("匹配不合适!");
+	// } else {// 匹配
+	// Set myorderSet = myrequest.getMyorders();
+	// myorderSet.add(otherOrder); // 添加RequestOrder项
+	// dao.MyrequestDao.modify_myrequest(myrequest); // 更新数据库
+	//
+	// CalculateConverter.plus_restriction(myrequest.getRestriction(),
+	// otherOrder.getRestriction()); // 将restriction合并
+	// dao.RestrictionDao.modify_restriction(otherOrder.getRestriction());//
+	// 更新数据库
+	// }
 
-		myrequest.setStatus(2);
+	// otherOrder.getRestriction();
+	// Set otherorderSet=otherRequest.getMyorders();
+	// Iterator it =myorderSet.iterator();
+	// while (it
+
+	// }
+
+	public static void test_4() {
+		Myrequest myrequest = dao.MyrequestDao.findby_requestid(15);
+		Myorder myorder = dao.MyorderDao.findby_orderid(27);
+
+		myrequest.getMyorders().add(myorder);
+		// myorder.getMyrequests().add(myrequest);
+		// myrequest.getMyorders().clear();
+		// dao.MyorderDao.modify_order(myorder);
 		dao.MyrequestDao.modify_myrequest(myrequest);
-
-		int value = CalculateConverter.get_match_value(myrequest, otherOrder,
-				myrequest.getShoppingType(), otherOrder.getShoppingType(),
-				myrequest.getRestriction(), otherOrder.getRestriction());
-
-		// 是否符合匹配项
-		if (value == -1) { // 不匹配
-			System.out.println("匹配不合适!");
-		} else {// 匹配
-			Set myorderSet = myrequest.getMyorders();
-			myorderSet.add(otherOrder); // 添加RequestOrder项
-			dao.MyrequestDao.modify_myrequest(myrequest); // 更新数据库
-
-			CalculateConverter.plus_restriction(myrequest.getRestriction(),
-					otherOrder.getRestriction()); // 将restriction合并
-			dao.RestrictionDao.modify_restriction(otherOrder.getRestriction());// 更新数据库
-		}
-
-		// otherOrder.getRestriction();
-		// Set otherorderSet=otherRequest.getMyorders();
-		// Iterator it =myorderSet.iterator();
-		// while (it
-
 	}
 
 	public static void main(String[] args) throws ParseException {
 
-		test_3();
+		test_1();
 	}
 }

@@ -10,8 +10,12 @@
             <column name="restrictionid" />
             <generator class="native" />
         </id>
-        <one-to-one name="myrequest" class="domain.Myrequest"></one-to-one>
-        <one-to-one name="myorder" class="domain.Myorder"></one-to-one>
+        <property name="requestid" type="integer">
+            <column name="requestid" />
+        </property>
+        <property name="orderid" type="integer">
+            <column name="orderid" />
+        </property>
         <property name="maxPeople" type="integer">
             <column name="max_people" not-null="true" />
         </property>

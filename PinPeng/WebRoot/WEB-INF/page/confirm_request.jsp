@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -86,6 +87,11 @@
 	 ${form.notice }
 	<c:set value="${form }" var="form" scope="session"></c:set></br>
 	<input type=button value="返回修改" onclick="window.location.href='${pageContext.request.contextPath}/viewsendrequest?type=change'">
-	<input type=button value="继续" onclick="window.location.href='MyJsp.jsp'">
+	<!--  <input type=button value="自动匹配" onclick="window.location.href='MyJsp.jsp'">-->
+	<s:form action="matchrequest" method="post">
+		<p>
+			<input type="submit" value="自动匹配"/>
+		</p>
+	</s:form>
   </body>
 </html>

@@ -51,7 +51,7 @@
 		</action>
 		<action name="sendrequest" class="web.action.control.SendRequestAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/match.jsp</result>
+			<result name="success">/WEB-INF/page/confirm_request.jsp</result>
 		</action>
 		<action name="logout" class="web.action.control.LogoutAction"
 			method="execute">
@@ -102,6 +102,10 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/confirm_request.jsp</result>
 			<result name="error">/WEB-INF/page/sendRequest.jsp</result>
+		</action>
+		<action name="matchrequest" class="web.action.control.MatchRequestAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/match.jsp</result>
 		</action>
 		<action name="changepassword" class="web.action.control.ChangePasswordAction"
 			method="execute">

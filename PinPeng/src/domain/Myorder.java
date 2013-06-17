@@ -20,9 +20,7 @@ public class Myorder implements java.io.Serializable {
 	private Integer numberPeople;
 	private Integer amount;
 	private double weight;
-	private ShoppingType shoppingType;
 	private Set myrequests = new HashSet(0);
-	private Restriction restriction;
 
 	// Constructors
 
@@ -43,7 +41,7 @@ public class Myorder implements java.io.Serializable {
 	/** full constructor */
 	public Myorder(Customer customer, Integer status, Date beginTime,
 			double price, Integer numberPeople, Integer amount, double weight,
-			ShoppingType shoppingType, Set myrequests, Restriction restriction) {
+			Set myrequests) {
 		this.customer = customer;
 		this.status = status;
 		this.beginTime = beginTime;
@@ -51,9 +49,7 @@ public class Myorder implements java.io.Serializable {
 		this.numberPeople = numberPeople;
 		this.amount = amount;
 		this.weight = weight;
-		this.shoppingType = shoppingType;
 		this.myrequests = myrequests;
-		this.restriction = restriction;
 	}
 
 	// Property accessors
@@ -122,28 +118,12 @@ public class Myorder implements java.io.Serializable {
 		this.weight = weight;
 	}
 
-	public ShoppingType getShoppingType() {
-		return this.shoppingType;
-	}
-
-	public void setShoppingType(ShoppingType shoppingType) {
-		this.shoppingType = shoppingType;
-	}
-
 	public Set getMyrequests() {
 		return this.myrequests;
 	}
 
 	public void setMyrequests(Set myrequests) {
 		this.myrequests = myrequests;
-	}
-
-	public Restriction getRestriction() {
-		return this.restriction;
-	}
-
-	public void setRestriction(Restriction restriction) {
-		this.restriction = restriction;
 	}
 
 }
