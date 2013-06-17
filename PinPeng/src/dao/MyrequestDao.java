@@ -45,7 +45,7 @@ public class MyrequestDao {
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
 
-		session.update(myrequest);
+		session.merge(myrequest);
 		session.flush();
 
 		transaction.commit();

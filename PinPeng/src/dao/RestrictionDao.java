@@ -77,4 +77,15 @@ public class RestrictionDao {
 			return null;
 		}
 	}
+
+	public static void modify_restriction(Restriction restriction) {// ÐÞ¸ÄÒ»¸örestriction
+		Session session = HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+
+		session.merge(restriction);
+		session.flush();
+
+		transaction.commit();
+		session.close();
+	}
 }

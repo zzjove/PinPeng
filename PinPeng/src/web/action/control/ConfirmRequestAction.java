@@ -23,6 +23,7 @@ public class ConfirmRequestAction extends ActionSupport {
 			return "error";
 		}
 		request.setAttribute("form", form);
+		
 		return "success";
 	}
 }

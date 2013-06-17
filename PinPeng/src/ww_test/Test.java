@@ -8,6 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.opensymphony.xwork2.ActionContext;
+
+import utils.CalculateConverter;
 import utils.Match;
 
 import domain.Customer;
@@ -72,32 +75,33 @@ public class Test {
 	}
 
 	private static void test_3() {
-		Customer customer = dao.CustomerDao.findby_customerid(2);
-		Customer otherCustomer = dao.CustomerDao.findby_customerid(17);
+		Myrequest myrequest = dao.MyrequestDao.findby_requestid(10);// Test
+		Myorder otherOrder = dao.MyorderDao.findby_orderid(1);
 
-		Friendship friendship = new Friendship(customer, otherCustomer);
-		dao.FriendshipDao.add_friendship(friendship);
+		myrequest.setStatus(2);
+		dao.MyrequestDao.modify_myrequest(myrequest);
 
-		// if (customer.getFriendshipsForCustomeridB().isEmpty()) {
-		// System.out.println("~~~~~~~~ is empty!!!");
-		// }
-		// otherCustomer.set
-		// customer.getFriendshipsForCustomeridB().add(otherCustomer);
-		// customer.setCredit(2222);
-		//
-		// otherCustomer.getFriendshipsForCustomeridB().add(customer);
-		// dao.CustomerDao.mofidy_customer(customer);
-		// dao.CustomerDao.mofidy_customer(otherCustomer);
-		//
-		// if (customer.getFriendshipsForCustomeridB().isEmpty()) {
-		// System.out.println("CustomeridB is empty!!!");
-		// }
-		//
-		// // =========================test
-		// Customer newcustomer = dao.CustomerDao.findby_customerid(2);
-		// if (newcustomer.getFriendshipsForCustomeridB().isEmpty()) {
-		// System.out.println("new CustomeridB is empty!!!");
-		// }
+		int value = CalculateConverter.get_match_value(myrequest, otherOrder,
+				myrequest.getShoppingType(), otherOrder.getShoppingType(),
+				myrequest.getRestriction(), otherOrder.getRestriction());
+
+		// 是否符合匹配项
+		if (value == -1) { // 不匹配
+			System.out.println("匹配不合适!");
+		} else {// 匹配
+			Set myorderSet = myrequest.getMyorders();
+			myorderSet.add(otherOrder); // 添加RequestOrder项
+			dao.MyrequestDao.modify_myrequest(myrequest); // 更新数据库
+
+			CalculateConverter.plus_restriction(myrequest.getRestriction(),
+					otherOrder.getRestriction()); // 将restriction合并
+			dao.RestrictionDao.modify_restriction(otherOrder.getRestriction());// 更新数据库
+		}
+
+		// otherOrder.getRestriction();
+		// Set otherorderSet=otherRequest.getMyorders();
+		// Iterator it =myorderSet.iterator();
+		// while (it
 
 	}
 
