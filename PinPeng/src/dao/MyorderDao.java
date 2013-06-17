@@ -78,4 +78,15 @@ public class MyorderDao {
 
 		return max;
 	}
+	
+	public static void modify_order(Myorder order) {
+		Session session = HibernateSessionFactory.getSession();
+		Transaction transaction = session.beginTransaction();
+
+		session.merge(order);
+		session.flush();
+
+		transaction.commit();
+		session.close();
+	}
 }
