@@ -30,10 +30,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div style=" width:600px; float:left">
     <h2>修改密码</h2>
-    <s:form action="#" method="post">
-    	<input type="password" name="#" placeholder="原密码" /><br />
-    	<input type="password" name="#" placeholder="新密码" /><br />
-    	<input type="password" name="#" placeholder="再次输入新密码" /><br />
+    <s:form action="changepassword" method="post">
+    	<input type="password" name="oldpassword" placeholder="原密码" /><br />
+    	<input type="password" name="newpassword1" placeholder="新密码" /><br />
+    	<input type="password" name="newpassword2" placeholder="再次输入新密码" /><br />
     	
     	<input type="submit" value="确认">
     </s:form>

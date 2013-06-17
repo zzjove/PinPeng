@@ -40,7 +40,7 @@ public class LoginAction extends ActionSupport {
 				form.getPassword());
 
 		if (user == null) {
-			form.getErrors().put("name", "用户名与密码不匹配");
+			form.getErrors().put("username", "用户名与密码不匹配");
 			request.setAttribute("form", form);
 			return "error";
 		}

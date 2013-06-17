@@ -35,6 +35,7 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/noticecenter.jsp</result>
 		</action>
+
 	</package>
 
 	<package name="webcontrol" extends="struts-default">
@@ -62,7 +63,7 @@
 		</action>
 		<action name="updateprofile" class="web.action.control.UpdateProfileAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
+			<result name="success">/WEB-INF/page/system_message.jsp</result>
 		</action>
 		<action name="search" class="web.action.control.SearchAction"
 			method="execute">
@@ -102,5 +103,11 @@
 			<result name="success">/WEB-INF/page/confirm_request.jsp</result>
 			<result name="error">/WEB-INF/page/sendRequest.jsp</result>
 		</action>
+		<action name="changepassword" class="web.action.control.ChangePasswordAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/login.jsp</result>
+			<result name="error">/WEB-INF/page/changepassword.jsp</result>
+		</action>
+		
 	</package>
 </struts>    
