@@ -87,11 +87,7 @@
 	 ${form.notice }
 	<c:set value="${form }" var="form" scope="session"></c:set></br>
 	<input type=button value="返回修改" onclick="window.location.href='${pageContext.request.contextPath}/viewsendrequest?type=change'">
-	<!--  <input type=button value="自动匹配" onclick="window.location.href='MyJsp.jsp'">-->
-	<s:form action="matchrequest" method="post">
-		<p>
-			<input type="submit" value="自动匹配"/>
-		</p>
-	</s:form>
+	<input type=button value="自动匹配" onclick="window.location.href='${pageContext.request.contextPath}/matchrequest'">
+
   </body>
 </html>

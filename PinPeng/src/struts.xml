@@ -112,6 +112,9 @@
 			<result name="success">/WEB-INF/page/login.jsp</result>
 			<result name="error">/WEB-INF/page/changepassword.jsp</result>
 		</action>
-		
+		<action name="checkorder" class="web.action.control.CheckOrderAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/check_order.jsp</result>
+		</action>
 	</package>
 </struts>    

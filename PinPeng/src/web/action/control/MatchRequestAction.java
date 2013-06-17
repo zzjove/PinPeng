@@ -16,6 +16,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Customer;
+import domain.MatchResult;
 import domain.Myorder;
 import domain.Myrequest;
 import domain.Restriction;
@@ -87,7 +88,7 @@ public class MatchRequestAction extends ActionSupport {
 				Match match = new Match(value, temp_myorder, temp_shoppingtype,
 						temp_restriction, customer);
 				match_list.add(match);
-				System.out.println(match.getMyorder().getOrderid());
+				//System.out.println(match.getMyorder().getOrderid());
 			}
 		}
 
@@ -110,15 +111,49 @@ public class MatchRequestAction extends ActionSupport {
 			new_customer_list.add(match.getCustomer());
 
 		}
-
-		ActionContext.getContext().put("myrequest_list", new_myrequest_list);
-		ActionContext.getContext().put("shoppingtype_list",
-				new_shoppingtype_list);
-		ActionContext.getContext()
-				.put("restriction_list", new_restriction_list);
-		ActionContext.getContext().put("customer_list", new_customer_list);
-
-		ActionContext.getContext().put("match_list", match_list);
+		MatchResult mr1 = new MatchResult();
+		mr1.setCredit(3);
+		mr1.setDate(new Date());
+		mr1.setOrderId(26);
+		mr1.setPeopleNum(5);
+		mr1.setPrice(100);
+		mr1.setValue(10);
+		MatchResult mr2 = new MatchResult();
+		mr2.setCredit(6);
+		mr2.setDate(new Date());
+		mr2.setOrderId(2);
+		mr2.setPeopleNum(4);
+		mr2.setPrice(200);
+		mr2.setValue(20);
+		MatchResult mr3 = new MatchResult();
+		mr3.setCredit(5);
+		mr3.setDate(new Date());
+		mr3.setOrderId(29);
+		mr3.setPeopleNum(6);
+		mr3.setPrice(300);
+		mr3.setValue(50);
+		List matchs = new ArrayList();
+		matchs.add(mr1);
+		matchs.add(mr2);
+		matchs.add(mr3);
+		ActionContext.getContext().put("matchs", matchs);
+//		ActionContext.getContext().put("myrequest_list", new_myrequest_list);
+//		ActionContext.getContext().put("shoppingtype_list",
+//				new_shoppingtype_list);
+//		ActionContext.getContext()
+//				.put("restriction_list", new_restriction_list);
+//		ActionContext.getContext().put("customer_list", new_customer_list);
+//
+//		ActionContext.getContext().put("match_list", match_list);
+//		
+//		
+//		
+//		
+//		System.out.println(new_myrequest_list.size());
+//		System.out.println(new_shoppingtype_list.size());
+//		System.out.println(new_restriction_list.size());
+//		System.out.println(new_customer_list.size());
+//		System.out.println(match_list.size());
 	}
 
 	@Override

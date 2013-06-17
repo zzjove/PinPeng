@@ -11,4 +11,9 @@ public class OrderService {
 			order.setStatus(0);
 			//orderDao.update(order.getOrderid());
 		}
+		//根据order id 得到order
+		public Myorder get(int orderid){
+			Myorder order = orderDao.findby_orderid(orderid);
+			return order;
+		}
 }
