@@ -13,8 +13,8 @@ import com.opensymphony.xwork2.ActionContext;
 import utils.CalculateConverter;
 import utils.Match;
 
+import dao.MyorderDao;
 import domain.Customer;
-import domain.Friendship;
 import domain.Message;
 import domain.Myorder;
 import domain.Myrequest;
@@ -74,39 +74,58 @@ public class Test {
 
 	}
 
-	private static void test_3() {
-		Myrequest myrequest = dao.MyrequestDao.findby_requestid(10);// Test
-		Myorder otherOrder = dao.MyorderDao.findby_orderid(1);
-
-		myrequest.setStatus(2);
-		dao.MyrequestDao.modify_myrequest(myrequest);
-
-		int value = CalculateConverter.get_match_value(myrequest, otherOrder,
-				myrequest.getShoppingType(), otherOrder.getShoppingType(),
-				myrequest.getRestriction(), otherOrder.getRestriction());
-
-		// 是否符合匹配项
-		if (value == -1) { // 不匹配
-			System.out.println("匹配不合适!");
-		} else {// 匹配
-			Set myorderSet = myrequest.getMyorders();
-			myorderSet.add(otherOrder); // 添加RequestOrder项
-			dao.MyrequestDao.modify_myrequest(myrequest); // 更新数据库
-
-			CalculateConverter.plus_restriction(myrequest.getRestriction(),
-					otherOrder.getRestriction()); // 将restriction合并
-			dao.RestrictionDao.modify_restriction(otherOrder.getRestriction());// 更新数据库
-		}
+//	private static void test_3() {
+//		Myrequest myrequest = dao.MyrequestDao.findby_requestid(10);// Test
+//		Myorder otherOrder = dao.MyorderDao.findby_orderid(1);
+//
+//		myrequest.setStatus(2);
+//		dao.MyrequestDao.modify_myrequest(myrequest);
+//
+//		int value = CalculateConverter.get_match_value(myrequest, otherOrder,
+//				myrequest.getShoppingType(), otherOrder.getShoppingType(),
+//				myrequest.getRestriction(), otherOrder.getRestriction());
+//
+//		// 是否符合匹配项
+//		if (value == -1) { // 不匹配
+//			System.out.println("匹配不合适!");
+//		} else {// 匹配
+//			Set myorderSet = myrequest.getMyorders();
+//			myorderSet.add(otherOrder); // 添加RequestOrder项
+//			dao.MyrequestDao.modify_myrequest(myrequest); // 更新数据库
+//
+//			CalculateConverter.plus_restriction(myrequest.getRestriction(),
+//					otherOrder.getRestriction()); // 将restriction合并
+//			dao.RestrictionDao.modify_restriction(otherOrder.getRestriction());// 更新数据库
+//		}
 
 		// otherOrder.getRestriction();
 		// Set otherorderSet=otherRequest.getMyorders();
 		// Iterator it =myorderSet.iterator();
 		// while (it
 
+	//}
+
+	public static void test_4() {
+		Customer customer = dao.CustomerDao.findby_customerid(2);
+		Myrequest myrequest = dao.MyrequestDao.findby_requestid(15);
+		Myorder myorder = new Myorder(customer, 1, new Date(), 88, 1);
+		myorder = dao.MyorderDao.findby_orderid(15);
+
+		ShoppingType shoppingtype = new ShoppingType(null, 15, 2, 2, 2, 2,
+				2, 2, "2", 2);
+		// (1, 1);
+
+		// myorder.setShoppingType(shoppingtype);
+		// dao.MyorderDao.add_order(myorder);
+		// myorder = dao.MyorderDao.findby_orderid(dao.MyorderDao
+		// .find_max_orderid());
+		// shoppingtype.setMyorder(myorder);
+		System.out.println(shoppingtype.getOrderid());
+		dao.ShoppingTypeDao.add_shoppingtype(shoppingtype); // 将order保存至数据库
 	}
 
 	public static void main(String[] args) throws ParseException {
 
-		test_3();
+		test_4();
 	}
 }

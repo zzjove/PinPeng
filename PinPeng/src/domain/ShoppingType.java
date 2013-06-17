@@ -9,8 +9,8 @@ public class ShoppingType implements java.io.Serializable {
 	// Fields
 
 	private Integer shoppingTypeid;
-	private Myrequest myrequest;
-	private Myorder myorder;
+	private Integer requestid;
+	private Integer orderid;
 	private double amountTo;
 	private double discountDown;
 	private double discountRate;
@@ -33,12 +33,12 @@ public class ShoppingType implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ShoppingType(Myrequest myrequest, Myorder myorder, double amountTo,
+	public ShoppingType(Integer requestid, Integer orderid, double amountTo,
 			double discountDown, double discountRate, double quantityTo,
 			double freePost, Integer shoppingStore, String subShoppingStore,
 			Integer discountType) {
-		this.myrequest = myrequest;
-		this.myorder = myorder;
+		this.requestid = requestid;
+		this.orderid = orderid;
 		this.amountTo = amountTo;
 		this.discountDown = discountDown;
 		this.discountRate = discountRate;
@@ -59,20 +59,20 @@ public class ShoppingType implements java.io.Serializable {
 		this.shoppingTypeid = shoppingTypeid;
 	}
 
-	public Myrequest getMyrequest() {
-		return this.myrequest;
+	public Integer getRequestid() {
+		return this.requestid;
 	}
 
-	public void setMyrequest(Myrequest myrequest) {
-		this.myrequest = myrequest;
+	public void setRequestid(Integer requestid) {
+		this.requestid = requestid;
 	}
 
-	public Myorder getMyorder() {
-		return this.myorder;
+	public Integer getOrderid() {
+		return this.orderid;
 	}
 
-	public void setMyorder(Myorder myorder) {
-		this.myorder = myorder;
+	public void setOrderid(Integer orderid) {
+		this.orderid = orderid;
 	}
 
 	public double getAmountTo() {

@@ -94,17 +94,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </tr>
 <% 
 
-	List match_list=(List)session.getAttribute("match_list");
-	Iterator it=match_list.iterator();
-	while (it.hasNext()) 
-	{
-		Match match = (Match) it.next();
-		Myrequest myrequst = match.getMyrequest();
+	//List match_list=(List)session.getAttribute("match_list");
+	//Iterator it=match_list.iterator();
+	//while (it.hasNext()) 
+	//{
+		//Match match = (Match) it.next();
+		//Myrequest myrequst = match.getMyrequest();
 		//ShoppingType matchshoppingtype = match.getShoppingType();
 		//Restriction matchrestriction = match.getRestriction();
-		Customer customer = match.getCustomer();
-		session.putValue("myrequst", myrequst);
-		session.putValue("mycustomer", customer);
+		//Customer customer = match.getCustomer();
+		//session.putValue("myrequst", myrequst);
+		//session.putValue("mycustomer", customer);
 %>
   <tr>
   	<td>${myrequest.requestid}</td>
@@ -117,10 +117,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<td><input type="button" value="收藏"></td>
  </tr>
  <% 
- 	}
- 	session.removeAttribute("match_list");
- 	session.removeAttribute("myrequest");
- 	session.removeAttribute("mycustomer");
+ 	//}
+ 	//session.removeAttribute("match_list");
+ 	//session.removeAttribute("myrequest");
+ 	//session.removeAttribute("mycustomer");
  %>
  <!--  
  <tr>

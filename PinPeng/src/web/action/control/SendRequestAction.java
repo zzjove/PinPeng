@@ -66,8 +66,7 @@ public class SendRequestAction extends ActionSupport {
 		// restriction_set.add(restriction);
 
 		myorder = new Myorder(customer, 1, new Date(), myrequest.getPrice(), 1,
-				myrequest.getAmount(), myrequest.getWeight(), shoppingtype,
-				myrequest_set, restriction);
+				myrequest.getAmount(), myrequest.getWeight(), myrequest_set);
 		dao.MyorderDao.add_order(myorder); // 将order保存至数据库
 
 	}

@@ -30,13 +30,13 @@ public class RestrictionDao {
 		}
 	}
 
-	public static Restriction findby_restrictiontid(int restrictiontid) {// 根据restrictionid虚招一个restriction
+	public static Restriction findby_restrictionid(int restrictionid) {// 根据restrictionid虚招一个restriction
 
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from restriction where requestid=";
+		String sql = "select * from restriction where restrictionid=";
 		List restriction_list = session
-				.createSQLQuery(sql + restrictiontid + ";")
+				.createSQLQuery(sql + restrictionid + ";")
 				.addEntity(Restriction.class).list();
 
 		session.close();
@@ -82,7 +82,7 @@ public class RestrictionDao {
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
 
-		session.merge(restriction);
+		session.update(restriction);
 		session.flush();
 
 		transaction.commit();

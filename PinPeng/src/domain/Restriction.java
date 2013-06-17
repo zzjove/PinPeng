@@ -11,8 +11,8 @@ public class Restriction implements java.io.Serializable {
 	// Fields
 
 	private Integer restrictionid;
-	private Myrequest myrequest;
-	private Myorder myorder;
+	private Integer requestid;
+	private Integer orderid;
 	private Integer maxPeople;
 	private Date endDay;
 	private Integer payer;
@@ -44,12 +44,12 @@ public class Restriction implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Restriction(Myrequest myrequest, Myorder myorder, Integer maxPeople,
+	public Restriction(Integer requestid, Integer orderid, Integer maxPeople,
 			Date endDay, Integer payer, Integer dormLimited,
 			Integer othertakeLimited, Integer manLimited, Integer buyLimited,
 			Integer goodsFree, String notice) {
-		this.myrequest = myrequest;
-		this.myorder = myorder;
+		this.requestid = requestid;
+		this.orderid = orderid;
 		this.maxPeople = maxPeople;
 		this.endDay = endDay;
 		this.payer = payer;
@@ -71,20 +71,20 @@ public class Restriction implements java.io.Serializable {
 		this.restrictionid = restrictionid;
 	}
 
-	public Myrequest getMyrequest() {
-		return this.myrequest;
+	public Integer getRequestid() {
+		return this.requestid;
 	}
 
-	public void setMyrequest(Myrequest myrequest) {
-		this.myrequest = myrequest;
+	public void setRequestid(Integer requestid) {
+		this.requestid = requestid;
 	}
 
-	public Myorder getMyorder() {
-		return this.myorder;
+	public Integer getOrderid() {
+		return this.orderid;
 	}
 
-	public void setMyorder(Myorder myorder) {
-		this.myorder = myorder;
+	public void setOrderid(Integer orderid) {
+		this.orderid = orderid;
 	}
 
 	public Integer getMaxPeople() {

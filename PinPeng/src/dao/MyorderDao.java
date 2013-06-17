@@ -66,4 +66,16 @@ public class MyorderDao {
 
 		return myorder_list;
 	}
+	
+	public static int find_max_orderid() {// Ñ°ÕÒ×î´óµÄorderid
+
+		Session session = HibernateSessionFactory.getSession();
+
+		int max = (Integer) session.createQuery(
+				"select max(m.orderid) from Myorder m").uniqueResult();
+
+		session.close();
+
+		return max;
+	}
 }
