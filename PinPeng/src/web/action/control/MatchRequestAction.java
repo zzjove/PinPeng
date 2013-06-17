@@ -118,7 +118,7 @@ public class MatchRequestAction extends ActionSupport {
 				.put("restriction_list", new_restriction_list);
 		ActionContext.getContext().put("customer_list", new_customer_list);
 
-		ActionContext.getContext().getSession().put("match_list", match_list);
+		ActionContext.getContext().put("match_list", match_list);
 	}
 
 	@Override
