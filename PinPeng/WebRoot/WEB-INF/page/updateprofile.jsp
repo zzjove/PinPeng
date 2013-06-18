@@ -20,11 +20,19 @@
   
  <body>
 <jsp:include page="/WEB-INF/page/topmenu.jsp" />
-<div style="width:800px; height:540px; margin:auto">
-    <div><jsp:include page="/WEB-INF/page/spacemenu.jsp" /></div>
     
-    <div style=" width:600px; float:left">
-    <h2>编辑个人资料</h2>
+    <div class="container">
+	<div class="row">
+		<div class="span1"></div>
+		<div class="span2">
+			<div style="margin-left:20px;margin-top:50px;position:relative;">
+				<jsp:include page="/WEB-INF/page/spacemenu.jsp" />
+			</div>
+		</div>
+		<div class="span1"></div>
+		<div class="span7 hero-unit" style="margin-left:20px;margin-top:50px;position:relative;padding-top: 10px;">
+		
+			<h3>编辑个人资料</h3>
     <form action="updateprofile" method="post">
     <p>学号：${customer.studentid}</p>
     <p>姓名：${customer.name}</p>
@@ -38,10 +46,12 @@
     <p>QQ： <input type="text" name="qqNumber" value="${form.qqNumber}"/>${form.errors.qqNumber}</p>
     <p>手机：<input type="text" name="telNumber" value="${form.telNumber}"/>${form.errors.telNumber}</p>
     <p>寝室楼号：<input type="text" name="dormitory" value="${form.dormitory}"/>${form.errors.dormitory}</p>
-    <p><input type="submit" value="修改"/></p>
+    <p><input type="submit" class="btn btn-primary" value="修改"/></p>
     </form>
-    </div>
+		</div>
+		</div>
+
     
-    </div>
+    
   </body>
 </html>
