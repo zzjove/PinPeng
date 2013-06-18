@@ -31,49 +31,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="control-group">
     		<label class="control-label" for="inputstudentid">学号</label>
     		<div class="controls">
-    			<input type="text" name="studentid" id="inputstudentid" placeholder="学号" />
+    			<input type="text" name="studentid" id="inputstudentid" placeholder="学号" value="${form.studentid}"/>${form.errors.studentid}			
     		</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputname">姓名</label>
     		<div class="controls">
-    			<input type="text" name="name" id="inputname" placeholder="姓名" />
+    			<input type="text" name="name" id="inputname" placeholder="姓名"  value="${form.name}"/>${form.errors.name}
     		</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputpassword">密码</label>
     		<div class="controls">
-    			<input type="password" name="password" id="inputpassword" placeholder="密码" />
+    			<input type="password" name="password" id="inputpassword" placeholder="密码" value="${form.password}"/>${form.errors.password}
     		</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputrepassword">密码确认</label>
     		<div class="controls">
-    			<input type="password" name="repassword" id="inputrepassword" placeholder="再次输入密码" />
+    			<input type="password" name="repassword" id="inputrepassword" placeholder="再次输入密码" value="${form.repassword}"/>${form.errors.repassword}
     		</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputemail">邮箱</label>
     		<div class="controls">
-    			<input type="email" name="email" id="inputemail" placeholder="邮箱" />
+    			<input type="email" name="email" id="inputemail" placeholder="邮箱" value="${form.email}"/>${form.errors.email}
     		</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputqqnumber">qq号码</label>
     		<div class="controls">
-    			<input type="text" name="qqnumber" id="inputqqnumber" placeholder="qq号" />
+    			<input type="text" name="qqnumber" id="inputqqnumber" placeholder="qq号" value="${form.qqnumber}"/>${form.errors.qqnumber}
     		</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputtelnumber">手机号码</label>
     		<div class="controls">
-    			<input type="text" name="telnumber" id="inputtelnumber" placeholder="手机号码" />
+    			<input type="text" name="telnumber" id="inputtelnumber" placeholder="手机号码" value="${form.telnumber}"/>${form.errors.telnumber}
     		</div>
     	</div>
 
@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<label class="control-label" for="inputdormitory">验证码</label>
     		<div class="controls">						
 				<input type="text" name="checkcode" />
-				<img src="checkcode" style="height: 20px;" />	
+				<img src="checkcode" style="height: 20px;" />${form.errors.checkcode}	
     		</div>
     	</div>
     	<div class="control-group">

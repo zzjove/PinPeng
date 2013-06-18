@@ -34,10 +34,10 @@
 	<c:if test="${customer.sex=='false'}">
 		<p>性别：女</p>
 	</c:if>
-    <p>邮箱：<input type="text" name="email" value="${customer.email}"/></p>
-    <p>QQ： <input type="text" name="qqNumber" value="${customer.qqNumber}"/></p>
-    <p>手机：<input type="text" name="telNumber" value="${customer.telNumber}"/></p>
-    <p>寝室楼号：<input type="text" name="dormitory" value="${customer.dormitory}"/></p>
+    <p>邮箱：<input type="text" name="email" value="${form.email}"/>${form.errors.email}</p>
+    <p>QQ： <input type="text" name="qqNumber" value="${form.qqNumber}"/>${form.errors.qqNumber}</p>
+    <p>手机：<input type="text" name="telNumber" value="${form.telNumber}"/>${form.errors.telNumber}</p>
+    <p>寝室楼号：<input type="text" name="dormitory" value="${form.dormitory}"/>${form.errors.dormitory}</p>
     <p><input type="submit" value="修改"/></p>
     </form>
     </div>

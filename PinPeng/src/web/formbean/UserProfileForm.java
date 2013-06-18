@@ -3,90 +3,95 @@ package web.formbean;
 import java.util.HashMap;
 import java.util.Map;
 
-//登录表单信息
+//用户profile表单
 public class UserProfileForm {
 
-	private String password;
-	private String customer;
-	private String checkcode;
-	private String randomNum;
+	private String email;
+	private String qqNumber;
+	private String telNumber;
+	private String dormitory;
 	private Map errors = new HashMap();
 
-	public String getPassword() {
-		return password;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public String getEmail() {
+		return email;
 	}
 
 
-
-	public String getCustomer() {
-		return customer;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setCustomer(String customer) {
-		this.customer = customer;
+
+	public String getQqNumber() {
+		return qqNumber;
 	}
 
-	public String getCheckcode() {
-		return checkcode;
+
+	public void setQqNumber(String qqNumber) {
+		this.qqNumber = qqNumber;
 	}
 
-	public void setCheckcode(String checkcode) {
-		this.checkcode = checkcode;
+
+	public String getTelNumber() {
+		return telNumber;
 	}
 
-	public String getRandomNum() {
-		return randomNum;
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
 	}
 
-	public void setRandomNum(String randomNum) {
-		this.randomNum = randomNum;
+
+	public String getDormitory() {
+		return dormitory;
 	}
+
+
+	public void setDormitory(String dormitory) {
+		this.dormitory = dormitory;
+	}
+
 
 	public Map getErrors() {
 		return errors;
 	}
 
+
 	public void setErrors(Map errors) {
 		this.errors = errors;
 	}
+
 
 	// 校验表单是否合法
 	public boolean vaild() {
 		boolean isOK = true;
 
-		if (this.customer == null || this.customer.trim().equals("")) {
+		if (this.qqNumber == null || this.qqNumber.trim().equals("")) {
 			isOK = false;
-			errors.put("username", "用户名不能为空");
-		} else {
-			if (!this.customer.matches("[0-9]{6,6}")) {
+			errors.put("qqNumber", "QQ号不能为空");
+		} 
+		if (this.telNumber == null || this.telNumber.trim().equals("")) {
+			isOK = false;
+			errors.put("telNumber", "电话不能为空");
+		}
+		if (this.dormitory == null || this.dormitory.trim().equals("")) {
+			isOK = false;
+			errors.put("dormitory", "寝室号不能为空");
+		}else {
+			if (!this.dormitory.matches("[0-9]{3,3}")) {
 				isOK = false;
-				errors.put("username", "用户名应为6位数字");
+				errors.put("dormitory", "寝室号应为3位数字");
 			}
 		}
-
-		if (this.password == null || this.password.trim().equals("")) {
+		if (this.email == null || this.email.trim().equals("")) {
 			isOK = false;
-			errors.put("password", "密码不能为空");
-		} else {
-			if (!this.password.matches("[a-z[A-Z[0-9]]]{6,}")) {
+			errors.put("email", "邮箱不能为空");
+		}else{
+			if(!this.email.matches("\\w+@\\w+(\\.\\w+)+")){
 				isOK = false;
-				errors.put("password", "密码至少为6位");
+				errors.put("email", "邮箱格式有误");
 			}
-		}
-
-		if (this.checkcode == null || this.checkcode.trim().equals("")) {
-			isOK = false;
-			errors.put("checkcode", "验证码不能为空");
-		} else {
-			if (!this.checkcode.equals(this.randomNum)) {
-				isOK = false;
-				errors.put("checkcode", "验证码输入有误");
-			}
-
 		}
 		return isOK;
 	}

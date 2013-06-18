@@ -26,6 +26,7 @@
 			method="execute">
 			<result name="view">/WEB-INF/page/profile.jsp</result>
 			<result name="edit">/WEB-INF/page/updateprofile.jsp</result>
+			
 		</action>
 		<action name="viewsendrequest" class="web.action.view.ViewSendrequestAction"
 			method="execute">
@@ -48,6 +49,7 @@
 		<action name="register" class="web.action.control.RegisterAction"
 			method="execute">
 			<result name="success">index.jsp</result>
+			<result name="error">/WEB-INF/page/register.jsp</result>
 		</action>
 		<action name="sendrequest" class="web.action.control.SendRequestAction"
 			method="execute">
@@ -64,6 +66,7 @@
 		<action name="updateprofile" class="web.action.control.UpdateProfileAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/system_message.jsp</result>
+			<result name="error">/WEB-INF/page/updateprofile.jsp</result>
 		</action>
 		<action name="search" class="web.action.control.SearchAction"
 			method="execute">
@@ -109,7 +112,7 @@
 		</action>
 		<action name="changepassword" class="web.action.control.ChangePasswordAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/login.jsp</result>
+			<result name="success">/WEB-INF/page/system_message.jsp</result>
 			<result name="error">/WEB-INF/page/changepassword.jsp</result>
 		</action>
 		<action name="checkorder" class="web.action.control.CheckOrderAction"

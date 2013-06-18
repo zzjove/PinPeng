@@ -17,6 +17,15 @@ public class RegisterForm {
 	private String sex;
 	private String dormitory;
 	private String randomNum;
+	private String checkcode;
+	public String getCheckcode() {
+		return checkcode;
+	}
+
+	public void setCheckcode(String checkcode) {
+		this.checkcode = checkcode;
+	}
+
 	private Map errors = new HashMap();
 
 	public String getStudentid() {
@@ -105,6 +114,76 @@ public class RegisterForm {
 
 	public void setErrors(Map errors) {
 		this.errors = errors;
+	}
+
+	// 校验表单是否合法
+	public boolean vaild() {
+		boolean isOK = true;
+		//
+		//
+		if (this.studentid == null || this.studentid.trim().equals("")) {
+			isOK = false;
+			errors.put("studentid", "学号不能为空");
+		} else {
+			if (!this.studentid.matches("[0-9]{6,6}")) {
+				isOK = false;
+				errors.put("studentid", "学号应为6位数字");
+			}
+		}
+		if (this.name == null || this.name.trim().equals("")) {
+			isOK = false;
+			errors.put("name", "姓名不能为空");
+		}
+		if (this.qqnumber == null || this.qqnumber.trim().equals("")) {
+			isOK = false;
+			errors.put("qqnumber", "qq号不能为空");
+		} 
+		if (this.telnumber == null || this.telnumber.trim().equals("")) {
+			isOK = false;
+			errors.put("telnumber", "电话不能为空");
+		} 
+		if (this.password == null || this.password.trim().equals("")) {
+			isOK = false;
+			errors.put("password", "密码不能为空");
+		} else {
+			if (!this.password.matches("[a-z[A-Z[0-9]]]{6,}")) {
+				isOK = false;
+				errors.put("password", "密码至少为6位");
+			}
+		}
+		if (this.repassword == null || this.repassword.trim().equals("")) {
+			isOK = false;
+			errors.put("repassword", "确认密码不能为空");
+		} else {
+			if (!this.repassword.matches("[a-z[A-Z[0-9]]]{6,}")) {
+				isOK = false;
+				errors.put("repassword", "确认密码至少为6位");
+			}
+			if (!this.repassword.equals(this.password)) {
+				isOK = false;
+				errors.put("repassword", "确认密码与原密码不相同");
+			}
+		}
+		if (this.email == null || this.email.trim().equals("")) {
+			isOK = false;
+			errors.put("email", "邮箱不能为空");
+		}else{
+			if(!this.email.matches("\\w+@\\w+(\\.\\w+)+")){
+				isOK = false;
+				errors.put("email", "邮箱格式有误");
+			}
+		}
+		if (this.checkcode == null || this.checkcode.trim().equals("")) {
+			isOK = false;
+			errors.put("checkcode", "验证码不能为空");
+		} else {
+			if (!this.checkcode.equals(this.randomNum)) {
+				isOK = false;
+				errors.put("checkcode", "验证码输入有误");
+			}
+
+		}
+		return isOK;
 	}
 
 	public Customer get_customer() {

@@ -1,13 +1,11 @@
 package web.action.control;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
 import service.UserService;
-
-import web.formbean.RegisterForm;
+import web.formbean.UserProfileForm;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -47,6 +45,14 @@ public class UpdateProfileAction extends ActionSupport{
 
 	@Override
 	public String execute() throws Exception {		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		UserProfileForm form = utils.WebUtils.requestToBean(request, UserProfileForm.class);
+		boolean check = form.vaild();
+		//校验失败跳回表单提交页面，回显信息
+		if(!check){
+			request.setAttribute("form", form);
+			return "error";
+		}		
 		Customer customer = (Customer) ActionContext.getContext().getSession()
 				.get("customer");
 		

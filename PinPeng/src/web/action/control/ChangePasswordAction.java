@@ -1,15 +1,16 @@
 package web.action.control;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import service.UserService;
-import utils.DisplayRequest;
+import web.formbean.ChangePasswordForm;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Customer;
-import domain.Myrequest;
-import domain.Restriction;
-import domain.ShoppingType;
 
 public class ChangePasswordAction extends ActionSupport {
 	private String oldpassword;
@@ -40,12 +41,31 @@ public class ChangePasswordAction extends ActionSupport {
 	}
 	@Override
 	public String execute() throws Exception {
+		
+		
 		Customer customer = (Customer) ActionContext.getContext().getSession()
 				.get("customer");
 		//校验表单成功
+		HttpServletRequest request = ServletActionContext.getRequest();
+		ChangePasswordForm form = utils.WebUtils.requestToBean(request, ChangePasswordForm.class);
+		boolean check = form.vaild();
+		//校验失败跳回表单提交页面，回显信息
+		if(!check){
+			request.setAttribute("form", form);
+			return "error";
+		}
+		customer = dao.CustomerDao.loginby_studentid_pw(customer.getCustomerid(),
+				form.getNewpassword1());
+
+		if (customer == null) {
+			form.getErrors().put("oldpassword", "原密码输入有误");
+			request.setAttribute("form", form);
+			return "error";
+		}
 		customer.setPassword(newpassword1);
 		UserService service = new UserService();
 		service.updateUser(customer);
+		ActionContext.getContext().put("systemMsg", "密码修改成功！");
 		return "success";
 	}
 

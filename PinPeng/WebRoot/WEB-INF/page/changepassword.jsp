@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div style=" width:600px; float:left">
     <h2>修改密码</h2>
     <s:form action="changepassword" method="post">
-    	<input type="password" name="oldpassword" placeholder="原密码" /><br />
-    	<input type="password" name="newpassword1" placeholder="新密码" /><br />
-    	<input type="password" name="newpassword2" placeholder="再次输入新密码" /><br />
+    	<input type="password" name="oldpassword" placeholder="原密码" />${form.errors.oldpassword }<br />
+    	<input type="password" name="newpassword1" placeholder="新密码" />${form.errors.newpassword1 }<br />
+    	<input type="password" name="newpassword2" placeholder="再次输入新密码" />${form.errors.newpassword2 }<br />
     	
     	<input type="submit" value="确认">
     </s:form>
