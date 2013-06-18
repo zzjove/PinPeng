@@ -24,15 +24,14 @@ public class CheckRequestAction extends ActionSupport {
 		Myrequest otherRequest = dao.MyrequestDao.findby_requestid(requestid);
 		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_requestid(requestid);
 		Restriction restriction = dao.RestrictionDao.findby_requestid(requestid);
-		
+		//System.out.println();
 		DisplayRequest displayRequest = new DisplayRequest();
 		displayRequest.toDisplay(otherRequest, shoppingtype, restriction);
 
-		ActionContext.getContext().getSession()
-				.put("otherRequest", displayRequest);
-		ActionContext.getContext().getSession()
-				.put("otherRequestClass", otherRequest);
-
+		ActionContext.getContext().put("otherRequest", displayRequest);
+		ActionContext.getContext().put("otherRequestClass", otherRequest);
+		ActionContext.getContext().put("otherName", otherRequest.getCustomer().getName());
+		
 		return "success";
 	}
 

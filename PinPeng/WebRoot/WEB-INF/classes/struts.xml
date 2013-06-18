@@ -61,7 +61,7 @@
 		</action>
 		<action name="sendnotice" class="web.action.control.SendNoticeAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/sendnoticesuccess.jsp</result>
+			<result name="success">/WEB-INF/page/system_message.jsp</result>
 		</action>
 		<action name="updateprofile" class="web.action.control.UpdateProfileAction"
 			method="execute">
