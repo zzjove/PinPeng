@@ -49,6 +49,8 @@ public class ViewNoticeAction extends ActionSupport {
 			tempBox.setSendTime(message.getSendTime().toString());			
 			tempBox.setSend(message.getCustomerByCustomerid().getName());
 			tempBox.setSendTo(message.getCustomerBySendTo().getName());
+			tempBox.setSendid(message.getCustomerByCustomerid().getCustomerid());
+			tempBox.setSendToid(message.getCustomerBySendTo().getCustomerid());
 			messageBoxes.add(tempBox);
 		}
 		ActionContext.getContext().put("messageBoxes", messageBoxes);

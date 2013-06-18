@@ -61,8 +61,8 @@
 								</tr>
 								<c:forEach var="item" items="${messageBoxes }">
 									<tr>
-										<c:if test="${type =='in' }"><th>${item.send }</th></c:if>
-										<c:if test="${type =='out' }"><th>${item.sendTo }</th></c:if>
+										<c:if test="${type =='in' }"><th><a href="${pageContext.request.contextPath}/viewother?customerid=${item.sendid }">${item.send }</a></th></c:if>
+										<c:if test="${type =='out' }"><th><a href="${pageContext.request.contextPath}/viewother?customerid=${item.sendToid }">${item.sendTo }</a></th></c:if>
 										<th>${item.content }</th>
 										<th>${item.sendTime }</th>
 									</tr>									
