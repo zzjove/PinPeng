@@ -1,4 +1,4 @@
-<%@page import="utils.DataConverter"%>
+﻿<%@page import="utils.DataConverter"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="domain.ShoppingType"%>
 <%@page import="domain.Myrequest"%>
@@ -22,11 +22,18 @@
 </head>
 
 <body>
-	<jsp:include page="topmenu.jsp"></jsp:include>
-	<hr />
+	<jsp:include page="/WEB-INF/page/topmenu.jsp" />
 	
-	<i> 当前要匹配的订单信息：</i>
-	<p>
+	<div class="container">
+  		<div class="row">
+  			 &nbsp;
+  		</div>
+  		
+  		<div class="row">
+  			<div class="span3">
+  				<div class="hero-unit">
+  					<h4>当前订单信息</h4>
+  					<p>
 		<font size=2 color="grey"> 订单号：${myrequest.requestid}<br />
 			购物区域：${store}<br /> 子商家：${shoppingtype.subShoppingStore }<br />
 			优惠类型：免邮费<br /> 已消费金额：${myrequest.price} 元<br />
@@ -37,34 +44,59 @@
 			性别限定：${manlimited}<br /> 是否有限购物品：${buylimited}<br />
 			补充说明：${restriction.notice}<br /> </font>
 	</p>
-	<hr />
-	排序：
-	<button>慷慨值</button>
-	<button>信用</button>
-	<button>金额</button>
-	<br /> 限制： 性别:
-	<select>
-		<option value="male">男</option>
-		<option value="female">女</option>
-	</select> 寝室楼:
-	<select>
-		<option value="bahaolou">八号楼</option>
-		<option value="jiuhaolou">九号楼</option>
-	</select>
-
-	<hr />
-
-
-	<table frame="vsides" align="center">
-		<caption>匹配结果</caption>
-		<tr>
-			<th>订单号</th>
+  				</div>
+  			</div>
+  			<div class="span1">
+  				
+  			</div>
+  			<div class="span8">
+  				<h3>匹配结果</h3>
+  				<div class="row">
+  					<div class="btn-toolbar" style="margin-left:10px;">
+ 						 <div class="btn-group">
+   							<a class="btn active" href="#" >综合</a>
+  							<a class="btn" href="register.html" target="_blank">慷慨度</a>
+  							<a class="btn" href="#">信用值</a>
+  							<a class="btn" href="#">地理位置</a>
+  							<a class="btn" href="#">订单金额</a>
+  						</div>
+  						
+  						<div class="btn-group">
+  						<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+   							性别
+    						<span class="caret"> </span>
+  						</a>
+					 	<ul class="dropdown-menu">
+					    	<li><a class="" href="#">男</a></li>
+					    	<li><a class="" href="#">女</a></li>
+  						</ul>
+					</div>
+					<div class="btn-group">
+  						<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+   							寝室楼
+    						<span class="caret"> </span>
+  						</a>
+					 	<ul class="dropdown-menu">
+					    	<li><a class="" href="#">5号楼</a></li>
+					    	<li><a class="" href="#">6号楼</a></li>
+					    	<li><a class="" href="#">7号楼</a></li>
+					    	<li><a class="" href="#">8号楼</a></li>
+					    	<li><a class="" href="#">9号楼</a></li>
+					    	<li><a class="" href="#">10号楼</a></li>
+  						</ul>
+					</div>
+					</div>
+					
+  				</div>
+  				<table class="table table-hover">
+  					<thead>
+			<th>订单</th>
 			<th>时间</th>
-			<th>信用值</th>
+			<th>信用</th>
 			<th>权值</th>
 			<th>订单金额</th>
 			<th>订单人数</th>
-		</tr>
+		</thead>
 		<c:forEach var="item" items="${matchs }">
 			<tr>
 			<td>${item.orderId}</td>
@@ -81,46 +113,17 @@
 			</td>
 			</tr>
 		</c:forEach>
-		
+				</table>
+  			</div>
+  		</div>
+  	</div>
+  	
+  	<script src="http://code.jquery.com/jquery.js"></script>
+    <script src="bootstrap.js"></script>
+	
+	
 
-		<!--  
- <tr>
- 	<td>周壮</td>
- 	<td>男</td>
- 	<td>100</td>
- 	<td>100</td>
- 	<td>100</td>
- 	<td><input type="button" value="匹配"></td>
- 	<td><input type="button" value="收藏"></td>
- </tr>
- <tr>
- 	<td>王炜</td>
- 	<td>男</td>
- 	<td>99</td>
- 	<td>99</td>
- 	<td>101</td>
- 	<td><input type="button" value="匹配"></td>
- 	<td><input type="button" value="收藏"></td>
- </tr>
- <tr>
- 	<td>万毓琨</td>
- 	<td>女</td>
- 	<td>98</td>
- 	<td>98</td>
- 	<td>102</td>
- 	<td><input type="button" value="匹配"></td>
- 	<td><input type="button" value="收藏"></td>
- </tr>
- <tr>
- 	<td>卓徐杰</td>
- 	<td>男</td>
- 	<td>97</td>
- 	<td>97</td>
- 	<td>103</td>
- 	<td><input type="button" value="匹配"></td>
- 	<td><input type="button" value="收藏"></td>
- </tr>
--->
-	</table>
+
+	
 </body>
 </html>
