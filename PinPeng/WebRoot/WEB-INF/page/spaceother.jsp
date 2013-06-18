@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
+  <body style="font-family:微软雅黑">
     <div>
     <h2>${other.name }的个人空间</h2>
     <p>您还不是他的好友，只能查看部分信息哟   

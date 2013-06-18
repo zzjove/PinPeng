@@ -37,9 +37,9 @@
 </script>
 </head>
 
-	<body >
+	<body style="font-family:微软雅黑">
 	<jsp:include
-					page="./topmenu.jsp" />
+					page="topmenu.jsp" />
 					
 	<form class="form-horizontal" action="confirmrequest" method="post" style="margin-top:40px;">
 		<div class="hero-unit page">
@@ -77,7 +77,12 @@
     		</div>
     	</div>
 		
-		
+		<div class="control-group">
+    		<label class="control-label" for="inputmoneyamountneed">优惠需要金额</label>
+    		<div class="controls">
+				<input type="text" name="moneyAmountNeed" id="inputmoneyamountneed" placeholder="优惠需要金额" value="${form.moneyAmountNeed}"/>${form.errors.moneyAmountNeed}   		
+			</div>
+    	</div>
 	
 	</div>
 	<div class="hero-unit page" >
@@ -89,12 +94,7 @@
     		</div>
     	</div>
     	
-    	<div class="control-group">
-    		<label class="control-label" for="inputmoneyamountneed">优惠需要金额</label>
-    		<div class="controls">
-				<input type="text" name="moneyAmountNeed" id="inputmoneyamountneed" placeholder="优惠需要金额" value="${form.moneyAmountNeed}"/>${form.errors.moneyAmountNeed}   		
-			</div>
-    	</div>
+    	
     	
     	<div class="control-group">
     		<label class="control-label" for="inputamount">购买件数</label>
@@ -110,16 +110,7 @@
 			</div>
     	</div>
     	
-    	<div class="control-group">
-    		<label class="control-label" for="inputitemstype">物品种类</label>
-    		<div class="controls">
-				<select name="itemstype" id="inputitemstype">
-					<option value="food">食物</option>
-					<option value="shoes">鞋</option>
-					<option value="clothes">衣服</option>
-				</select>
-			</div>
-    	</div>
+    	
 
 		
 		</div>
@@ -202,11 +193,15 @@
     		<label class="control-label" for="inputmanlimited">性别限制</label>
     		<div class="controls">
     			<label class="radio inline">
-    				<input type="radio" name="manlimited" id="inputmanlimited1" value="1" checked/>男
+    				<input type="radio" name="manlimited" id="inputmanlimited1" value="0" checked/>都可
     			</label>
     			<label class="radio inline">
-    				<input type="radio" name="manlimited" id="inputmanlimited2" value="0"/>女
+    				<input type="radio" name="manlimited" id="inputmanlimited1" value="1" />男
+    			</label>
+    			<label class="radio inline">
+    				<input type="radio" name="manlimited" id="inputmanlimited2" value="2"/>女
 				</label>
+				
     		</div>
     	</div>
     	
@@ -233,9 +228,9 @@
 
 		
 		</div>
-		<div class="control-group" style="padding-left:20px; margin-top:10px;">
+		<div class="control-group" style="padding-left:20px; margin-top:10px;margin-bottom:30px;">
     		<div class="controls">
-    			<input type="submit" class="btn btn-info" value="确认" />
+    			<input type="submit" class="btn btn-info btn-large" value="确认" />
     		</div>
     	</div>
 

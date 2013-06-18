@@ -14,7 +14,7 @@
 <meta http-equiv="description" content="This is my page">
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
 	<jsp:include page="/WEB-INF/page/topmenu.jsp" />
 	
 	<div class="container">
@@ -29,6 +29,7 @@
 		<div class="span7 hero-unit" style="margin-left:20px;margin-top:50px;position:relative;padding-top: 10px;">
 			<div style=" width:600px; float:left">
 			<h4 >当前订单状态</h4>
+			
 			<table class="table table-hover table-striped">
 				<tr>
 					<td>订单号</td>
