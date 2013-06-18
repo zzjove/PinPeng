@@ -42,16 +42,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<td>订单号</td><td>订单日期</td><td>订单描述</td><td>订单状态</td><td>可执行操作</td>
 	</tr>
 	<tr>
-	<td>001</td><td>2013.5.18</td><td>好吃的</td><td>完成</td><td><a hrep="#">查看</a><a hrep="#">删除</a></td>
+	<td>001</td><td>2013.5.18</td><td>好吃的</td><td>完成</td><td><a hrep="#">查看</a>||<a hrep="#">删除</a></td>
 	</tr>
 	<tr>
-	<td>002</td><td>2013.5.18</td><td>好吃的</td><td>完成</td><td><a hrep="#">查看</a><a hrep="#">删除</a></td>
+	<td>002</td><td>2013.5.18</td><td>好吃的</td><td>完成</td><td><a hrep="#">查看</a>||<a hrep="#">删除</a></td>
 	</tr>	
 	<tr>
-	<td>003</td><td>2013.5.18</td><td>好吃的</td><td>取消</td><td><a hrep="#">查看</a><a hrep="#">删除</a></td>
+	<td>003</td><td>2013.5.18</td><td>好吃的</td><td>取消</td><td><a hrep="#">查看</a>||<a hrep="#">删除</a></td>
 	</tr>
 	<tr>
-	<td>004</td><td>2013.5.18</td><td>好吃的</td><td>取消</td><td><a hrep="#">查看</a><a hrep="#">删除</a></td>
+	<td>004</td><td>2013.5.18</td><td>好吃的</td><td>取消</td><td><a hrep="#">查看</a>||<a hrep="#">删除</a></td>
 	</tr>
 			</table>
 		</div>

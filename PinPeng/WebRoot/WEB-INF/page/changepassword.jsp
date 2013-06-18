@@ -20,7 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<style type="text/css">
+.error{
+	font-size:10px;
+	font-color:#ff0000;
+}
+</style>
   </head>
   
   <body style="font-family:微软雅黑">
@@ -38,11 +43,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 			<h3>修改密码</h3>
     <s:form action="changepassword" method="post" class="form">
-    	<input type="password" name="oldpassword" placeholder="原密码" />${form.errors.oldpassword }<br />
-    	<input type="password" name="newpassword1" placeholder="新密码" />${form.errors.newpassword1 }<br />
-    	<input type="password" name="newpassword2" placeholder="再次输入新密码" />${form.errors.newpassword2 }<br />
+    	<input type="password" name="oldpassword" placeholder="原密码" /><a class="error">&nbsp;${form.errors.oldpassword }</a><br />
+    	<input type="password" name="newpassword1" placeholder="新密码" /><a class="error">&nbsp;${form.errors.newpassword1 }</a><br />
+    	<input type="password" name="newpassword2" placeholder="再次输入新密码" /><a class="error">&nbsp;${form.errors.newpassword2 }</a><br />
     	
-    	<input type="submit" value="确认">
+    	<input type="submit" value="确认" class="btn btn-primary">
     </s:form>
 		</div>
 		</div>

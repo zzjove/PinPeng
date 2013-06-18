@@ -30,7 +30,10 @@
 	padding:10px;
 	margin-top:20px;
 }
-
+.error{
+	font-size:10px;
+	font-color:#ff0000;
+}
 </style>
 <script type="text/javascript">
 
@@ -61,7 +64,7 @@
 		<div class="control-group">
     		<label class="control-label" for="inputsubshoppingstore">购物商家</label>
     		<div class="controls">
-    			<input type="text" name="subshoppingstore" placeholder="购物商家" id="inputsubshoppingstore" value="${form.subshoppingstore}"/>${form.errors.subshoppingstore}
+    			<input type="text" name="subshoppingstore" placeholder="购物商家" id="inputsubshoppingstore" value="${form.subshoppingstore}"/><a class="error">${form.errors.subshoppingstore}</a>
     		</div>
     	</div>
     	
@@ -79,7 +82,7 @@
 		<div class="control-group">
     		<label class="control-label" for="inputmoneyamountneed">优惠需要金额</label>
     		<div class="controls">
-				<input type="text" name="moneyAmountNeed" id="inputmoneyamountneed" placeholder="优惠需要金额" value="${form.moneyAmountNeed}"/>${form.errors.moneyAmountNeed}   		
+				<input type="text" name="moneyAmountNeed" id="inputmoneyamountneed" placeholder="优惠需要金额" value="${form.moneyAmountNeed}"/><a class="error">&nbsp;${form.errors.moneyAmountNeed}</a>   		
 			</div>
     	</div>
 	
@@ -89,7 +92,7 @@
 		<div class="control-group">
     		<label class="control-label" for="inputprice">已消费金额</label>
     		<div class="controls">
-				<input type="text" name="price" id="inputprice" placeholder="已消费金额" value="${form.price}"/>${form.errors.price}
+				<input type="text" name="price" id="inputprice" placeholder="已消费金额" value="${form.price}"/><a class="error">&nbsp;${form.errors.price}</a>
     		</div>
     	</div>
     	
@@ -98,14 +101,14 @@
     	<div class="control-group">
     		<label class="control-label" for="inputamount">购买件数</label>
     		<div class="controls">
-				<input type="text" name="amount" id="inputamount" placeholder="购买件数" value="${form.amount}"/>件 ${form.errors.amount}		
+				<input type="text" name="amount" id="inputamount" placeholder="购买件数" value="${form.amount}"/>件 <a class="error">&nbsp;${form.errors.amount}		</a>
 			</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputweight">物品重量</label>
     		<div class="controls">
-				<input type="text" name="weight" id="inputweight" placeholder="物品重量" value="${form.weight}"/>千克	${form.errors.weight}
+				<input type="text" name="weight" id="inputweight" placeholder="物品重量" value="${form.weight}"/>千克	<a class="error">&nbsp;${form.errors.weight}</a>
 			</div>
     	</div>
     	
@@ -119,14 +122,14 @@
 		<div class="control-group">
     		<label class="control-label" for="inputendday">订单结束日期</label>
     		<div class="controls">
-				<input type="date" name="endday" id="endday" step=1 value="${form.endday}"/>${form.errors.endday}
+				<input type="date" name="endday" id="endday" step=1 value="${form.endday}"/><a class="error">&nbsp;${form.errors.endday}</a>
 			</div>
     	</div>
     	
     	<div class="control-group">
     		<label class="control-label" for="inputmaxpeople">希望拼单人数不超</label>
     		<div class="controls">
-				<input type="number" name="maxpeople" id="inputmaxpeople" max=5 min=2 value=5 step=1 value="${form.maxpeople}"/>${form.errors.maxpeople}
+				<input type="number" name="maxpeople" id="inputmaxpeople" max=5 min=2 value=5 step=1 value="${form.maxpeople}"/><a class="error">&nbsp;${form.errors.maxpeople}</a>
 			</div>
     	</div>
     	

@@ -15,7 +15,13 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all">
+<style type="text/css">
+.error{
+	font-size:10px;
+	font-color:#ff0000;
+}
+</style>
   </head>
   
  <body>
@@ -42,10 +48,10 @@
 	<c:if test="${customer.sex=='false'}">
 		<p>性别：女</p>
 	</c:if>
-    <p>邮箱：<input type="text" name="email" value="${form.email}"/>${form.errors.email}</p>
-    <p>QQ： <input type="text" name="qqNumber" value="${form.qqNumber}"/>${form.errors.qqNumber}</p>
-    <p>手机：<input type="text" name="telNumber" value="${form.telNumber}"/>${form.errors.telNumber}</p>
-    <p>寝室楼号：<input type="text" name="dormitory" value="${form.dormitory}"/>${form.errors.dormitory}</p>
+    <p>邮箱：<input type="text" name="email" value="${form.email}"/><a class="error">&nbsp;${form.errors.email}</a></p>
+    <p>QQ： <input type="text" name="qqNumber" value="${form.qqNumber}"/><a class="error">&nbsp;${form.errors.qqNumber}</a></p>
+    <p>手机：<input type="text" name="telNumber" value="${form.telNumber}"/><a class="error">&nbsp;${form.errors.telNumber}</a></p>
+    <p>寝室楼号：<input type="text" name="dormitory" value="${form.dormitory}"/><a class="error">&nbsp;${form.errors.dormitory}</a></p>
     <p><input type="submit" class="btn btn-primary" value="修改"/></p>
     </form>
 		</div>
