@@ -22,8 +22,9 @@
 </head>
 
 <body>
-	<h4>这是一个导航栏</h4>
+	<jsp:include page="topmenu.jsp"></jsp:include>
 	<hr />
+	
 	<i> 当前要匹配的订单信息：</i>
 	<p>
 		<font size=2 color="grey"> 订单号：${myrequest.requestid}<br />

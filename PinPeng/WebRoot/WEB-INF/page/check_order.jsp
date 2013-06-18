@@ -21,25 +21,30 @@
 </head>
 
 <body>
-
-	--订单信息--
-	</br> 订单编号${order.orderid }
-	</br> 用户名：${order.customer.name }
-	</br> 时间${order.beginTime }
-	</br> 价格${order.price }
-	</br> 拼单人数${order.numberPeople }
-	</br> 商品数量${order.amount }
-	</br> 商品重量${order.weight }
-	</br> --request信息--
+<jsp:include page="topmenu.jsp" />
+<div class="row" style="margin-top:60px">
+<div class="span6 offset3 well">
+	<h3>订单信息</h3>
+	<hr />
+	</br> 订单编号：	${order.orderid }
+	</br> 发起人：	${order.customer.name }
+	</br> 时间：		${order.beginTime }
+	</br> 价格：		${order.price }
+	</br> 当前拼单人数：	${order.numberPeople }
+	</br> 商品数量：	${order.amount }
+	</br> 商品重量：	${order.weight }
+	<hr />
+	<h3>其他参与者：</h3>
 	</br>
-	<table >
+	<table class="table table-striped">
 		<tr>
-			<th>request编号</th>
+			<th>Request编号</th>
 			<th>用户</th>
 			<th>价钱</th>
 			<th>数量</th>
 			<th>重量</th>
 			<th>备注</th>
+			<th>操作</th>
 		</tr>
 		<c:forEach var="item" items="${requests }">
 			<tr>
@@ -49,7 +54,9 @@
 				<td>${item.amount}</td>
 				<td>${item.weight}</td>
 				<td>${item.content}</td>
-				<td><a href="#${item.customer.name }" data-toggle="modal">发消息给TA</a>
+				<td>
+				<a href="#${item.customer.name }" data-toggle="modal">发消息 </a>
+				||<a href="#" data-toggle="#"> 查看</a>
 				</td>
 			</tr>
 			<div id="${item.customer.name }" class="modal hide fade"
@@ -90,10 +97,17 @@
 			</div>
 		</c:forEach>
 
-	</table></br></br></br></br>
-	<a href="${pageContext.request.contextPath}/pindan?orderid=${order.orderid }" data-toggle="modal">确认拼单</a>
-	<a href="" data-toggle="modal">收藏</a>
-	<a href="#${order.customer.name }" data-toggle="modal">发消息给${order.customer.name }</a>
+	</table></br></br>
+	
+	
+	<a href="${pageContext.request.contextPath}/pindan?orderid=${order.orderid }" data-toggle="modal" class="btn btn-primary">确认拼单</a>
+	
+	<a href="" data-toggle="modal" class="btn">收藏</a>
+	
+	<a href="#${order.customer.name }" data-toggle="modal" class="btn">发消息给${order.customer.name }</a>
+	
+	</div>
+	
 	<div id="${order.customer.name }" class="modal hide fade" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
