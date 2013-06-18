@@ -21,15 +21,30 @@
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="all">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all">
+<style type="text/css">
+.page{
+	width:700px;
+	margin-left:200px;
+	border-style:ridge;
+	border-width:3px;
+	padding:10px;
+	margin-top:20px;
+}
 
+</style>
+<script type="text/javascript">
+
+</script>
 </head>
 
-	<body>
-	<hr />
-	<h2>购物类型</h2>
-	<form class="form-horizontal" action="confirmrequest" method="post">
-		
-		<div class="control-group">
+	<body >
+	<jsp:include
+					page="./topmenu.jsp" />
+					
+	<form class="form-horizontal" action="confirmrequest" method="post" style="margin-top:40px;">
+		<div class="hero-unit page">
+	<h3>购物类型</h3>
+		<div class="control-group" >
     		<label class="control-label" for="inputshoppingstore">购物区域</label>
     		<div class="controls">
     			<select name="shoppingstore" id="inputshoppingstore">
@@ -63,9 +78,10 @@
     	</div>
 		
 		
-		<hr />
 	
-		<h2>订单信息</h2>
+	</div>
+	<div class="hero-unit page" >
+		<h3>订单信息</h3>
 		<div class="control-group">
     		<label class="control-label" for="inputprice">已消费金额</label>
     		<div class="controls">
@@ -105,9 +121,10 @@
 			</div>
     	</div>
 
-		<hr />
-		<h2>其他限定</h2>
 		
+		</div>
+	<div class="hero-unit page" >
+		<h3 class="hero">其他限定</h3>
 		<!--  订单开始日�input type="date" name="myrequesttime" step=1 /><br />-->
 		<div class="control-group">
     		<label class="control-label" for="inputendday">订单结束日期</label>
@@ -204,8 +221,7 @@
 				</label>
     		</div>
     	</div>
-    	
-		<hr />
+
 		<div class="control-group">
     		<label class="control-label" for="inputmanlimited">其他说明</label>
     		<div class="controls">
@@ -215,14 +231,16 @@
     		</div>
     	</div>
 
-		<hr />
-		<div class="control-group">
+		
+		</div>
+		<div class="control-group" style="padding-left:20px; margin-top:10px;">
     		<div class="controls">
-    			<input type="submit" class="btn btn-primary" value="确认" />
+    			<input type="submit" class="btn btn-info" value="确认" />
     		</div>
     	</div>
 
 	</form>
+	
 	
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>

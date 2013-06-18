@@ -16,12 +16,20 @@
 
 <body>
 	<jsp:include page="/WEB-INF/page/topmenu.jsp" />
-	<div style="width:800px; height:540px; margin:auto">
-		<div><jsp:include page="/WEB-INF/page/spacemenu.jsp" /></div>
-
-		<div style=" width:600px; float:left">
-			<h2>当前订单状态</h2>
-			<table>
+	
+	<div class="container">
+	<div class="row">
+		<div class="span1"></div>
+		<div class="span2">
+			<div style="margin-left:20px;margin-top:50px;position:relative;">
+				<jsp:include page="/WEB-INF/page/spacemenu.jsp" />
+			</div>
+		</div>
+		<div class="span1"></div>
+		<div class="span7 hero-unit" style="margin-left:20px;margin-top:50px;position:relative;padding-top: 10px;">
+			<div style=" width:600px; float:left">
+			<h4 >当前订单状态</h4>
+			<table class="table table-hover table-striped">
 				<tr>
 					<td>订单号</td>
 					<td>订单日期</td>
@@ -29,7 +37,7 @@
 					<td>订单状态</td>
 					<td>可执行操作</td>
 				</tr>
-				<c:forEach var="item" items="${requests}">
+				<c:forEach var="item" items="${requests}">z
 					<tr>
 						<td>${item.requestid}</td>
 						<td>${item.myrequestTime}</td>
@@ -46,6 +54,11 @@
 				</c:forEach>
 			</table>
 		</div>
+		</div>
+	</div>
+		
+
+		
 
 	</div>
 </body>

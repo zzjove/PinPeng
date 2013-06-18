@@ -16,22 +16,31 @@ import domain.Myorder;
 import domain.Myrequest;
 
 public class CheckOrderAction extends ActionSupport {
-	private int orderId;
+	private int orderid;
+	private int requestid;
 
-	public int getOrderId() {
-		return orderId;
+	public int getOrderid() {
+		return orderid;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setOrderid(int orderid) {
+		this.orderid = orderid;
+	}
+
+	public int getRequestid() {
+		return requestid;
+	}
+
+	public void setRequestid(int requestid) {
+		this.requestid = requestid;
 	}
 
 	@Override
 	public String execute() throws Exception {
 		MyorderService orderService = new MyorderService();
-		Myorder order = orderService.get(orderId);
+		Myorder order = orderService.get(orderid);
 
-		List<Myrequest> requests = dao.MyrequestDao.findby_orderid(orderId);
+		List<Myrequest> requests = dao.MyrequestDao.findby_orderid(orderid);
 
 		//
 		Customer c1 = new Customer();
@@ -69,6 +78,10 @@ public class CheckOrderAction extends ActionSupport {
 		requests.add(mr3);
 		ActionContext.getContext().put("requests", requests);
 		ActionContext.getContext().put("order", order);
+		ActionContext.getContext().put("orderid", orderid);
+		ActionContext.getContext().put("requestid", requestid);
+		System.out.println("-----------------CheckOrderAction");
+		System.out.println("orderid:" + orderid + "    requestid:" + requestid);
 		return "success";
 	}
 }

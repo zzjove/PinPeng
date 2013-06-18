@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -26,17 +26,18 @@
 </head>
 
 <body>
-	<div style="width:200px; height:auto; float:left">
-		<div>
+	<div class="hero-unit" style="width:auto; height:auto; float:left; padding: 20px;">
+		<div style="margin-top:3px;">
 			<p>个人信息</p>
-			<p>
+			<p >
 				<a href="${pageContext.request.contextPath}/viewprofile?type=view">个人资料修改</a>
+				<a href="${pageContext.request.contextPath}/viewprofile?type=view">查看个人资料</a>
 			</p>
 			<p>
 				<a href="viewchangepassword">安全设置</a>
 			</p>
 		</div>
-		<div>
+		<div style="margin-top:3px;">
 			<p>订单信息</p>
 			<p>
 				<a href="viewspace">当前订单</a>
@@ -48,7 +49,7 @@
 				<a href="#">收藏夹</a>
 			</p>
 		</div>
-		<div>
+		<div style="margin-top:3px;">
 			<p>好友管理</p>
 			<p>
 				<a href="#">好友列表</a>
