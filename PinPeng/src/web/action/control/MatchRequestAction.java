@@ -8,6 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.criteria.Order;
+
+import service.MyorderService;
+import service.MyrequestService;
 import utils.ComparatorMatch;
 import utils.Match;
 import web.formbean.SendRequestForm;
@@ -29,15 +33,20 @@ public class MatchRequestAction extends ActionSupport {
 	ShoppingType shoppingtype;
 	Restriction restriction;
 	Myrequest myrequest;
+	int requestid;
+
+	public int getRequestid() {
+		return requestid;
+	}
+
+	public void setRequestid(int requestid) {
+		this.requestid = requestid;
+	}
 
 	private void save_form() {
 
 		SendRequestForm form = (SendRequestForm) ActionContext.getContext()
 				.getSession().get("form");
-
-		// 得到当前customer
-		customer = (Customer) ActionContext.getContext().getSession()
-				.get("customer");
 
 		myrequest = form.get_myrequest(); // 得到myrequest并且保存
 		myrequest.setRequestid(dao.MyrequestDao.find_max_requestid() + 1);
@@ -88,7 +97,10 @@ public class MatchRequestAction extends ActionSupport {
 			if (value >= 0) {
 				Match match = new Match(value, temp_myorder, temp_shoppingtype,
 						temp_restriction, customer);
-				match_list.add(match);
+				if (customer.getCustomerid() != match.getMyorder()
+						.getCustomer().getCustomerid()) {
+					match_list.add(match);
+				}
 				// System.out.println(match.getMyorder().getOrderid());
 			}
 		}
@@ -97,21 +109,12 @@ public class MatchRequestAction extends ActionSupport {
 		if (match_list.size() >= 5)
 			match_list = match_list.subList(0, 5);
 
-		// List<Myrequest> new_myrequest_list = new ArrayList();
-		// List<ShoppingType> new_shoppingtype_list = new ArrayList();
-		// List<Restriction> new_restriction_list = new ArrayList();
-		// List<Customer> new_customer_list = new ArrayList();
-
 		Iterator<Match> new_it = match_list.iterator();
 		List<MatchResult> matchs = new ArrayList();
 
 		while (new_it.hasNext()) {
 
 			Match match = (Match) new_it.next();
-			// new_myrequest_list.add(match.getMyrequest());
-			// new_shoppingtype_list.add(match.getShoppingtype());
-			// new_restriction_list.add(match.getRestriction());
-			// new_customer_list.add(match.getCustomer());
 
 			MatchResult mr = new MatchResult(match.getMyorder().getOrderid(),
 					match.getMyorder().getBeginTime(), match.getMyorder()
@@ -121,60 +124,33 @@ public class MatchRequestAction extends ActionSupport {
 			matchs.add(mr);
 		}
 
-		MatchResult mr1 = new MatchResult();
-		mr1.setCredit(3);
-		mr1.setDate(new Date());
-		mr1.setOrderId(26);
-		mr1.setPeopleNum(5);
-		mr1.setPrice(100);
-		mr1.setValue(10);
-		MatchResult mr2 = new MatchResult();
-		mr2.setCredit(6);
-		mr2.setDate(new Date());
-		mr2.setOrderId(2);
-		mr2.setPeopleNum(4);
-		mr2.setPrice(200);
-		mr2.setValue(20);
-		MatchResult mr3 = new MatchResult();
-		mr3.setCredit(5);
-		mr3.setDate(new Date());
-		mr3.setOrderId(29);
-		mr3.setPeopleNum(6);
-		mr3.setPrice(300);
-		mr3.setValue(50);
-		// List matchs = new ArrayList();
-		matchs.add(mr1);
-		matchs.add(mr2);
-		matchs.add(mr3);
 		ActionContext.getContext().put("matchs", matchs);
 		ActionContext.getContext().getSession()
 				.put("requestid", myrequest.getRequestid());
-		// ActionContext.getContext().put("orderid",)
 		System.out.println("-----------------MatchRequestAction");
 		System.out.println("requestid" + myrequest.getRequestid());
-		// ActionContext.getContext().put("myrequest_list", new_myrequest_list);
-		// ActionContext.getContext().put("shoppingtype_list",
-		// new_shoppingtype_list);
-		// ActionContext.getContext()
-		// .put("restriction_list", new_restriction_list);
-		// ActionContext.getContext().put("customer_list", new_customer_list);
-		//
-		// ActionContext.getContext().put("match_list", match_list);
-		//
-		//
-		//
-		//
-		// System.out.println(new_myrequest_list.size());
-		// System.out.println(new_shoppingtype_list.size());
-		// System.out.println(new_restriction_list.size());
-		// System.out.println(new_customer_list.size());
-		// System.out.println(match_list.size());
 	}
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		save_form();
+
+		MyrequestService myrequestService = new MyrequestService();
+		// 得到当前customer
+		customer = (Customer) ActionContext.getContext().getSession()
+				.get("customer");
+
+		if (requestid == 0) {
+			save_form();
+		} else {
+			myrequest = myrequestService.getRequest_by_requestid(requestid);
+			Iterator<Myorder> it = myrequest.getMyorders().iterator();
+			myorder = (Myorder) it.next();
+			shoppingtype = dao.ShoppingTypeDao.findby_orderid(myorder
+					.getOrderid());
+			restriction = dao.RestrictionDao.findby_orderid(myorder
+					.getOrderid());
+		}
 		match_and_put_it_to_request();
 		return "success";
 	}

@@ -4,6 +4,20 @@ public class MessageBox {
 	private String content;
 	private String sendTo;
 	private String send;
+	private int sendToid;
+	private int sendid;
+	public int getSendToid() {
+		return sendToid;
+	}
+	public void setSendToid(int sendToid) {
+		this.sendToid = sendToid;
+	}
+	public int getSendid() {
+		return sendid;
+	}
+	public void setSendid(int sendid) {
+		this.sendid = sendid;
+	}
 	private String sendTime;
 	public String getContent() {
 		return content;

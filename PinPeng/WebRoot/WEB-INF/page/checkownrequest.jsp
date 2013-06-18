@@ -33,7 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<s:form action="#" method="post">
 		<div class="control-group" >
     		<div class="controls">
-    			<input type="submit" class="btn btn-primary" value="自动匹配" />
+    			<input type="submit" value="自动匹配" class="btn btn-primary"
+					onclick="window.location.href='${pageContext.request.contextPath}/matchrequest?requestid=${otherRequest.requestid}'"/>
     		</div>
     	</div>
 		</s:form>

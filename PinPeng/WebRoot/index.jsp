@@ -57,19 +57,19 @@
 			</div>
 			<div class="row" style="margin-top:30px">
 			<ul class="thumbnails" style="padding-left:120px">
-		<li class="span2 offset1"><a href="#" class="thumbnail"> <img
+		<li class="span2 offset1"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/1.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=4" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/2.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=3" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
 		</ul>
 		<ul class="thumbnails" style="padding-left:120px">
-		<li class="span2"><a href="#" class="thumbnail"> <img
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=7" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=5" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/7.jpg"> </a></li>
 	</ul>
 	</div>
