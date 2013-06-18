@@ -23,52 +23,46 @@
 	<jsp:include page="topmenu.jsp" />
 
 	<div class="container-fluid">
-		<div class="row">
-			&nbsp;<br /> &nbsp;<br /> &nbsp;<br /> &nbsp;<br />
-		</div>
+		
 
-		<div class="row">
-			<div class="span3">
-				<div class="hero-unit">
+		<div class="row" style="margin-top:50px;">
+			<div class="span2 offset2">
+				<div class="hero-unit" style="height:auto; float:left; padding: 20px;">
 					<h4>
 						<a href="#sendNotice" data-toggle="modal">发送消息</a>
 					</h4>
+					<hr />
 					<h4>我的站内信</h4>
-
-					<ul>
-						<li><a
-							href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消息</a>
-						</li>
-						<li><a
-							href="${pageContext.request.contextPath}/viewnoticecenter.action?type=out">发送的消息</a>
-						</li>
-					</ul>
-
-
+					</br>
+					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消息</a></p>
+					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=out">发送的消息</a></p>
+				
 				</div>
 			</div>
-			<div class="span9">
+			<div class="span7">
 				<div class="container-fluid">
 					<div class="hero-unit">
-						<ul>
-							<table border="1">
+						
+							<table class="table table-hover">
 								<tr>
+								<c:if test="${type =='in' }"><th>收到时间</th></c:if>
+									<c:if test="${type =='out' }"><th>发送时间</th></c:if>
 									<c:if test="${type =='in' }"><th>发件人</th></c:if>
 									<c:if test="${type =='out' }"><th>收件人</th></c:if>
 									<th>消息内容</th>
-									<c:if test="${type =='in' }"><th>收到时间</th></c:if>
-									<c:if test="${type =='out' }"><th>发送时间</th></c:if>
+									
 								</tr>
 								<c:forEach var="item" items="${messageBoxes }">
 									<tr>
+									<th>${item.sendTime }</th>
 										<c:if test="${type =='in' }"><th>${item.send }</th></c:if>
 										<c:if test="${type =='out' }"><th>${item.sendTo }</th></c:if>
 										<th>${item.content }</th>
-										<th>${item.sendTime }</th>
+										
 									</tr>									
 								</c:forEach>
 							</table>
-						</ul>
+						
 
 					</div>
 
