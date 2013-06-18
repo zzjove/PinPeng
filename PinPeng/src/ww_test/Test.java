@@ -175,18 +175,11 @@ public class Test {
 	}
 
 	public static void test_6() {
-		Set mySet = new HashSet();
-		mySet.add("222");
-		mySet.remove("222");
-		if (mySet.isEmpty()) {
-			System.out.println("空的");
-		} else {
-			System.out.println("有东西");
-		}
+		Customer customer=dao.CustomerDao.findby_customerid(27);
 	}
 
 	public static void main(String[] args) throws ParseException {
 
-		test_1();
+		test_6();
 	}
 }
