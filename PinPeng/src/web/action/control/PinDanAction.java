@@ -31,8 +31,8 @@ public class PinDanAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		int requestid = (Integer) ActionContext.getContext().getSession()
 				.get("requestid");
-		System.out.println("-----------------PinDanAction");
-		System.out.println("orderid:" + orderid + "    requestid:" + requestid);
+		//System.out.println("-----------------PinDanAction");
+		//System.out.println("orderid:" + orderid + "    requestid:" + requestid);
 
 		MyrequestService myrequestService = new MyrequestService();
 		MyorderService myorderService = new MyorderService();
@@ -65,7 +65,7 @@ public class PinDanAction extends ActionSupport {
 
 		myrequest.getMyorders().add(otherOrder);
 		myrequestService.update(myrequest);// 将我的request加入到这个order中
-
+		ActionContext.getContext().put("systemMsg", "拼单成功！");
 		// 发！！！！！！！！
 		// 消！！！！！！！！
 		// 息！！！！！！！！
