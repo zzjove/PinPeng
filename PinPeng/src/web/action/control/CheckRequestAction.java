@@ -28,9 +28,9 @@ public class CheckRequestAction extends ActionSupport {
 		DisplayRequest displayRequest = new DisplayRequest();
 		displayRequest.toDisplay(otherRequest, shoppingtype, restriction);
 		
-		ActionContext.getContext().put("otherRequest", displayRequest);
-		ActionContext.getContext().put("otherRequestClass", otherRequest);
-		ActionContext.getContext().put("otherName", otherRequest.getCustomer().getName());
+		ActionContext.getContext().getSession().put("otherRequest", displayRequest);
+		ActionContext.getContext().getSession().put("otherRequestClass", otherRequest);
+		ActionContext.getContext().getSession().put("otherName", otherRequest.getCustomer().getName());
 		
 		return "success";
 	}
