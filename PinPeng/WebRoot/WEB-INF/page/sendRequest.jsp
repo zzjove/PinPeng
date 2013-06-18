@@ -194,13 +194,13 @@
     		<div class="controls">
     			<label class="radio inline">
     				<input type="radio" name="manlimited" id="inputmanlimited1" value="0" checked/>都可
-    			</label>
+    			</label></br>
     			<label class="radio inline">
     				<input type="radio" name="manlimited" id="inputmanlimited1" value="1" />男
-    			</label>
+    			</label></br>
     			<label class="radio inline">
     				<input type="radio" name="manlimited" id="inputmanlimited2" value="2"/>女
-				</label>
+				</label></br>
 				
     		</div>
     	</div>

@@ -16,7 +16,8 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css"
 	href="../css/bootstrap-responsive.css">
-<body style="font-family:微软雅黑">
+	
+<body style="font-family:微软雅黑" background="images/bg.png">
 	<jsp:include page="WEB-INF/page/topmenu.jsp"></jsp:include>
 	<div class="row" style="margin-top:40px;height:300px;">
 		<div class="span8 offset1 ">
