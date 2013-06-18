@@ -69,6 +69,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<hr />
 		<p>补充说明：${otherRequest.notice}</p>
 		<hr />
-		
+		</div>
   </body>
 </html>
