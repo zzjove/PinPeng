@@ -37,6 +37,9 @@ public class PinDanAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+
+		System.out.println(requestid + "  !!!  " + orderid);
+
 		MyrequestService myrequestService = new MyrequestService();
 		MyorderService myorderService = new MyorderService();
 		RestrictionService restrictionService = new RestrictionService();
@@ -63,17 +66,16 @@ public class PinDanAction extends ActionSupport {
 		CalculateConverter.plus_restriction(myRestriction, otherRestriction);// 将restriction进行加权
 		restrictionService.update(otherRestriction);// 更新数据库
 
+		otherOrder.setNumberPeople(otherOrder.getNumberPeople() + 1);// 将otherOrder的人数+1
+		myorderService.update(myorder);// 更新数据库
 
-		otherOrder.setNumberPeople(otherOrder.getNumberPeople() + 1);//将otherOrder的人数+1
-		myorderService.update(myorder);//更新数据库
-		
 		myrequest.getMyorders().add(otherOrder);
 		myrequestService.update(myrequest);// 将我的request加入到这个order中
 
-		//发！！！！！！！！
-		//消！！！！！！！！
-		//息！！！！！！！！
-		
+		// 发！！！！！！！！
+		// 消！！！！！！！！
+		// 息！！！！！！！！
+
 		return "success";
 	}
 }

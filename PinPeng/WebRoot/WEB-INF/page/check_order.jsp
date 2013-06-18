@@ -54,9 +54,6 @@
 			<td>
 			</td>-->
 		</tr>
-		<a href="" data-toggle="modal">确认拼单</a>
-		<a href="" data-toggle="modal">收藏</a>
-		<a href="#${item.customer.name }" data-toggle="modal">发消息给TA</a>
 		<div id="${item.customer.name }" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-header">
     		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -90,7 +87,10 @@
   	</div>
 	</c:forEach>
 	</table>
-		  	
+	
+	<a href="${pageContext.request.contextPath}/pindan" data-toggle="modal">确认拼单</a>
+	<a href="" data-toggle="modal">收藏</a>
+	<a href="#${item.customer.name }" data-toggle="modal">发消息给TA</a>	  	
   	
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
