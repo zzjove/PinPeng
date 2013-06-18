@@ -51,7 +51,6 @@ public class MatchRequestAction extends ActionSupport {
 
 		myrequest = form.get_myrequest(); // 得到myrequest并且保存
 		myrequest.setRequestid(dao.MyrequestDao.find_max_requestid() + 1);
-		System.out.println("!!!!" + myrequest.getRequestid());
 		dao.MyrequestDao.add_myrequest(myrequest);
 
 		shoppingtype = form.get_shoppingtype(myrequest); // 将myreuqest对应的shoppingtype并且保存
@@ -131,7 +130,6 @@ public class MatchRequestAction extends ActionSupport {
 		// ActionContext.getContext().getSession().remove("requestid");
 		ActionContext.getContext().getSession()
 				.put("requestid", myrequest.getRequestid());
-		System.out.println("~~~~" + myrequest.getRequestid());
 
 	}
 
