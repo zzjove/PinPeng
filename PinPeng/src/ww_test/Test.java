@@ -2,6 +2,7 @@ package ww_test;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -11,10 +12,12 @@ import java.util.Set;
 import com.opensymphony.xwork2.ActionContext;
 
 import utils.CalculateConverter;
+import utils.ComparatorMatch;
 import utils.Match;
 
 import dao.MyorderDao;
 import domain.Customer;
+import domain.MatchResult;
 import domain.Message;
 import domain.Myorder;
 import domain.Myrequest;
@@ -30,9 +33,9 @@ public class Test {
 
 	private static void test_1() {
 		Customer customer = dao.CustomerDao.findby_customerid(2);
-		Myorder myorder = dao.MyorderDao.findby_orderid(1);
-		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(1);
-		Restriction restriction = dao.RestrictionDao.findby_orderid(1);
+		Myorder myorder = dao.MyorderDao.findby_orderid(33);
+		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(33);
+		Restriction restriction = dao.RestrictionDao.findby_orderid(33);
 		List<Match> match_list = new ArrayList<Match>();
 
 		List<Myorder> myorder_list = dao.MyorderDao.find_valid_order_list();
@@ -48,13 +51,43 @@ public class Test {
 			int value = utils.CalculateConverter.get_match_value(myorder,
 					temp_myorder, shoppingtype, temp_shoppingtype, restriction,
 					temp_restriction);
-			System.out.println(temp_myorder.getOrderid() + "        " + value);
+			// System.out.println(temp_myorder.getOrderid() + "        " +
+			// value);
 			if (value >= 0) {
 				Match match = new Match(value, temp_myorder, temp_shoppingtype,
 						temp_restriction, customer);
 				match_list.add(match);
-				System.out.println(match.getMyorder().getOrderid());
+				// System.out.println(match.getMyorder().getOrderid());
 			}
+		}
+
+		Collections.sort(match_list, new ComparatorMatch()); // 对match_list加权排序
+		if (match_list.size() >= 5)
+			match_list = match_list.subList(0, 5);
+
+		// List<Myrequest> new_myrequest_list = new ArrayList();
+		// List<ShoppingType> new_shoppingtype_list = new ArrayList();
+		// List<Restriction> new_restriction_list = new ArrayList();
+		// List<Customer> new_customer_list = new ArrayList();
+
+		Iterator<Match> new_it = match_list.iterator();
+		// List<MatchResult> matchs = new ArrayList();
+
+		while (new_it.hasNext()) {
+
+			Match match = (Match) new_it.next();
+			// new_myrequest_list.add(match.getMyrequest());
+			// new_shoppingtype_list.add(match.getShoppingtype());
+			// new_restriction_list.add(match.getRestriction());
+			// new_customer_list.add(match.getCustomer());
+			System.out.println(match.getMyorder().getOrderid() + "    "
+					+ match.getValue());
+			MatchResult mr = new MatchResult(match.getMyorder().getOrderid(),
+					match.getMyorder().getBeginTime(), match.getMyorder()
+							.getPrice(), match.getValue(), match.getCustomer()
+							.getCredit(), match.getMyorder().getNumberPeople());
+
+			// matchs.add(mr);
 		}
 	}
 
@@ -118,8 +151,40 @@ public class Test {
 		dao.MyrequestDao.modify_myrequest(myrequest);
 	}
 
+	public static void test_5() {
+		Customer customer = dao.CustomerDao.findby_customerid(2);
+		Myrequest myrequest = dao.MyrequestDao.findby_requestid(30);
+
+		Set myrequestsSet = customer.getMyrequests();
+		if (myrequestsSet.isEmpty()) {
+			System.out.println("空的");
+		} else {
+			System.out.println("有东西");
+		}
+		myrequest.getCustomers().add(customer);
+		if (myrequestsSet.isEmpty()) {
+			System.out.println("空的");
+		} else {
+			System.out.println("有东西");
+		}
+		dao.MyrequestDao.modify_myrequest(myrequest);
+		//System.out.println(myrequest.getCustomer().getCustomerid());
+	}
+
+	public static void test_6(){
+		Set mySet=new HashSet();
+		mySet.add("222");
+		mySet.remove("222");
+		if (mySet.isEmpty()){
+			System.out.println("空的");
+		}
+		else {
+			System.out.println("有东西");
+		}
+	}
+	
 	public static void main(String[] args) throws ParseException {
 
-		test_1();
+		test_6();
 	}
 }

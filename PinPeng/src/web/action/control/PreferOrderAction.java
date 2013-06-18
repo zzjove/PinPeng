@@ -2,6 +2,7 @@ package web.action.control;
 
 import java.util.Iterator;
 
+import service.MyrequestService;
 import utils.DisplayRequest;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -12,22 +13,30 @@ import domain.Myrequest;
 
 public class PreferOrderAction extends ActionSupport {
 
+	int requestId;
+
+	public int getRequestId() {
+		return requestId;
+	}
+
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Myrequest myrequest = dao.MyrequestDao
-				.findby_requestid(((DisplayRequest) ActionContext.getContext()
-						.getSession().get("otherRequest")).getRequestid());
-		Customer customer = dao.CustomerDao.findby_customerid(2);
-		customer.getMyrequests().add(myrequest);
-		dao.CustomerDao.mofidy_customer(customer);
-		Customer temp = dao.CustomerDao.findby_customerid(2);
-		Iterator it = temp.getMyrequests().iterator();
-		// System.out.println(111111111);
-		while (it.hasNext()) {
-			Myrequest t = (Myrequest) it.next();
-			// System.out.println(t.getRequestid());
-		}
+		Customer customer = (Customer) ActionContext.getContext().getSession()
+				.get("customer");
+		MyrequestService myrequestService = new MyrequestService();
+		Myrequest myrequest = myrequestService
+				.getRequest_by_requestid(requestId);
+
+		myrequest.getCustomers().add(customer);
+		myrequestService.update(myrequest);
+
+		ActionContext.getContext().put("systemMsg", " ’≤ÿ≥…π¶");
+
 		return "success";
 	}
 }

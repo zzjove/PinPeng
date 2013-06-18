@@ -84,11 +84,11 @@ public class MatchRequestAction extends ActionSupport {
 			int value = utils.CalculateConverter.get_match_value(myorder,
 					temp_myorder, shoppingtype, temp_shoppingtype, restriction,
 					temp_restriction);
-			if (value != -1) {
+			if (value >= 0) {
 				Match match = new Match(value, temp_myorder, temp_shoppingtype,
 						temp_restriction, customer);
 				match_list.add(match);
-				//System.out.println(match.getMyorder().getOrderid());
+				// System.out.println(match.getMyorder().getOrderid());
 			}
 		}
 
@@ -96,21 +96,30 @@ public class MatchRequestAction extends ActionSupport {
 		if (match_list.size() >= 5)
 			match_list = match_list.subList(0, 5);
 
-		List<Myrequest> new_myrequest_list = new ArrayList();
-		List<ShoppingType> new_shoppingtype_list = new ArrayList();
-		List<Restriction> new_restriction_list = new ArrayList();
-		List<Customer> new_customer_list = new ArrayList();
+		// List<Myrequest> new_myrequest_list = new ArrayList();
+		// List<ShoppingType> new_shoppingtype_list = new ArrayList();
+		// List<Restriction> new_restriction_list = new ArrayList();
+		// List<Customer> new_customer_list = new ArrayList();
 
 		Iterator<Match> new_it = match_list.iterator();
+		List<MatchResult> matchs = new ArrayList();
+
 		while (new_it.hasNext()) {
 
 			Match match = (Match) new_it.next();
-			new_myrequest_list.add(match.getMyrequest());
-			new_shoppingtype_list.add(match.getShoppingtype());
-			new_restriction_list.add(match.getRestriction());
-			new_customer_list.add(match.getCustomer());
+			// new_myrequest_list.add(match.getMyrequest());
+			// new_shoppingtype_list.add(match.getShoppingtype());
+			// new_restriction_list.add(match.getRestriction());
+			// new_customer_list.add(match.getCustomer());
 
+			MatchResult mr = new MatchResult(match.getMyorder().getOrderid(),
+					match.getMyorder().getBeginTime(), match.getMyorder()
+							.getPrice(), match.getValue(), match.getCustomer()
+							.getCredit(), match.getMyorder().getNumberPeople());
+
+			matchs.add(mr);
 		}
+
 		MatchResult mr1 = new MatchResult();
 		mr1.setCredit(3);
 		mr1.setDate(new Date());
@@ -132,28 +141,28 @@ public class MatchRequestAction extends ActionSupport {
 		mr3.setPeopleNum(6);
 		mr3.setPrice(300);
 		mr3.setValue(50);
-		List matchs = new ArrayList();
+		// List matchs = new ArrayList();
 		matchs.add(mr1);
 		matchs.add(mr2);
 		matchs.add(mr3);
 		ActionContext.getContext().put("matchs", matchs);
-//		ActionContext.getContext().put("myrequest_list", new_myrequest_list);
-//		ActionContext.getContext().put("shoppingtype_list",
-//				new_shoppingtype_list);
-//		ActionContext.getContext()
-//				.put("restriction_list", new_restriction_list);
-//		ActionContext.getContext().put("customer_list", new_customer_list);
-//
-//		ActionContext.getContext().put("match_list", match_list);
-//		
-//		
-//		
-//		
-//		System.out.println(new_myrequest_list.size());
-//		System.out.println(new_shoppingtype_list.size());
-//		System.out.println(new_restriction_list.size());
-//		System.out.println(new_customer_list.size());
-//		System.out.println(match_list.size());
+		// ActionContext.getContext().put("myrequest_list", new_myrequest_list);
+		// ActionContext.getContext().put("shoppingtype_list",
+		// new_shoppingtype_list);
+		// ActionContext.getContext()
+		// .put("restriction_list", new_restriction_list);
+		// ActionContext.getContext().put("customer_list", new_customer_list);
+		//
+		// ActionContext.getContext().put("match_list", match_list);
+		//
+		//
+		//
+		//
+		// System.out.println(new_myrequest_list.size());
+		// System.out.println(new_shoppingtype_list.size());
+		// System.out.println(new_restriction_list.size());
+		// System.out.println(new_customer_list.size());
+		// System.out.println(match_list.size());
 	}
 
 	@Override

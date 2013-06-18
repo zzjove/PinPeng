@@ -56,7 +56,7 @@ public class MyrequestDao {
 
 		Session session = HibernateSessionFactory.getSession();
 
-		String sql = "select * from myrequest where customerid=";
+		String sql = "select * from myrequest where status>0 and customerid=";
 		List myrequest_list = session.createSQLQuery(sql + customerid + ";")
 				.addEntity(Myrequest.class).list();
 
@@ -99,6 +99,23 @@ public class MyrequestDao {
 
 		String sql = "select * from myrequest;";
 		List myrequest_list = session.createSQLQuery(sql)
+				.addEntity(Myrequest.class).list();
+
+		session.close();
+
+		return myrequest_list;
+	}
+
+	public static List findby_orderid(int orderid) {// 通过orderid寻找所有myrequest
+
+		Session session = HibernateSessionFactory.getSession();
+
+		String sql = "SELECT myrequest.* "
+				+ "FROM myrequest,order_request,myorder "
+				+ "WHERE myrequest.requestid = order_request.requestid "
+				+ "AND order_request.orderid = myorder.orderid "
+				+ "AND myorder.orderid=";
+		List myrequest_list = session.createSQLQuery(sql + orderid + ";")
 				.addEntity(Myrequest.class).list();
 
 		session.close();

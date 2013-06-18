@@ -9,11 +9,11 @@ public class ComparatorMatch implements Comparator {
 		Match temp_servant = (Match) servant;
 
 		if (temp_master.getValue() > temp_servant.getValue())
-			return 1;
+			return -1;
 		if (temp_master.getValue() == temp_servant.getValue())
 			return 0;
 		if (temp_master.getValue() < temp_servant.getValue())
-			return -1;
+			return 1;
 
 		return 0;
 		// int flag = user0.getAge().compareTo(user1.getAge());

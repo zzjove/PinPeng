@@ -5,28 +5,34 @@ import java.util.List;
 
 import org.hibernate.validator.util.GetConstructor;
 
-import service.OrderService;
+import service.MyorderService;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.MyrequestDao;
 import domain.Customer;
 import domain.Myorder;
 import domain.Myrequest;
 
-
 public class CheckOrderAction extends ActionSupport {
 	private int orderId;
+
 	public int getOrderId() {
 		return orderId;
 	}
+
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
+
 	@Override
 	public String execute() throws Exception {
-		OrderService orderService = new OrderService();
+		MyorderService orderService = new MyorderService();
 		Myorder order = orderService.get(orderId);
+
+		List<Myrequest> requests = dao.MyrequestDao.findby_orderid(orderId);
+
 		//
 		Customer c1 = new Customer();
 		Customer c2 = new Customer();
@@ -34,7 +40,7 @@ public class CheckOrderAction extends ActionSupport {
 		c1.setName("Mary");
 		c2.setName("Bob");
 		c3.setName("Peter");
-		
+
 		//
 		Myrequest mr1 = new Myrequest();
 		mr1.setAmount(10);
@@ -57,12 +63,12 @@ public class CheckOrderAction extends ActionSupport {
 		mr3.setWeight(2);
 		mr3.setRequestid(5);
 		mr3.setCustomer(c3);
-		List requests = new ArrayList();
+
 		requests.add(mr1);
 		requests.add(mr2);
 		requests.add(mr3);
 		ActionContext.getContext().put("requests", requests);
-		ActionContext.getContext().put("order",order);
+		ActionContext.getContext().put("order", order);
 		return "success";
 	}
 }
