@@ -59,14 +59,14 @@ public class MyorderDao {
 		String sql = "SELECT myorder.* FROM myorder,restriction "
 				+ "WHERE restriction.end_day > CURRENT_DATE "
 				+ "AND restriction.orderid=myorder.orderid "
-				+ "AND status BETWEEN 1 AND 2;" 
-				+ "AND customerid=" + customerid + ";";
+				+ "AND status BETWEEN 1 AND 2;" + "AND customerid="
+				+ customerid + ";";
 		List myorder_list = session.createSQLQuery(sql)
 				.addEntity(Myorder.class).list();
 
 		return myorder_list;
 	}
-	
+
 	public static int find_max_orderid() {// Ñ°ÕÒ×î´óµÄorderid
 
 		Session session = HibernateSessionFactory.getSession();
@@ -78,7 +78,7 @@ public class MyorderDao {
 
 		return max;
 	}
-	
+
 	public static void modify_order(Myorder order) {
 		Session session = HibernateSessionFactory.getSession();
 		Transaction transaction = session.beginTransaction();
@@ -88,5 +88,21 @@ public class MyorderDao {
 
 		transaction.commit();
 		session.close();
+	}
+
+	public static List findby_shoppingstore(int store) {
+		Session session = hibernatesession.HibernateSessionFactory.getSession();
+
+		String sql = "SELECT myorder.* "
+				+ "FROM myorder,restriction,shopping_type "
+				+ "WHERE myorder.orderid = restriction.orderid "
+				+ "AND myorder.orderid = shopping_type.orderid "
+				+ "AND restriction.end_day > CURRENT_DATE "
+				+ "AND myorder.status BETWEEN 1 AND 2 "
+				+ "AND shopping_type.shopping_store=" + store + ";";
+		List myorder_list = session.createSQLQuery(sql)
+				.addEntity(Myorder.class).list();
+
+		return myorder_list;
 	}
 }

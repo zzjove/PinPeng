@@ -55,7 +55,7 @@
 				<a href="#">好友列表</a>
 			</p>
 			<p>
-				<a href="#">消息中心</a>
+				<a href="viewnoticecenter">消息中心</a>
 			</p>
 		</div>
 	</div>

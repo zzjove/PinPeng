@@ -37,7 +37,7 @@
 					<td>订单状态</td>
 					<td>可执行操作</td>
 				</tr>
-				<c:forEach var="item" items="${requests}">z
+				<c:forEach var="item" items="${requests}">
 					<tr>
 						<td>${item.requestid}</td>
 						<td>${item.myrequestTime}</td>
