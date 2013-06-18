@@ -108,44 +108,40 @@
 	
 	</div>
 	
-	<div id="${order.customer.name }" class="modal hide fade" tabindex="-1"
-		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
-			<h3 id="myModalLabel">发送新消息</h3>
-		</div>
-		<div class="modal-body">
-			<form class="form-horizontal" action="sendnotice" method="post">
-				<div class="control-group">
-					<label class="control-label" for="inputreciever">收件人</label>
-					<div class="controls">
-						<input type="text" name="send_to" placeholder="收件placeholder="收件人" 
-							id="inputsend_to" value="${order.customer.name }" />
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="inputcontent">内容</label>
-					<div class="controls">
-						<input type="textarea" rows="3" cols="20" name="content"
-							placeholder="内容" id="inputcontent" />
-					</div>
-				</div>
-				<div class="control-group">
-					<!--  <div class="controls">
+	<div id="${item.customer.name }" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    		<h3 id="myModalLabel">发送新消息</h3>
+ 		</div>
+  		<div class="modal-body">
+    		<form class="form-horizontal" action="sendnotice" method="post">
+    			<div class="control-group">
+    				<label class="control-label" for="inputreciever">收件人</label>
+    				<div class="controls">
+    					<input type="text" name="send_to" placeholder="收件人" id="inputsend_to" value="${item.customer.name }" />
+    				</div>
+    			</div>
+    			<div class="control-group">
+    				<label class="control-label" for="inputcontent">内容</label>
+    				<div class="controls">
+    					<input type="textarea" rows="3" cols="20" name="content" placeholder="内容" id="inputcontent" />
+    				</div>
+    			</div>
+    			<div class="control-group">
+    				<!--  <div class="controls">
     					<input type="submit" class="btn btn-primary" value="确认">
     				</div>-->
-					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-						<button type="submit" class="btn btn-primary">发送</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-	
-
+  					<div class="modal-footer">
+    					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+    					<button type="submit" class="btn btn-primary">发送</button>
+  					</div>
+    			</div>
+    		</form>
+  		</div>
+  	</div>
+		  	
+  	
 	<script src="http://code.jquery.com/jquery.js"></script>
-	<script src="js/bootstrap.js"></script>
-</body>
+    <script src="js/bootstrap.js"></script>
+  </body>
 </html>
