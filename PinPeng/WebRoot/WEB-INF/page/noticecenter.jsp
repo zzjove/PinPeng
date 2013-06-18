@@ -65,7 +65,8 @@
 										<c:if test="${type =='out' }"><th><a href="${pageContext.request.contextPath}/viewother?customerid=${item.sendToid }">${item.sendTo }</a></th></c:if>
 										<th>${item.content }</th>
 										<th>${item.sendTime }</th>
-									</tr>									
+									</tr>
+																		
 								</c:forEach>
 							</table>
 						</ul>
