@@ -24,10 +24,7 @@ public class CheckRequestAction extends ActionSupport {
 		Myrequest otherRequest = dao.MyrequestDao.findby_requestid(requestid);
 		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_requestid(requestid);
 		Restriction restriction = dao.RestrictionDao.findby_requestid(requestid);
-
-		otherRequest.setShoppingType(shoppingtype);
-		otherRequest.setRestriction(restriction);
-
+		
 		DisplayRequest displayRequest = new DisplayRequest();
 		displayRequest.toDisplay(otherRequest, shoppingtype, restriction);
 
