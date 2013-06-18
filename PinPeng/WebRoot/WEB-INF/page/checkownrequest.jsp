@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row" style="margin-top:60px">
 <div class="span6 offset3">
     <h2>查看请求</h2>
-	<p><a href="#">${otherName}</a>${otherRequest.myrequestTime}发布的拼单请求/p>
+	<p><a href="${pageContext.request.contextPath}/viewother?customerid=${otherRequestClass.customer.customerid }">${otherName}</a>${otherRequest.myrequestTime}发布的拼单请求/p>
 	<div  class="row" >
 	<div class="span1">
 	<s:form action="#" method="post">
