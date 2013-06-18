@@ -118,10 +118,10 @@
 		<div class="modal-body">
 			<form class="form-horizontal" action="sendnotice" method="post">
 				<div class="control-group">
-					<label class="control-label" for="inputreciever">收件</label>
+					<label class="control-label" for="inputreciever">收件人</label>
 					<div class="controls">
-						<input type="text" name="send_to" placeholder="收件� id="
-							inputsend_to" value="${order.customer.name }" />
+						<input type="text" name="send_to" placeholder="收件placeholder="收件人" 
+							id="inputsend_to" value="${order.customer.name }" />
 					</div>
 				</div>
 				<div class="control-group">
