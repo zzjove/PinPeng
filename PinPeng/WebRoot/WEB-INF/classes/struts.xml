@@ -74,7 +74,7 @@
 		</action>
 		<action name="checkrequest" class="web.action.control.CheckRequestAction"
 			method="execute">
-			<result name="success">/WEB-INF/page/checkrequest.jsp</result>
+			<result name="success">/WEB-INF/page/checkownrequest.jsp</result>
 		</action>
 		<action name="preferrequest" class="web.action.control.PreferOrderAction"
 			method="execute">

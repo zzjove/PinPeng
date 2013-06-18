@@ -7,6 +7,7 @@ import service.MyrequestService;
 import service.RestrictionService;
 import utils.CalculateConverter;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Myorder;
@@ -15,16 +16,7 @@ import domain.Restriction;
 
 public class PinDanAction extends ActionSupport {
 
-	int requestid;
 	int orderid;
-
-	public int getRequestid() {
-		return requestid;
-	}
-
-	public void setRequestid(int requestid) {
-		this.requestid = requestid;
-	}
 
 	public int getOrderid() {
 		return orderid;
@@ -37,8 +29,10 @@ public class PinDanAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-
-		System.out.println(requestid + "  !!!  " + orderid);
+		int requestid = (Integer) ActionContext.getContext().getSession()
+				.get("requestid");
+		System.out.println("-----------------PinDanAction");
+		System.out.println("orderid:" + orderid + "    requestid:" + requestid);
 
 		MyrequestService myrequestService = new MyrequestService();
 		MyorderService myorderService = new MyorderService();

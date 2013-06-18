@@ -72,7 +72,7 @@
 			<td>${item.value}</td>
 			<td>${item.price}</td>
 			<td>${item.peopleNum}</td>
-			<td><input type="button" value="查看" onclick="window.location.href='${pageContext.request.contextPath}/checkorder?orderId=${item.orderId}'">
+			<td><input type="button" value="查看" onclick="window.location.href='${pageContext.request.contextPath}/checkorder?orderid=${item.orderId}'">
 			</td>
 			<td><input type="button" value="匹配">
 			</td>

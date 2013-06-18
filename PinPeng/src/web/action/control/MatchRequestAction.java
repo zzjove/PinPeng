@@ -147,8 +147,9 @@ public class MatchRequestAction extends ActionSupport {
 		matchs.add(mr2);
 		matchs.add(mr3);
 		ActionContext.getContext().put("matchs", matchs);
-		ActionContext.getContext().put("requestid", myrequest.getRequestid());
-		//ActionContext.getContext().put("orderid",)
+		ActionContext.getContext().getSession()
+				.put("requestid", myrequest.getRequestid());
+		// ActionContext.getContext().put("orderid",)
 		System.out.println("-----------------MatchRequestAction");
 		System.out.println("requestid" + myrequest.getRequestid());
 		// ActionContext.getContext().put("myrequest_list", new_myrequest_list);
