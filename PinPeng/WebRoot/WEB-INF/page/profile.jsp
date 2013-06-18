@@ -20,18 +20,19 @@
   
   <body>
 <jsp:include page="/WEB-INF/page/topmenu.jsp" />
-<div style="width:800px; height:540px; margin:auto">
+
 	<div class="container">
 	<div class="row">
+		<div class="span1"></div>
 		<div class="span2">
 			<div style="margin-left:20px;margin-top:50px;position:relative;">
 				<jsp:include page="/WEB-INF/page/spacemenu.jsp" />
 			</div>
 		</div>
-		<div class="span1">
-		</div>
-			<div class="span7 hero-unit" style="margin-top:50px;position:relative;padding-top: 10px;width:250px;">
-    			<h3>个人资料</h3>
+		<div class="span1"></div>
+		<div class="span7 hero-unit" style="margin-left:20px;margin-top:50px;position:relative;padding-top: 10px;">
+			<div style=" width:600px; float:left">
+			<h3>个人资料</h3>
     			
 			    <p>学号：${customer.studentid}</p>
     			<p>姓名：${customer.name}</p>
@@ -46,15 +47,12 @@
 			    <p>手机：${customer.telNumber}</p>
     			<p>寝室楼号：${customer.dormitory}</p>
     			<a class="btn btn-primary" href="${pageContext.request.contextPath}/viewprofile?type=edit">编辑资料</a>
-    		</div>
-    		<div class="span2">
-    		</div>
-    
+		</div>
+		</div>
 	</div>
-	</div>
-    
-    
-    
-    </div>
+		
+
+		
+
   </body>
 </html>
