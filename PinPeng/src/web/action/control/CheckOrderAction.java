@@ -17,7 +17,6 @@ import domain.Myrequest;
 
 public class CheckOrderAction extends ActionSupport {
 	private int orderid;
-	private int requestid;
 
 	public int getOrderid() {
 		return orderid;
@@ -25,14 +24,6 @@ public class CheckOrderAction extends ActionSupport {
 
 	public void setOrderid(int orderid) {
 		this.orderid = orderid;
-	}
-
-	public int getRequestid() {
-		return requestid;
-	}
-
-	public void setRequestid(int requestid) {
-		this.requestid = requestid;
 	}
 
 	@Override
@@ -79,9 +70,9 @@ public class CheckOrderAction extends ActionSupport {
 		ActionContext.getContext().put("requests", requests);
 		ActionContext.getContext().put("order", order);
 		ActionContext.getContext().put("orderid", orderid);
-		ActionContext.getContext().put("requestid", requestid);
+		//ActionContext.getContext().put("requestid", requestid);
 		System.out.println("-----------------CheckOrderAction");
-		System.out.println("orderid:" + orderid + "    requestid:" + requestid);
+		System.out.println("orderid:" + orderid);// + "    requestid:" + requestid);
 		return "success";
 	}
 }
