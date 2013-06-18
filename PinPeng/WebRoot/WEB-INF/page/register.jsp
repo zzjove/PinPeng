@@ -93,12 +93,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<label class="control-label" for="inputdormitory">寝室楼</label>
     		<div class="controls">
     			<select name="dormitory" id="inputdormitory">
-    				<option value="5haolou">5号楼</option>
-    				<option value="6haolou">6号楼</option>
-    				<option value="7haolou">7号楼</option>
-    				<option value="8haolou">8号楼</option>
-    				<option value="9haolou">9号楼</option>
-    				<option value="10haolou">10号楼</option>
+    				<option value="5">5号楼</option>
+    				<option value="6">6号楼</option>
+    				<option value="7">7号楼</option>
+    				<option value="8">8号楼</option>
+    				<option value="9">9号楼</option>
+    				<option value="10">10号楼</option>
     			</select>
     		</div>
     	</div>
