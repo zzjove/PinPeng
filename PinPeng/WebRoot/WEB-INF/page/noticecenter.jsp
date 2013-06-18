@@ -29,12 +29,12 @@
 			<div class="span2 offset2">
 				<div class="hero-unit" style="height:auto; float:left; padding: 20px;">
 					<h4>
-						<a href="#sendNotice" data-toggle="modal">发送消�/a>
+						<a href="#sendNotice" data-toggle="modal">发送消息</a>
 					</h4>
 					<hr />
-					<h4>我的站内�/h4>
+					<h4>我的站内信</h4>
 					</br>
-					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消�/a></p>
+					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消系</a></p>
 					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=out">发送的消息</a></p>
 				
 				</div>
@@ -45,15 +45,16 @@
 						
 							<table class="table table-hover">
 								<tr>
-								<c:if test="${type =='in' }"><th>收到时间</th></c:if>
-									<c:if test="${type =='out' }"><th>发送时�/th></c:if>
-									<c:if test="${type =='in' }"><th>发件�/th></c:if>
-									<c:if test="${type =='out' }"><th>收件�/th></c:if>
+									<c:if test="${type =='in' }"><th>收到时间</th></c:if>
+									<c:if test="${type =='out' }"><th>发送时间</th></c:if>
+									<c:if test="${type =='in' }"><th>发件人</th></c:if>
+									<c:if test="${type =='out' }"><th>收件人</th></c:if>
 									<th>消息内容</th>
 									
 								</tr>
 								<c:forEach var="item" items="${messageBoxes }">
 									<tr>
+										<th>${item.sendTime }</th>
 										<c:if test="${type =='in' }"><th><a href="${pageContext.request.contextPath}/viewother?customerid=${item.sendid }">${item.send }</a></th></c:if>
 										<c:if test="${type =='out' }"><th><a href="${pageContext.request.contextPath}/viewother?customerid=${item.sendToid }">${item.sendTo }</a></th></c:if>
 										<th>${item.content }</th>
@@ -81,9 +82,9 @@
 		<div class="modal-body">
 			<form class="form-horizontal" action="sendnotice" method="post">
 				<div class="control-group">
-					<label class="control-label" for="inputreciever">收件�/label>
+					<label class="control-label" for="inputreciever">收件人 </label>
 					<div class="controls">
-						<input type="text" name="send_to" placeholder="收件�
+						<input type="text" name="send_to" placeholder="收件人" 
 							id="inputsend_to" />
 					</div>
 				</div>
@@ -100,7 +101,7 @@
     				</div>-->
 					<div class="modal-footer">
 						<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-						<button type="submit" class="btn btn-primary">发�/button>
+						<button type="submit" class="btn btn-primary">发送</button>
 					</div>
 				</div>
 			</form>
