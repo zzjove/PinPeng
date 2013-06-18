@@ -21,24 +21,39 @@
   <body>
 <jsp:include page="/WEB-INF/page/topmenu.jsp" />
 <div style="width:800px; height:540px; margin:auto">
-    <div><jsp:include page="/WEB-INF/page/spacemenu.jsp" /></div>
+	<div class="container">
+	<div class="row">
+		<div class="span2">
+			<div style="margin-left:20px;margin-top:50px;position:relative;">
+				<jsp:include page="/WEB-INF/page/spacemenu.jsp" />
+			</div>
+		</div>
+		<div class="span1">
+		</div>
+			<div class="span7 hero-unit" style="margin-top:50px;position:relative;padding-top: 10px;width:250px;">
+    			<h3>个人资料</h3>
+    			
+			    <p>学号：${customer.studentid}</p>
+    			<p>姓名：${customer.name}</p>
+				<c:if test="${customer.sex=='true'}">
+				<p>性别：男</p>
+				</c:if>
+				<c:if test="${customer.sex=='false'}">
+				<p>性别：女</p>
+				</c:if>
+ 			   <p>邮箱：${customer.email}</p>
+    			<p>QQ： ${customer.qqNumber}</p>
+			    <p>手机：${customer.telNumber}</p>
+    			<p>寝室楼号：${customer.dormitory}</p>
+    			<a class="btn btn-primary" href="${pageContext.request.contextPath}/viewprofile?type=edit">编辑资料</a>
+    		</div>
+    		<div class="span2">
+    		</div>
     
-    <div style=" width:600px; float:left">
-    <h2>查看个人资料</h2>
-    <h3><a href="${pageContext.request.contextPath}/viewprofile?type=edit">编辑</a></h3>
-    <p>学号：${customer.studentid}</p>
-    <p>姓名：${customer.name}</p>
-	<c:if test="${customer.sex=='true'}">
-		<p>性别：男</p>
-	</c:if>
-	<c:if test="${customer.sex=='false'}">
-		<p>性别：女</p>
-	</c:if>
-    <p>邮箱：${customer.email}</p>
-    <p>QQ： ${customer.qqNumber}</p>
-    <p>手机：${customer.telNumber}</p>
-    <p>寝室楼号：${customer.dormitory}</p>
-    </div>
+	</div>
+	</div>
+    
+    
     
     </div>
   </body>
