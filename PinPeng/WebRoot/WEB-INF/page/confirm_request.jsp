@@ -44,11 +44,7 @@
 				<hr />
 				<h3>订单信息</h3>
 				已消费金额: ${form.price }</br>  购买件数:
-				${form.amount }</br> 物品重量: ${form.weight }</br> 物品种类:
-				<c:if test="${form.itemstype == 'food' }">食物</c:if>
-				<c:if test="${form.itemstype == 'shoes' }">鞋</c:if>
-				<c:if test="${form.itemstype == 'clothes' }">衣服</c:if>
-				</br>
+				${form.amount }</br> 物品重量: ${form.weight }</br> 
 				<hr />
 				<h3>其他限定</h3>
 				订单结束日期: ${form.endday }</br> 希望拼单人数不超过: ${form.maxpeople }</br> 宿舍楼限定:

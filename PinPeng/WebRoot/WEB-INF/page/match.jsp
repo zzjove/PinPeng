@@ -87,6 +87,7 @@
   				<h3>匹配结果</h3>
   				<div class="row">
   					<div class="btn-toolbar" style="margin-left:10px;">
+ 						 <!--
  						 <div class="btn-group">
    							<a class="btn active" href="#" >综合</a>
   							<a class="btn" href="register.html" target="_blank">慷慨度</a>
@@ -94,6 +95,7 @@
   							<a class="btn" href="#">地理位置</a>
   							<a class="btn" href="#">订单金额</a>
   						</div>
+  						
   						
   						<div class="btn-group">
   						<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -118,7 +120,7 @@
 					    	<li><a class="" href="#">9号楼</a></li>
 					    	<li><a class="" href="#">10号楼</a></li>
   						</ul>
-					</div>
+					</div>-->
 					</div>
 					
   				</div>
