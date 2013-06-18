@@ -20,7 +20,7 @@
 <body style="font-family:微软雅黑" background="images/bg.png">
 	<jsp:include page="WEB-INF/page/topmenu.jsp"></jsp:include>
 	<div class="row" style="margin-top:40px;height:300px;">
-		<div class="span8 offset1 ">
+		<div class="span7 offset2 ">
 			<div id="myCarousel" class="carousel slide" >
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>

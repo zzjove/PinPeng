@@ -38,8 +38,7 @@
 </head>
 
 	<body style="font-family:微软雅黑">
-	<jsp:include
-					page="topmenu.jsp" />
+	<jsp:include page="topmenu.jsp" />
 					
 	<form class="form-horizontal" action="confirmrequest" method="post" style="margin-top:40px;">
 		<div class="hero-unit page">

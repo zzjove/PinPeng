@@ -24,20 +24,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body style="font-family:微软雅黑">
-    <div>
+  <jsp:include page="topmenu.jsp" />
+<div class="row" style="margin-top:60px">
+<div class="span4 offset4 well">
     <h2>${other.name }的个人空间</h2>
-    <p>您还不是他的好友，只能查看部分信息哟   
-    <s:form action="makefriends" method="post" >
-    	<input type="submit" value="加为好友"/>
-    </s:form>
+    <hr />
     <p>学号：${other.studentid }</p>
     <p>姓名：${other.name }</p>
     <p>信用等级：${other.credit }</p>
     <p>邮箱：${other.email }</p>
     <p>QQ号：${other.qqNumber }</p>
     <p>手机号：${other.telNumber }</p>
-    <p>拼单记录：</p>
+
     </div>
-    
+    </div>
   </body>
 </html>
