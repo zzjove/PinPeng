@@ -39,7 +39,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         			<span class="icon-bar"> </span>
         			<span class="icon-bar"> </span>
      			 </a>
-  				<a class="brand" href="#">拼朋</a>
+     			 
+  				<a class="brand" href="#"><img src="image/logo.png"></a>
   				<div class="nav-collapse collapse">
         			<ul class="nav">
   						<li><a href="index.jsp">首页</a></li>
@@ -67,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         			<span class="icon-bar"> </span>
         			<span class="icon-bar"> </span>
      			 </a>
-  				<a class="brand" href="#">拼朋</a>
+  				<a class="brand" href="#"><img src="image/logo.jpg"></a>
   				<div class="nav-collapse collapse">
         			<ul class="nav">
   						<li><a href="index.jsp">首页</a></li>

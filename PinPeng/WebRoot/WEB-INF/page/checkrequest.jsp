@@ -24,13 +24,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div>
+
   <jsp:include page="topmenu.jsp" />
-  </div>
+<div class="row" style="margin-top:60px">
+<div class="span6 offset3">
     <h2>查看请求</h2>
 	<p><a href="#">wangwei</a>在${otherRequest.myrequestTime}发布的拼单请求</p>
-	
-		<div>
+	<div  class="row" >
+	<div class="span1">
+	<s:form action="#" method="post">
+		<div class="control-group" >
+    		<div class="controls">
+    			<input type="submit" class="btn btn-primary" value="自动匹配" />
+    		</div>
+    	</div>
+		</s:form>
+		</div>
+		<div class="span1">
+	<s:form action="#" method="post">
+		<div class="control-group" >
+    		<div class="controls">
+    			<input type="submit" class="btn" value="返回订单列表" />
+    		</div>
+    	</div>
+		</s:form>
+		</div>
+	</div>
+		<div style="margin-top:30px">
         <p>购物商家：${otherRequest.shoppingStore}  ${otherRequest.subShoppingStore}</p>
         <p>优惠类型：${otherRequest.discountType}</p>
 		<hr />
@@ -52,6 +72,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<p>补充说明：${otherRequest.notice}</p>
 		<hr />
 		
+		
+		
+		
         <s:form action="#" method="post">
 		<p>
 			<input type="submit" value="确认拼单"  />
@@ -69,6 +92,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="submit" value="给他发消息"  />
 		</p>
 		</s:form>
+        
+        </div>
+        </div>
         
         </div>
   </body>

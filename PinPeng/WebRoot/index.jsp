@@ -55,6 +55,24 @@
 					data-slide="prev">&lsaquo;</a> <a class="carousel-control right"
 					href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
+			<div class="row" style="margin-top:30px">
+			<ul class="thumbnails" style="padding-left:120px">
+		<li class="span2 offset1"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/1.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/2.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
+		</ul>
+		<ul class="thumbnails" style="padding-left:120px">
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/logo.png"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/7.jpg"> </a></li>
+	</ul>
+	</div>
 		</div>
 		<div class="span3 well pull-right" style="margin-right:100px">
 			<div>
@@ -62,20 +80,7 @@
 			</div>
 		</div>
 	</div>
-	<ul class="thumbnails" style="padding-left:80px">
-		<li class="span2 offset1"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/1.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/2.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/7.jpg"> </a></li>
-	</ul>
+	
 
 </body>
 </html>
