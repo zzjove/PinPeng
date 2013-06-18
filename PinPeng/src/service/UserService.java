@@ -20,4 +20,8 @@ public class UserService {
 	public void add(Customer customer){
 		customerDao.add_customer(customer);
 	}
+	//根据id找用户
+	public Customer get(int customerid){
+		return customerDao.findby_customerid(customerid);
+	}
 }
