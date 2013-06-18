@@ -33,9 +33,9 @@ public class Test {
 
 	private static void test_1() {
 		Customer customer = dao.CustomerDao.findby_customerid(2);
-		Myorder myorder = dao.MyorderDao.findby_orderid(33);
-		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(33);
-		Restriction restriction = dao.RestrictionDao.findby_orderid(33);
+		Myorder myorder = dao.MyorderDao.findby_orderid(10);
+		ShoppingType shoppingtype = dao.ShoppingTypeDao.findby_orderid(10);
+		Restriction restriction = dao.RestrictionDao.findby_orderid(10);
 		List<Match> match_list = new ArrayList<Match>();
 
 		List<Myorder> myorder_list = dao.MyorderDao.find_valid_order_list();
@@ -56,7 +56,10 @@ public class Test {
 			if (value >= 0) {
 				Match match = new Match(value, temp_myorder, temp_shoppingtype,
 						temp_restriction, customer);
-				match_list.add(match);
+				if (customer.getCustomerid() != match.getMyorder()
+						.getCustomer().getCustomerid()) {
+					match_list.add(match);
+				}
 				// System.out.println(match.getMyorder().getOrderid());
 			}
 		}
@@ -168,23 +171,22 @@ public class Test {
 			System.out.println("有东西");
 		}
 		dao.MyrequestDao.modify_myrequest(myrequest);
-		//System.out.println(myrequest.getCustomer().getCustomerid());
+		// System.out.println(myrequest.getCustomer().getCustomerid());
 	}
 
-	public static void test_6(){
-		Set mySet=new HashSet();
+	public static void test_6() {
+		Set mySet = new HashSet();
 		mySet.add("222");
 		mySet.remove("222");
-		if (mySet.isEmpty()){
+		if (mySet.isEmpty()) {
 			System.out.println("空的");
-		}
-		else {
+		} else {
 			System.out.println("有东西");
 		}
 	}
-	
+
 	public static void main(String[] args) throws ParseException {
 
-		test_6();
+		test_1();
 	}
 }

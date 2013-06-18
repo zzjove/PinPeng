@@ -31,8 +31,9 @@ public class PinDanAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		int requestid = (Integer) ActionContext.getContext().getSession()
 				.get("requestid");
-		//System.out.println("-----------------PinDanAction");
-		//System.out.println("orderid:" + orderid + "    requestid:" + requestid);
+		// System.out.println("-----------------PinDanAction");
+		// System.out.println("orderid:" + orderid + "    requestid:" +
+		// requestid);
 
 		MyrequestService myrequestService = new MyrequestService();
 		MyorderService myorderService = new MyorderService();
@@ -61,6 +62,9 @@ public class PinDanAction extends ActionSupport {
 		restrictionService.update(otherRestriction);// 更新数据库
 
 		otherOrder.setNumberPeople(otherOrder.getNumberPeople() + 1);// 将otherOrder的人数+1
+		otherOrder.setAmount(otherOrder.getAmount() + myrequest.getAmount());
+		otherOrder.setPrice(otherOrder.getPrice() + myrequest.getPrice());
+		otherOrder.setWeight(otherOrder.getWeight() + myrequest.getWeight());
 		myorderService.update(myorder);// 更新数据库
 
 		myrequest.getMyorders().add(otherOrder);
