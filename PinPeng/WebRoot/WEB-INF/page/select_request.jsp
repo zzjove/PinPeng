@@ -17,7 +17,10 @@
 
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
+	<jsp:include page="topmenu.jsp" />
+	<div class="row" style="margin-top:60px">
+		<div class="span6 offset3 well">
 	<h2>${shopName }</h2>
 	</br>
 	<h2><c:if test="${size == 0 }">您没有可匹配的订单！</c:if></h2>
@@ -49,5 +52,7 @@
 		</c:forEach>
 	</table>
 	</c:if>
+	</div>
+	</div>
 </body>
 </html>

@@ -40,9 +40,10 @@
 				<c:if test="${form.discounttype == 2 }">满就减</c:if>
 				<c:if test="${form.discounttype == 3 }">满就送</c:if>
 				</br>
+				优惠需要金额: ${form.moneyAmountNeed }</br>
 				<hr />
 				<h3>订单信息</h3>
-				已消费金额: ${form.price }</br> 优惠需要金额: ${form.moneyAmountNeed }</br> 购买件数:
+				已消费金额: ${form.price }</br>  购买件数:
 				${form.amount }</br> 物品重量: ${form.weight }</br> 物品种类:
 				<c:if test="${form.itemstype == 'food' }">食物</c:if>
 				<c:if test="${form.itemstype == 'shoes' }">鞋</c:if>
@@ -83,6 +84,8 @@
 				<input type=button value="确认发布并自动匹配" class="btn btn-primary"
 					onclick="window.location.href='${pageContext.request.contextPath}/matchrequest'"></div>
 			</div>
+		</div>
+		</div>
 		</div>
 </body>
 </html>
