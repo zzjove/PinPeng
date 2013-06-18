@@ -35,7 +35,7 @@ public class SendNoticeAction extends ActionSupport {
 					form.getContent(), new Date(), false);
 			dao.MessageDao.add_message(message);
 		}
-
+		ActionContext.getContext().put("systemMsg", "发送消息成功");
 		return "success";
 	}
 }

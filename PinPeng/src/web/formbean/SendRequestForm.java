@@ -58,11 +58,6 @@ public class SendRequestForm {
 	public boolean vaild() {
 		boolean isOK = true;
 
-		if (this.subshoppingstore == null
-				|| this.subshoppingstore.trim().equals("")) {
-			isOK = false;
-			errors.put("subshoppingstore", "购物商家不能为空");
-		}
 		if (this.price == null || this.price.trim().equals("")) {
 			isOK = false;
 			errors.put("price", "已消费 金额不能为空");

@@ -21,12 +21,12 @@
   <body>
   
    	--订单信息--</br>
-   	订单编号：${order.orderid }</br>
+   	订单编号�{order.orderid }</br>
    	用户名：${order.customer.name }</br>
-   	时间：${order.beginTime }</br>
-   	价格：${order.price }</br>
-   	拼单人数：${order.numberPeople }</br>
-   	商品数量：${order.amount }</br>
+   	时间�{order.beginTime }</br>
+   	价格�{order.price }</br>
+   	拼单人数�{order.numberPeople }</br>
+   	商品数量�{order.amount }</br>
               商品重量${order.weight }</br>
    
    --request信息--</br>
@@ -54,6 +54,7 @@
 			<td>
 			</td>-->
 		</tr>
+		
 		<div id="${item.customer.name }" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-header">
     		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -62,9 +63,9 @@
   		<div class="modal-body">
     		<form class="form-horizontal" action="sendnotice" method="post">
     			<div class="control-group">
-    				<label class="control-label" for="inputreciever">收件人</label>
+    				<label class="control-label" for="inputreciever">收件�/label>
     				<div class="controls">
-    					<input type="text" name="send_to" placeholder="收件人" id="inputsend_to" value="${item.customer.name }" />
+    					<input type="text" name="send_to" placeholder="收件� id="inputsend_to" value="${item.customer.name }" />
     				</div>
     			</div>
     			<div class="control-group">
@@ -79,7 +80,7 @@
     				</div>-->
   					<div class="modal-footer">
     					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-    					<button type="submit" class="btn btn-primary">发送</button>
+    					<button type="submit" class="btn btn-primary">发�/button>
   					</div>
     			</div>
     		</form>
