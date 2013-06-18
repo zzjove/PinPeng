@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="control-group" >
     		<div class="controls">
     			<input type="submit" value="自动匹配" class="btn btn-primary"
-					onclick="window.location.href='${pageContext.request.contextPath}/matchrequest?requestid=${otherRequest.requestid}'"/>
+					onclick="window.location.href='${pageContext.request.contextPath}/matchrequest?myrequestid=${otherRequest.requestid}'"/>
     		</div>
     	</div>
 		</s:form>
