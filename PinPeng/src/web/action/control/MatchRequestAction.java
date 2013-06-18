@@ -34,15 +34,15 @@ public class MatchRequestAction extends ActionSupport {
 	Restriction restriction;
 	Myrequest myrequest;
 	int requestid;
+	int myrequestid;
 
-	//
-	// public int getRequestid() {
-	// return requestid;
-	// }
-	//
-	// public void setRequestid(int requestid) {
-	// this.requestid = requestid;
-	// }
+	public int getMyrequestid() {
+		return myrequestid;
+	}
+
+	public void setMyrequestid(int myrequestid) {
+		this.myrequestid = myrequestid;
+	}
 
 	private void save_form() {
 
@@ -141,11 +141,12 @@ public class MatchRequestAction extends ActionSupport {
 		// 得到当前customer
 		customer = (Customer) ActionContext.getContext().getSession()
 				.get("customer");
+		//int requestid=
 
-		if (requestid == 0) {
+		if (myrequestid == 0) {
 			save_form();
 		} else {
-			myrequest = myrequestService.getRequest_by_requestid(requestid);
+			myrequest = myrequestService.getRequest_by_requestid(myrequestid);
 			Iterator<Myorder> it = myrequest.getMyorders().iterator();
 			myorder = (Myorder) it.next();
 			shoppingtype = dao.ShoppingTypeDao.findby_orderid(myorder
