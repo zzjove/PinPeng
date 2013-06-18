@@ -14,6 +14,11 @@
 			method="execute">
 			<result name="success">/WEB-INF/page/space.jsp</result>
 		</action>
+		<action name="viewselectrequest" class="web.action.view.ViewSelectRequestAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/select_request.jsp</result>
+			<result name="error">/WEB-INF/page/system_message.jsp</result>
+		</action>
 		<action name="viewchangepassword" class="web.action.view.ViewChangepasswordAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/changepassword.jsp</result>
