@@ -31,15 +31,24 @@
 				<div class="carousel-inner">
 					<div class="active item">
 						<img src="images/11.jpg" style="margin:0 auto">
-						
+						<div class="carousel-caption">
+							<h4>yihaodian</h4>
+							<p>lalalalalalalalala</p>
+						</div>
 					</div>
 					<div class="item">
 						<img src="images/22.jpg" style="margin:0 auto">
-						
+						<div class="carousel-caption">
+							<h4>京东商城</h4>
+							<p>lalalalalalalallalalala</p>
+						</div>
 					</div>
 					<div class="item">
 						<img src="images/33.jpg" style="margin:0 auto">
-						
+						<div class="carousel-caption">
+							<h4>yihaodian</h4>
+							<p>lalalalalalalalala</p>
+						</div>
 					</div>
 				</div>
 				<!-- Carousel nav -->
@@ -57,7 +66,7 @@
 				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
 		</ul>
 		<ul class="thumbnails" style="padding-left:80px">
-		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=2" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=7" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>

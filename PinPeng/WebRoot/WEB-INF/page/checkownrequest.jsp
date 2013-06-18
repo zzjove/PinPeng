@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <p>优惠类型：${otherRequest.discountType}</p>
 		<hr />
 		<p>已消费金额：${otherRequest.price}</p>
-        <p>${otherRequest.discountInfo}</p>
+        <p>优惠金额：${otherRequest.discountInfo}</p>
         <p>购买件数：${otherRequest.amount}</p>
         <p>商品重量：${otherRequest.weight}</p>
         <p>商品种类：</p>

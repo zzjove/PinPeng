@@ -34,7 +34,7 @@
 					<hr />
 					<h4>我的站内信</h4>
 					</br>
-					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消系</a></p>
+					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=in">收到的消息</a></p>
 					<p><a href="${pageContext.request.contextPath}/viewnoticecenter.action?type=out">发送的消息</a></p>
 				
 				</div>
