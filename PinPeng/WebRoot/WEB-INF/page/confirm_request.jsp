@@ -22,7 +22,7 @@
 <body>
 	<jsp:include page="topmenu.jsp" />
 	<div class="row" style="margin-top:60px">
-		<div class="span6 offset3">
+		<div class="span6 offset3 well">
 			<h2>确认发布拼单请求</h2>
 			<h4>一旦发布将无法修改哟</h4>
 			<div style="margin-top:30px;margin-bottom:30px">

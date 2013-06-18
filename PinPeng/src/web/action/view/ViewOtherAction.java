@@ -17,7 +17,7 @@ public class ViewOtherAction extends ActionSupport {
 	}
 	@Override
 	public String execute() throws Exception {
-		System.out.println(customerid);
+		//System.out.println(customerid);
 		UserService service = new UserService();
 		Customer customer = service.get(customerid);
 		ActionContext.getContext().put("other", customer);
