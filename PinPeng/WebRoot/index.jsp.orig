@@ -16,10 +16,11 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css"
 	href="../css/bootstrap-responsive.css">
-<body style="font-family:微软雅黑">
+	
+<body style="font-family:微软雅黑" background="images/bg.png">
 	<jsp:include page="WEB-INF/page/topmenu.jsp"></jsp:include>
 	<div class="row" style="margin-top:40px;height:300px;">
-		<div class="span8 offset1 ">
+		<div class="span7 offset1 ">
 			<div id="myCarousel" class="carousel slide" >
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -56,7 +57,7 @@
 					href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
 			<div class="row" style="margin-top:30px">
-			<ul class="thumbnails" style="padding-left:120px">
+			<ul class="thumbnails" style="padding-left:80px">
 		<li class="span2 offset1"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/1.jpg"> </a></li>
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=4" class="thumbnail"> <img
@@ -64,16 +65,15 @@
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=3" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
 		</ul>
-		<ul class="thumbnails" style="padding-left:120px">
 <<<<<<< HEAD
-		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
-		<li class="span2"><a href="#" class="thumbnail"> <img
-=======
+		<ul class="thumbnails" style="padding-left:80px">
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/logo.png"> </a></li>
+=======
+		<ul class="thumbnails" style="padding-left:120px">
+		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=2" class="thumbnail"> <img
+>>>>>>> 3b023547937b3ff4fb393251ae5abb3928c80669
+				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=7" class="thumbnail"> <img
->>>>>>> 62f63612006a1f36055c97b316b424e688f82af0
 				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=5" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/7.jpg"> </a></li>
