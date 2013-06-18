@@ -28,26 +28,7 @@
 <div class="span6 offset3">
     <h2>查看请求</h2>
 	<p><a href="#">${otherName}</a>${otherRequest.myrequestTime}发布的拼单请求/p>
-	<div  class="row" >
-	<div class="span1">
-	<s:form action="#" method="post">
-		<div class="control-group" >
-    		<div class="controls">
-    			<input type="submit" class="btn btn-primary" value="自动匹配" />
-    		</div>
-    	</div>
-		</s:form>
-		</div>
-		<div class="span1">
-	<s:form action="#" method="post">
-		<div class="control-group" >
-    		<div class="controls">
-    			<input type="submit" class="btn" value="返回订单列表" />
-    		</div>
-    	</div>
-		</s:form>
-		</div>
-	</div>
+	
 		<div style="margin-top:30px">
         <p>购物商家：${otherRequest.shoppingStore}  ${otherRequest.subShoppingStore}</p>
         <p>优惠类型：${otherRequest.discountType}</p>
