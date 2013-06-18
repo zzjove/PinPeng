@@ -21,9 +21,9 @@
   <body>
 <jsp:include page="/WEB-INF/page/topmenu.jsp" />
 
-	<div class="container">
-	<div class="row">
-		<div class="span1"></div>
+	<div class="container" style="width:1200px;">
+	<div style="width:1200px;margin-top:20px;">
+		<div class="span1" style="width:10px;"></div> 
 		<div class="span2">
 			<div style="margin-left:20px;margin-top:50px;position:relative;">
 				<jsp:include page="/WEB-INF/page/spacemenu.jsp" />
@@ -31,7 +31,7 @@
 		</div>
 		<div class="span1"></div>
 		<div class="span7 hero-unit" style="margin-left:20px;margin-top:50px;position:relative;padding-top: 10px;">
-			<div style=" width:600px; float:left">
+		
 			<h3>个人资料</h3>
     			
 			    <p>学号：${customer.studentid}</p>

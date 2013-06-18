@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					</ul>
   					<form class="navbar-search pull-right">
   						<input type="text" class="search-query" placeholder="Search">
-  						<input type="submit" value="go"/>
+  						<input type="submit" class="btn btn-info" value="go"/>
 					</form>
       			</div>
   				
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					</ul>
   					<form class="navbar-search pull-right" action="search" method="post">
   						<input name="keyword" type="text" class="search-query" placeholder="Search">
-  						<input type="submit" value="go"/>
+  						<input type="submit"  class="btn btn-info" value="go"/>
 					</form>
       			</div>
   				
