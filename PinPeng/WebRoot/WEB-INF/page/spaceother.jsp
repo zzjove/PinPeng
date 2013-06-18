@@ -38,5 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <p>手机号：${other.telNumber }</p>
     <p>拼单记录：</p>
     </div>
+    
   </body>
 </html>

@@ -17,6 +17,14 @@ import domain.Restriction;
 public class PinDanAction extends ActionSupport {
 
 	int orderid;
+	int othercustomerid;
+	public int getOthercustomerid() {
+		return othercustomerid;
+	}
+
+	public void setOthercustomerid(int othercustomerid) {
+		this.othercustomerid = othercustomerid;
+	}
 
 	public int getOrderid() {
 		return orderid;
@@ -70,6 +78,7 @@ public class PinDanAction extends ActionSupport {
 		myrequest.getMyorders().add(otherOrder);
 		myrequestService.update(myrequest);// 将我的request加入到这个order中
 		ActionContext.getContext().put("systemMsg", "拼单成功！");
+		ActionContext.getContext().put("othercustomerid", othercustomerid);
 		// 发！！！！！！！！
 		// 消！！！！！！！！
 		// 息！！！！！！！！

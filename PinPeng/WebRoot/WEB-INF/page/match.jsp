@@ -33,17 +33,51 @@
   			<div class="span3">
   				<div class="hero-unit">
   					<h4>当前订单信息</h4>
-  					<p>
-		<font size=2 color="grey"> 订单号：${myrequest.requestid}<br />
-			购物区域：${store}<br /> 子商家：${shoppingtype.subShoppingStore }<br />
-			优惠类型：免邮费<br /> 已消费金额：${myrequest.price} 元<br />
-			购买件数：${myrequest.amount} 件<br /> <!--  优惠需要金额：600元<br/>-->
-			物品重量：${myrequest.weight}KG <br /> 订单结束日期：${restriction.endDay}<br />
-			最大拼单人数：${restriction.maxPeople}<br /> 宿舍楼限定：${dormlimited}<br />
-			谁来付款：${payer}<br /> 谁取快递：${othertakelimited}<br /> 谁要礼物：${goodsfree}<br />
-			性别限定：${manlimited}<br /> 是否有限购物品：${buylimited}<br />
-			补充说明：${restriction.notice}<br /> </font>
-	</p>
+		<font size=2 color="grey"> 订单号：${requestid}<br />
+			购物区域：${store}
+			<c:if test="${form.shoppingstore == 1 }">1号店</c:if>
+			<c:if test="${form.shoppingstore == 2 }">天猫超市</c:if>
+			<c:if test="${form.shoppingstore == 3 }">淘宝</c:if>
+			<c:if test="${form.shoppingstore == 4 }">当当</c:if>
+			<c:if test="${form.shoppingstore == 5 }">卓越/亚马</c:if>
+			<c:if test="${form.shoppingstore == 6 }">京东</c:if>
+			<c:if test="${form.shoppingstore == 7 }">易迅</c:if><br />
+			 子商家：${form.subshoppingstore }<br />
+			优惠类型：
+			<c:if test="${form.discounttype == 1 }">免邮费</c:if>
+			<c:if test="${form.discounttype == 2 }">满就减</c:if>
+			<c:if test="${form.discounttype == 3 }">满就送</c:if><br />
+		              已消费金额：${form.price } 元<br />
+			购买件数：${form.amount } 件<br />
+			优惠需要金额 ：${form.moneyAmountNeed }元<br/>
+			物品重量：${form.weight }KG <br /> 
+			物品种类:
+			<c:if test="${form.itemstype == 'food' }">食物</c:if>
+			<c:if test="${form.itemstype == 'shoes' }">鞋</c:if>
+			<c:if test="${form.itemstype == 'clothes' }">衣服</c:if>
+			</br>
+			订单结束日期: ${form.endday }</br> 希望拼单人数不超过: ${form.maxpeople }</br> 宿舍楼限定:
+				<c:if test="${form.dormlimited == 0 }">否</c:if>
+				<c:if test="${form.dormlimited == 1 }">是</c:if>
+				</br> 谁来付款:
+				<c:if test="${form.payer == 0 }">都可</c:if>
+				<c:if test="${form.payer == 1 }">其他</c:if>
+				<c:if test="${form.payer == 2 }">我</c:if>
+				</br> 谁取快递:
+				<c:if test="${form.othertakelimited == 0 }">都可</c:if>
+				<c:if test="${form.othertakelimited == 1 }">其他</c:if>
+				<c:if test="${form.othertakelimited == 2 }">我</c:if>
+				</br> 谁要礼物:
+				<c:if test="${form.goodsfree == 0 }">都可</c:if>
+				<c:if test="${form.goodsfree == 1 }">其他</c:if>
+				<c:if test="${form.goodsfree == 2 }">我</c:if>
+				</br> 性别限制:
+				<c:if test="${form.manlimited == 0 }">女</c:if>
+				<c:if test="${form.manlimited == 1 }">男</c:if>
+				</br> 是否限购:
+				<c:if test="${form.buylimited == 0 }">否</c:if>
+				<c:if test="${form.buylimited == 1 }">是</c:if>
+				</br> 其他说明: ${form.notice }
   				</div>
   			</div>
   			<div class="span1">
