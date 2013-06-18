@@ -54,8 +54,8 @@ public class ChangePasswordAction extends ActionSupport {
 			request.setAttribute("form", form);
 			return "error";
 		}
-		customer = dao.CustomerDao.loginby_studentid_pw(customer.getCustomerid(),
-				form.getNewpassword1());
+		customer = dao.CustomerDao.loginby_studentid_pw(customer.getStudentid(),
+				form.getOldpassword());
 
 		if (customer == null) {
 			form.getErrors().put("oldpassword", "‘≠√‹¬Î ‰»Î”–ŒÛ");
