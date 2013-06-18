@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
 	<jsp:include page="topmenu.jsp" />
 	<div class="row" style="margin-top:60px">
 		<div class="span6 offset3 well">

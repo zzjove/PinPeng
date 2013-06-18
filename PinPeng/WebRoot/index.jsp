@@ -16,9 +16,9 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css"
 	href="../css/bootstrap-responsive.css">
-<body>
+<body style="font-family:微软雅黑">
 	<jsp:include page="WEB-INF/page/topmenu.jsp"></jsp:include>
-	<div class="row" style="margin-top:60px;height:300px;">
+	<div class="row" style="margin-top:40px;height:300px;">
 		<div class="span8 offset1 ">
 			<div id="myCarousel" class="carousel slide" >
 				<ol class="carousel-indicators">
@@ -66,7 +66,7 @@
 		</ul>
 		<ul class="thumbnails" style="padding-left:120px">
 		<li class="span2"><a href="#" class="thumbnail"> <img
-				data-src="holder.js/300x200" alt="" src="images/logo.png"> </a></li>
+				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
 		<li class="span2"><a href="#" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>
 		<li class="span2"><a href="#" class="thumbnail"> <img

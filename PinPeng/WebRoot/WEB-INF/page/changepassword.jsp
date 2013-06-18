@@ -23,8 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-<jsp:include page="/WEB-INF/page/topmenu.jsp" />3
+  <body style="font-family:微软雅黑">
+<jsp:include page="topmenu.jsp" />
 	<div class="container">
 	<div class="row">
 		<div class="span1"></div>

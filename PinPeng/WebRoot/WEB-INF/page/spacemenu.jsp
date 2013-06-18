@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
 	<div class="hero-unit" style="width:auto; height:auto; float:left; padding: 20px;">
 		<div style="margin-top:3px;">
 			<p>个人信息</p>

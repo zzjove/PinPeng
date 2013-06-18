@@ -21,7 +21,7 @@
 <meta http-equiv="description" content="This is my page">
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
 	<jsp:include page="/WEB-INF/page/topmenu.jsp" />
 	
 	<div class="container">
@@ -96,6 +96,7 @@
 			<th>权值</th>
 			<th>订单金额</th>
 			<th>订单人数</th>
+			<th>操作</th>
 		</thead>
 		<c:forEach var="item" items="${matchs }">
 			<tr>
@@ -105,11 +106,10 @@
 			<td>${item.value}</td>
 			<td>${item.price}</td>
 			<td>${item.peopleNum}</td>
-			<td><input type="button" value="查看" onclick="window.location.href='${pageContext.request.contextPath}/checkorder?orderid=${item.orderId}'">
-			</td>
-			<td><input type="button" value="匹配">
-			</td>
-			<td><input type="button" value="收藏">
+			<td>
+			<a href="${pageContext.request.contextPath}/checkorder?orderid=${item.orderId}" data-toggle="modal">查看 </a>
+			||<a href="#" data-toggle="modal">匹配</a>
+			||<a href="#" data-toggle="modal">收藏</a>
 			</td>
 			</tr>
 		</c:forEach>

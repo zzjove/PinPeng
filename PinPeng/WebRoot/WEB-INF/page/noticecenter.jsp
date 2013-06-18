@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
 	<jsp:include page="topmenu.jsp" />
 
 	<div class="container-fluid">
