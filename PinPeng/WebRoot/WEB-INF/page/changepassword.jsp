@@ -24,12 +24,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-<jsp:include page="/WEB-INF/page/topmenu.jsp" />
-<div style="width:800px; height:540px; margin:auto">
-    <div><jsp:include page="/WEB-INF/page/spacemenu.jsp" /></div>
-    
-    <div style=" width:600px; float:left">
-    <h2>修改密码</h2>
+<jsp:include page="/WEB-INF/page/topmenu.jsp" />3
+	<div class="container">
+	<div class="row">
+		<div class="span1"></div>
+		<div class="span2">
+			<div style="margin-left:20px;margin-top:50px;position:relative;">
+				<jsp:include page="/WEB-INF/page/spacemenu.jsp" />
+			</div>
+		</div>
+		<div class="span1"></div>
+		<div class="span7 hero-unit" style="margin-left:20px;margin-top:50px;position:relative;padding-top: 10px;">
+		
+			<h2>修改密码</h2>
     <s:form action="changepassword" method="post">
     	<input type="password" name="oldpassword" placeholder="原密码" />${form.errors.oldpassword }<br />
     	<input type="password" name="newpassword1" placeholder="新密码" />${form.errors.newpassword1 }<br />
@@ -37,7 +44,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	<input type="submit" value="确认">
     </s:form>
-    </div>
-    </div>
+		</div>
+		</div>
+	</div>
+		
+
+	
   </body>
 </html>
