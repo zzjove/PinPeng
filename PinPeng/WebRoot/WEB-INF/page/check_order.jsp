@@ -91,7 +91,7 @@
 		</c:forEach>
 
 	</table></br></br></br></br>
-	<a href="${pageContext.request.contextPath}/pindan" data-toggle="modal">确认拼单</a>
+	<a href="${pageContext.request.contextPath}/pindan?orderid=${order.orderid }" data-toggle="modal">确认拼单</a>
 	<a href="" data-toggle="modal">收藏</a>
 	<a href="#${order.customer.name }" data-toggle="modal">发消息给${order.customer.name }</a>
 	<div id="${order.customer.name }" class="modal hide fade" tabindex="-1"
