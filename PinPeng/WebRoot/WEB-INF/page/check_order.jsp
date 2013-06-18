@@ -100,7 +100,7 @@
 	</table></br></br>
 	
 	
-	<a href="${pageContext.request.contextPath}/pindan?orderid=${order.orderid }" data-toggle="modal" class="btn btn-primary">确认拼单</a>
+	<a href="${pageContext.request.contextPath}/pindan?orderid=${order.orderid }&othercustomerid=${order.customer.customerid}" data-toggle="modal" class="btn btn-primary">确认拼单</a>
 	
 	<a href="" data-toggle="modal" class="btn">收藏</a>
 	

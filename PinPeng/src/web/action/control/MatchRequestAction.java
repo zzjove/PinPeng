@@ -127,8 +127,7 @@ public class MatchRequestAction extends ActionSupport {
 		ActionContext.getContext().put("matchs", matchs);
 		ActionContext.getContext().getSession()
 				.put("requestid", myrequest.getRequestid());
-		System.out.println("-----------------MatchRequestAction");
-		System.out.println("requestid" + myrequest.getRequestid());
+
 	}
 
 	@Override
