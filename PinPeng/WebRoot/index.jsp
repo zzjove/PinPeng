@@ -1,10 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
-<import="org.apache.struts2.ServletActionContext">
-
-
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html">
+<import="org.apache.struts2.ServletActionContext"> <%@ taglib
+	prefix="s" uri="/struts-tags"%> <!DOCTYPE html">
 <html>
 <head>
 
@@ -16,153 +13,69 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" >
-<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css" >
-
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/bootstrap-responsive.css">
 <body>
-
-	<table width="700" border="0" align="center" >
-		<tr>
-			<td align="left" height="80">
-			<div width="490px" align="left" valign="top">
+	<jsp:include page="WEB-INF/page/topmenu.jsp"></jsp:include>
+	<div class="row" style="margin-top:60px;height:300px;">
+		<div class="span8 offset1 ">
+			<div id="myCarousel" class="carousel slide" >
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="active item">
+						<img src="images/11.jpg" style="margin:0 auto">
+						<div class="carousel-caption">
+							<h4>yihaodian</h4>
+							<p>lalalalalalalalala</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="images/22.jpg" style="margin:0 auto">
+						<div class="carousel-caption">
+							<h4>京东商城</h4>
+							<p>lalalalalalalallalalala</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="images/33.jpg" style="margin:0 auto">
+						<div class="carousel-caption">
+							<h4>yihaodian</h4>
+							<p>lalalalalalalalala</p>
+						</div>
+					</div>
+				</div>
+				<!-- Carousel nav -->
+				<a class="carousel-control left" href="#myCarousel"
+					data-slide="prev">&lsaquo;</a> <a class="carousel-control right"
+					href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
-			<div width="200px" align="right" valign="top"><jsp:include
-					page="/WEB-INF/page/login.jsp" /></div>
-			</td>
-		</tr>
-		<tr>
-			<td align="left" valign="top" width="100%">
-				<div>商铺专区</div>
-				<table width="100%" border="0" >
-					<tr>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
+		</div>
+		<div class="span3 well pull-right" style="margin-right:100px">
+			<div>
+				<jsp:include page="/WEB-INF/page/login.jsp" />
+			</div>
+		</div>
+	</div>
+	<ul class="thumbnails" style="padding-left:80px">
+		<li class="span2 offset1"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/1.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/2.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/6.jpg"> </a></li>
+		<li class="span2"><a href="#" class="thumbnail"> <img
+				data-src="holder.js/300x200" alt="" src="images/7.jpg"> </a></li>
+	</ul>
 
-					<tr><td valign="top"><br></td><td valign="top"><br></td><td valign="top"><br></td><td valign="top"><br></td><td valign="top"><br></td></tr><tr>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td>
-							<table width="100%" >
-								<tr>
-									<td><img src="1.png">
-									</td>
-								</tr>
-								<tr>
-									<td><a hrep="#">1</a>
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-
-				</table>
-			</td>
-		</tr>
-	</table>
 </body>
 </html>

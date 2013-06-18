@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<jsp:include page="topmenu.jsp"></jsp:include>
+
 	<%
         Customer customer = (Customer)(session.getAttribute("customer"));
         if (customer == null)
@@ -75,14 +75,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         {
     %>
 	<table>
+		
 		<tr>
-			<td><a href="#"><img src="photo.png">
-			</a>
-			</td>
+			<td><h1>Welcome back!</h1></td>
 		</tr>
-		<tr>
-			<td><a href="#"></a>${customer.name},欢迎回来</td>
-		</tr>
+		<tr><td><h2>${customer.name}</h2></td></tr>
 		<tr>
 			<td>您有<a href="#">N条未读短消息</a>
 			</td>

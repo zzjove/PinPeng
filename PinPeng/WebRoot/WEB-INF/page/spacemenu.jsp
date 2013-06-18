@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -30,6 +30,7 @@
 		<div style="margin-top:3px;">
 			<p>个人信息</p>
 			<p >
+				<a href="${pageContext.request.contextPath}/viewprofile?type=view">个人资料修改</a>
 				<a href="${pageContext.request.contextPath}/viewprofile?type=view">查看个人资料</a>
 			</p>
 			<p>

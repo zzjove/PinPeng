@@ -1,22 +1,20 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
     
-    <title>My JSP 'checkrequest.jsp' starting page</title>
+    <title>查看request</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="all">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -28,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <jsp:include page="topmenu.jsp" />
   </div>
     <h2>查看请求</h2>
-	<p><a href="#">wangwei</a>在${otherRequest.myrequestTime}发布的拼单请求</p>
+	<p><a href="#">${otherName}</a>在${otherRequest.myrequestTime}发布的拼单请求</p>
 	
 		<div>
         <p>购物商家：${otherRequest.shoppingStore}  ${otherRequest.subShoppingStore}</p>
@@ -51,25 +49,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<hr />
 		<p>补充说明：${otherRequest.notice}</p>
 		<hr />
-		
-        <s:form action="#" method="post">
 		<p>
-			<input type="submit" value="确认拼单"  />
-		</p>
-		</s:form>
-        
-        <s:form action="preferrequest" method="post">
-		<p>
-			<input type="submit" value="收藏"  />
-		</p>
-		</s:form>
-       	
-        <s:form action="#" method="post">
-		<p>
-			<input type="submit" value="给他发消息"  />
-		</p>
-		</s:form>
-        
+			<a href="" data-toggle="modal">确认拼单</a>
+			<a href="" data-toggle="modal">收藏</a>
+			<a href="#${otherName}" data-toggle="modal">发消息给TA</a>
+        </p>
         </div>
+        <div id="${otherName}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    		<h3 id="myModalLabel">发送新消息</h3>
+ 		</div>
+  		<div class="modal-body">
+    		<form class="form-horizontal" action="sendnotice" method="post">
+    			<div class="control-group">
+    				<label class="control-label" for="inputreciever">收件人</label>
+    				<div class="controls">
+    					<input type="text" name="send_to" placeholder="收件人" id="inputsend_to" value="${otherName}" />
+    				</div>
+    			</div>
+    			<div class="control-group">
+    				<label class="control-label" for="inputcontent">内容</label>
+    				<div class="controls">
+    					<input type="textarea" rows="3" cols="20" name="content" placeholder="内容" id="inputcontent" />
+    				</div>
+    			</div>
+    			<div class="control-group">
+    				<!--  <div class="controls">
+    					<input type="submit" class="btn btn-primary" value="确认">
+    				</div>-->
+  					<div class="modal-footer">
+    					<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+    					<button type="submit" class="btn btn-primary">发送</button>
+  					</div>
+    			</div>
+    			
+	<script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
   </body>
 </html>
