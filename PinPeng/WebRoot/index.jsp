@@ -20,7 +20,7 @@
 <body style="font-family:微软雅黑" background="images/bg.png">
 	<jsp:include page="WEB-INF/page/topmenu.jsp"></jsp:include>
 	<div class="row" style="margin-top:40px;height:300px;">
-		<div class="span7 offset2 ">
+		<div class="span7 offset1 ">
 			<div id="myCarousel" class="carousel slide" >
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -48,7 +48,7 @@
 					href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
 			<div class="row" style="margin-top:30px">
-			<ul class="thumbnails" style="padding-left:120px">
+			<ul class="thumbnails" style="padding-left:80px">
 		<li class="span2 offset1"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/1.jpg"> </a></li>
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=4" class="thumbnail"> <img
@@ -56,7 +56,7 @@
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=3" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/4.jpg"> </a></li>
 		</ul>
-		<ul class="thumbnails" style="padding-left:120px">
+		<ul class="thumbnails" style="padding-left:80px">
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=1" class="thumbnail"> <img
 				data-src="holder.js/300x200" alt="" src="images/5.jpg"> </a></li>
 		<li class="span2"><a href="${pageContext.request.contextPath}/viewselectrequest.action?shop=7" class="thumbnail"> <img
