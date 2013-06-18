@@ -1,5 +1,6 @@
 package web.action.control;
 
+import java.util.Date;
 import java.util.Iterator;
 
 import service.MyorderService;
@@ -10,13 +11,24 @@ import utils.CalculateConverter;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.ShoppingTypeDao;
+import domain.Message;
 import domain.Myorder;
 import domain.Myrequest;
 import domain.Restriction;
+import domain.ShoppingType;
 
 public class PinDanAction extends ActionSupport {
 
 	int orderid;
+	int othercustomerid;
+	public int getOthercustomerid() {
+		return othercustomerid;
+	}
+
+	public void setOthercustomerid(int othercustomerid) {
+		this.othercustomerid = othercustomerid;
+	}
 
 	public int getOrderid() {
 		return orderid;
@@ -56,12 +68,19 @@ public class PinDanAction extends ActionSupport {
 
 		Restriction otherRestriction = restrictionService
 				.get_by_orderid(orderid);// 找到otherOrder对应的restriction
+		ShoppingType myShoppingType = ShoppingTypeDao
+				.findby_requestid(requestid);
 		Restriction myRestriction = restrictionService
 				.get_by_requestid(requestid);// 找到我的request对应的restriction
 		CalculateConverter.plus_restriction(myRestriction, otherRestriction);// 将restriction进行加权
 		restrictionService.update(otherRestriction);// 更新数据库
 
 		otherOrder.setNumberPeople(otherOrder.getNumberPeople() + 1);// 将otherOrder的人数+1
+
+		if (otherOrder.getPrice() >= myShoppingType.getAmountTo()) {// 匹配成功
+			otherOrder.setStatus(3);
+		}
+
 		otherOrder.setAmount(otherOrder.getAmount() + myrequest.getAmount());
 		otherOrder.setPrice(otherOrder.getPrice() + myrequest.getPrice());
 		otherOrder.setWeight(otherOrder.getWeight() + myrequest.getWeight());
@@ -70,9 +89,12 @@ public class PinDanAction extends ActionSupport {
 		myrequest.getMyorders().add(otherOrder);
 		myrequestService.update(myrequest);// 将我的request加入到这个order中
 		ActionContext.getContext().put("systemMsg", "拼单成功！");
-		// 发！！！！！！！！
-		// 消！！！！！！！！
-		// 息！！！！！！！！
+                ActionContext.getContext().put("othercustomerid", othercustomerid);
+
+		Message message = new Message(otherOrder.getCustomer(),
+				dao.CustomerDao.findby_customerid(27), "有一位新用户"
+						+ myrequest.getCustomer().getName() + "加入了您的",
+				new Date(), false);// 给发起人发消息
 
 		return "success";
 	}
