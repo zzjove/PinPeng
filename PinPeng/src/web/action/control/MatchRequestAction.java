@@ -28,6 +28,7 @@ public class MatchRequestAction extends ActionSupport {
 	Myorder myorder;
 	ShoppingType shoppingtype;
 	Restriction restriction;
+	Myrequest myrequest;
 
 	private void save_form() {
 
@@ -38,7 +39,7 @@ public class MatchRequestAction extends ActionSupport {
 		customer = (Customer) ActionContext.getContext().getSession()
 				.get("customer");
 
-		Myrequest myrequest = form.get_myrequest(); // 得到myrequest并且保存
+		myrequest = form.get_myrequest(); // 得到myrequest并且保存
 		myrequest.setRequestid(dao.MyrequestDao.find_max_requestid() + 1);
 		dao.MyrequestDao.add_myrequest(myrequest);
 
@@ -146,6 +147,10 @@ public class MatchRequestAction extends ActionSupport {
 		matchs.add(mr2);
 		matchs.add(mr3);
 		ActionContext.getContext().put("matchs", matchs);
+		ActionContext.getContext().put("requestid", myrequest.getRequestid());
+		//ActionContext.getContext().put("orderid",)
+		System.out.println("-----------------MatchRequestAction");
+		System.out.println("requestid" + myrequest.getRequestid());
 		// ActionContext.getContext().put("myrequest_list", new_myrequest_list);
 		// ActionContext.getContext().put("shoppingtype_list",
 		// new_shoppingtype_list);

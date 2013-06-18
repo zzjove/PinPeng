@@ -26,7 +26,7 @@
 			method="execute">
 			<result name="view">/WEB-INF/page/profile.jsp</result>
 			<result name="edit">/WEB-INF/page/updateprofile.jsp</result>
-			
+
 		</action>
 		<action name="viewsendrequest" class="web.action.view.ViewSendrequestAction"
 			method="execute">
@@ -118,6 +118,10 @@
 		<action name="checkorder" class="web.action.control.CheckOrderAction"
 			method="execute">
 			<result name="success">/WEB-INF/page/check_order.jsp</result>
+		</action>
+		<action name="pindan" class="web.action.control.PinDanAction"
+			method="execute">
+			<result name="success">/WEB-INF/page/system_message.jsp</result>
 		</action>
 	</package>
 </struts>    
