@@ -30,7 +30,7 @@
 		<div>
 			<p>个人信息</p>
 			<p>
-				<a href="${pageContext.request.contextPath}/viewprofile?type=view">查看个人资料</a>
+				<a href="${pageContext.request.contextPath}/viewprofile?type=view">个人资料修改</a>
 			</p>
 			<p>
 				<a href="viewchangepassword">安全设置</a>

@@ -16,7 +16,7 @@
 		<property name="connectio.useUnicode">true</property>
 		<property name="connection.characterEncoding">utf-8</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">vincert</property>
+		<property name="connection.password">tongji</property>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
